@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 gerar_audios_neurais.py
-Gera arquivos MP3 de alta fidelidade usando vozes neurais humanas (pt-BR-AntonioNeural).
+Gera arquivos MP3 de alta fidelidade usando vozes neurais humanas de estúdio:
+- Noturno: pt-BR-AntonioNeural (Voz masculina profunda e acolhedora)
+- Matinal: pt-BR-FranciscaNeural (Voz feminina cristalina, humana e inspiradora)
 """
 
 import asyncio
@@ -25,18 +27,18 @@ Descanse com a certeza absoluta de que o amanhã trará novas misericórdias e g
 Durma em perfeita paz, sob a proteção do Altíssimo.
 """
 
-TEXTO_MATINAL = """
-Seja bem-vindo à Oração de Autoridade e Reprogramação Matinal. 
-Levante a sua cabeça, encha o peito de ar e tome posse da vida que Deus te presenteou nesta manhã! 
-As Escrituras declaram que as misericórdias do Senhor se renovam a cada amanhecer. Grande é a Sua fidelidade! 
-Senhor meu Deus e Pai Celestial, entro na Tua presença com ações de graças no coração e firme convicção em meus lábios. 
-Consagro a Ti as primeiras horas deste novo dia. Consagro meus pensamentos, minhas decisões e cada passo que darei. 
-Eu rejeito agora todo espírito de desânimo, preguiça, dúvida e medo. 
-A Palavra de Deus garante em Segunda Timóteo 1:7 que Ele não nos deu espírito de covardia, mas de poder, amor e equilíbrio mental! 
-Declaro a minha mente blindada contra toda distração e ruído deste mundo. 
-Onde eu colocar a planta dos meus pés hoje, a graça e a sabedoria do Senhor se manifestarão. 
-Abençoa o fruto do meu trabalho, guarda a minha família e abre portas de oportunidade que ninguém poderá fechar. 
-Eu decreto que este dia será produtivo, abençoado e vitorioso em todas as áreas da minha vida. 
+TEXTO_MATINAL_FRANCISCA = """
+Seja muito bem-vindo à Oração de Autoridade e Reprogramação Matinal. 
+Respire fundo, erga a sua cabeça e receba a vida e a paz que Deus preparou para você neste novo dia. 
+A Palavra de Deus declara em Lamentações que as misericórdias do Senhor se renovam a cada manhã. Grande é a Sua fidelidade! 
+Senhor meu Deus e amado Pai celestial, eu entro na Tua santa presença nesta manhã com o coração transbordando de gratidão e louvor. 
+Consagro a Ti as primeiras horas deste dia. Consagro os meus pensamentos, os meus sentimentos e cada uma das minhas decisões. 
+Eu rejeito, pela autoridade da Tua Palavra, todo desânimo, toda ansiedade, cansaço e medo. 
+Porque Deus não nos deu espírito de covardia, mas de poder, de amor e de equilíbrio mental. 
+Eu declaro a minha mente completamente blindada pela Tua paz. 
+Onde eu colocar a planta dos meus pés hoje, a Tua graça, a Tua sabedoria e o Teu favor se manifestarão. 
+Abençoa o fruto do meu trabalho, guarda a minha família com a Tua proteção e abre portas que ninguém poderá fechar. 
+Eu decreto que este dia será produtivo, abençoado e cheio da presença de Deus. 
 Em nome de Jesus, amém e amém!
 """
 
@@ -56,13 +58,13 @@ async def gerar_mp3(texto: str, voz: str, rate: str, destino: str):
 async def main():
     os.makedirs(AUDIO_DIR, exist_ok=True)
     
-    # 1. Áudio Noturno (Voz calma, ritmo mais lento para relaxar)
+    # 1. Áudio Noturno (Antônio)
     noturno_path = os.path.join(AUDIO_DIR, "audiobook_habitos_noturnos.mp3")
     await gerar_mp3(TEXTO_NOTURNO, "pt-BR-AntonioNeural", "-10%", noturno_path)
     
-    # 2. Áudio Matinal (Voz firme, ritmo natural enérgico de autoridade)
+    # 2. Áudio Matinal (Francisca - voz feminina comovente e inspiradora, ritmo pausado suave)
     matinal_path = os.path.join(AUDIO_DIR, "oracao_matinal_7min.mp3")
-    await gerar_mp3(TEXTO_MATINAL, "pt-BR-AntonioNeural", "+0%", matinal_path)
+    await gerar_mp3(TEXTO_MATINAL_FRANCISCA, "pt-BR-FranciscaNeural", "-6%", matinal_path)
 
 if __name__ == "__main__":
     asyncio.run(main())
