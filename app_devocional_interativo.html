@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>365 Dias de Oração Poderosa | Aplicativo do Aluno & Sincronização Diária</title>
+  <title>365 Dias de Oração Poderosa | Portal Devocional Completo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
@@ -15,65 +15,43 @@
       --card-inner: #162238;
       --gold-primary: #E5B54F;
       --gold-light: #FCE29A;
+      --gold-dark: #B8860B;
       --text-main: #F8FAFC;
       --text-muted: #94A3B8;
       --border: rgba(229, 181, 79, 0.25);
       --green: #10B981;
+      --amber: #F59E0B;
       --red: #EF4444;
+      --radius-lg: 16px;
+      --radius-md: 10px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
     body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; min-height: 100vh; padding-bottom: 60px; }
-    h1, h2, h3, .serif-font { font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
-    .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+    h1, h2, h3, .serif-title { font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
 
-    /* FLOATING UPDATE NOTIFICATION BAR */
-    .update-notification-bar {
+    /* TOP BANNER MOTIVACIONAL */
+    .motivational-bar {
       background: linear-gradient(90deg, #8B6508 0%, #D4AF37 50%, #8B6508 100%);
       color: #070B14;
-      padding: 12px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      padding: 10px 20px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      font-size: 0.92rem;
-      font-weight: 700;
-      transition: all 0.3s ease;
+      justify-content: center;
+      gap: 10px;
     }
 
-    .update-notification-bar.hidden { display: none; }
-
-    .btn-sync {
-      background: #070B14;
-      color: var(--gold-light);
-      border: 1px solid #070B14;
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-weight: 800;
-      font-size: 0.85rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
-    }
-
-    .btn-sync:hover {
-      background: #162238;
-      transform: scale(1.03);
-    }
-
-    /* Header */
+    /* HEADER */
     header {
-      padding: 35px 0 25px;
+      padding: 25px 0 20px;
       border-bottom: 1px solid var(--border);
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
-
     .header-flex {
       display: flex;
       justify-content: space-between;
@@ -81,415 +59,1516 @@
       flex-wrap: wrap;
       gap: 16px;
     }
-
+    .brand-title {
+      font-size: 1.6rem;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-title i { color: var(--gold-primary); font-size: 1.4rem; }
+    .header-badges {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
     .streak-badge {
       background: rgba(229, 181, 79, 0.15);
       border: 1px solid var(--border);
-      padding: 8px 16px;
+      padding: 6px 14px;
       border-radius: 999px;
       font-weight: 800;
       color: var(--gold-light);
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
+      gap: 6px;
+      font-size: 0.85rem;
     }
 
-    /* Grid Layout */
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-      position: relative;
-    }
-
-    .card-tag {
-      font-size: 0.78rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--gold-primary);
-      margin-bottom: 6px;
-      display: block;
-    }
-
-    .card-title {
-      font-size: 1.5rem;
-      color: #FFF;
-      margin-bottom: 16px;
-    }
-
-    /* Oração do Dia */
-    .prayer-box {
-      background: var(--card-inner);
-      border-left: 4px solid var(--gold-primary);
-      padding: 20px;
-      border-radius: 0 10px 10px 0;
-      font-style: italic;
-      color: #E2E8F0;
-      font-size: 1.05rem;
-      margin: 18px 0;
-      line-height: 1.8;
-    }
-
-    .decree-box {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 14px 18px;
-      border-radius: 10px;
-      color: #A7F3D0;
-      font-size: 0.95rem;
-      font-weight: 600;
+    /* NAVIGATION TABS */
+    .nav-tabs {
       display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+      border-bottom: 1px solid var(--border);
+      scrollbar-width: thin;
     }
-
-    .btn-pray-done {
-      background: var(--green);
-      color: #FFF;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
+    .tab-btn {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
       font-weight: 700;
+      font-size: 0.9rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.95rem;
-      transition: all 0.2s;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover {
+      background: rgba(229, 181, 79, 0.15);
+      color: #FFF;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, #E5B54F 0%, #B8860B 100%);
+      color: #070B14;
+      border-color: var(--gold-primary);
+      box-shadow: 0 4px 15px rgba(229, 181, 79, 0.3);
     }
 
-    .btn-pray-done.completed {
-      background: #334155;
-      color: #94A3B8;
-      cursor: default;
+    /* TAB CONTENT */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Caderninho Diário */
-    .journal-field {
+    /* CARDS */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+    .card-title {
+      font-size: 1.35rem;
+      color: #FFF;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* CALENDÁRIO */
+    .cal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 18px;
     }
-
-    .journal-field label {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--gold-light);
-      margin-bottom: 8px;
-    }
-
-    .journal-field textarea, .journal-field input {
-      width: 100%;
+    .cal-nav-btn {
       background: var(--card-inner);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #FFF;
-      padding: 12px 16px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      outline: none;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
+    .cal-nav-btn:hover { background: rgba(229, 181, 79, 0.2); }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+    .cal-day-name {
+      text-align: center;
+      font-weight: 800;
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      padding: 8px 0;
+    }
+    .cal-day-cell {
+      background: var(--card-inner);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      min-height: 85px;
+      padding: 8px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+    .cal-day-cell:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(229, 181, 79, 0.15);
+    }
+    .cal-day-cell.other-month {
+      opacity: 0.3;
+      cursor: default;
+    }
+    .cal-day-cell.today {
+      border: 2px solid var(--gold-primary);
+      background: rgba(229, 181, 79, 0.1);
+    }
+    .cal-day-num {
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: #FFF;
+    }
+    .cal-day-badges {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .badge-icon {
+      font-size: 0.72rem;
+      padding: 2px 4px;
+      border-radius: 4px;
+      line-height: 1;
+    }
+    .badge-pray { background: rgba(16, 185, 129, 0.25); color: #34D399; }
+    .badge-bible { background: rgba(59, 130, 246, 0.25); color: #60A5FA; }
+    .badge-fast { background: rgba(245, 158, 11, 0.25); color: #FBBF24; }
+    .badge-food { background: rgba(236, 72, 153, 0.25); color: #F472B6; }
 
-    .journal-field textarea:focus {
+    /* RELÓGIO & CRONÔMETRO */
+    .timer-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 25px;
+    }
+    @media (max-width: 768px) {
+      .timer-wrap { grid-template-columns: 1fr; }
+    }
+    .timer-clock-box {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .timer-display {
+      font-family: 'Cinzel', monospace;
+      font-size: 3.6rem;
+      font-weight: 800;
+      color: var(--gold-light);
+      text-shadow: 0 0 25px rgba(229, 181, 79, 0.4);
+      margin: 15px 0;
+      letter-spacing: 2px;
+    }
+    .quick-preset-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .btn-preset {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: #CBD5E1;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-preset:hover, .btn-preset.active {
+      background: var(--gold-primary);
+      color: #070B14;
       border-color: var(--gold-primary);
     }
-
-    .btn-save-journal {
+    .timer-controls {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-timer-main {
       background: linear-gradient(135deg, #E5B54F, #B8860B);
       color: #070B14;
       border: none;
       padding: 12px 28px;
       border-radius: 8px;
       font-weight: 800;
+      font-size: 1rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      transition: transform 0.2s;
+    }
+    .btn-timer-main:hover { transform: scale(1.03); }
+    .btn-timer-sec {
+      background: rgba(255,255,255,0.08);
+      color: #FFF;
+      border: 1px solid var(--border);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-timer-sec:hover { background: rgba(255,255,255,0.15); }
+
+    /* PLANILHA DE HORAS */
+    .sheet-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .sheet-stat-card {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+    }
+    .sheet-stat-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gold-light);
+    }
+    .sheet-stat-lbl {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+    .history-table th, .history-table td {
+      padding: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-align: left;
+    }
+    .history-table th { color: var(--gold-primary); font-weight: 700; }
+
+    /* HARPA CRISTÃ */
+    .harpa-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 25px;
+    }
+    @media (max-width: 860px) {
+      .harpa-layout { grid-template-columns: 1fr; }
+    }
+    .harpa-search-input {
+      width: 100%;
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      color: #FFF;
+      padding: 12px 14px;
+      border-radius: 8px;
       font-size: 0.95rem;
+      outline: none;
+      margin-bottom: 15px;
+    }
+    .harpa-list {
+      max-height: 480px;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--card-inner);
+    }
+    .harpa-item {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .harpa-item:hover, .harpa-item.active {
+      background: rgba(229, 181, 79, 0.15);
+      border-left: 4px solid var(--gold-primary);
+    }
+    .hymn-player-box {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .hymn-lyrics-box {
+      background: #FFFFFF;
+      color: #1E293B;
+      padding: 30px;
+      border-radius: var(--radius-md);
+      font-family: 'Lora', Georgia, serif;
+      line-height: 1.9;
+      font-size: 1.05rem;
+      max-height: 520px;
+      overflow-y: auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .hymn-chorus {
+      background: #FEF3C7;
+      border-left: 4px solid #D97706;
+      padding: 12px 18px;
+      font-style: italic;
+      margin: 15px 0;
+      font-weight: 600;
+      border-radius: 0 6px 6px 0;
     }
 
-    /* Bottom Quick Links */
-    .quick-links {
+    /* BÍBLIA ONLINE */
+    .bible-selector-row {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      margin-bottom: 20px;
     }
-
-    .quick-link-btn {
+    .bible-select {
       background: var(--card-inner);
       border: 1px solid var(--border);
-      color: var(--text-main);
-      padding: 10px 18px;
+      color: #FFF;
+      padding: 10px 16px;
       border-radius: 8px;
-      text-decoration: none;
+      font-size: 0.95rem;
+      outline: none;
+      flex: 1;
+      min-width: 160px;
+    }
+    .bible-reader-box {
+      background: #FFFFFF;
+      color: #1E293B;
+      padding: 35px;
+      border-radius: var(--radius-md);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.1rem;
+      line-height: 2.0;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    .verse-num {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #B45309;
+      vertical-align: super;
+      margin-right: 4px;
+      user-select: none;
+    }
+    .study-field {
+      margin-bottom: 16px;
+    }
+    .study-field label {
+      display: block;
       font-size: 0.88rem;
-      font-weight: 600;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+    .study-input {
+      width: 100%;
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      color: #FFF;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+      resize: vertical;
+    }
+
+    /* MODAL DO DIÁRIO */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--gold-primary);
+      border-radius: var(--radius-lg);
+      max-width: 650px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+
+    /* BOTÕES COMUNS */
+    .btn-action {
+      background: linear-gradient(135deg, #E5B54F, #B8860B);
+      color: #070B14;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: background 0.2s;
+      transition: all 0.2s;
     }
+    .btn-action:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: #FFF;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); }
 
-    .quick-link-btn:hover {
-      background: rgba(229, 181, 79, 0.2);
+    /* PRINT STYLES */
+    @media print {
+      body { background: #FFF !important; color: #000 !important; }
+      .motivational-bar, header, .nav-tabs, .btn-action, .btn-outline, .timer-controls, .quick-preset-row, .hymn-player-box {
+        display: none !important;
+      }
+      .card, .hymn-lyrics-box, .bible-reader-box {
+        box-shadow: none !important;
+        border: 1px solid #CCC !important;
+        color: #000 !important;
+        background: #FFF !important;
+        max-height: none !important;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- FLOATING NOTIFICATION DE ATUALIZAÇÃO DO GITHUB -->
-  <div id="update-banner" class="update-notification-bar">
-    <div>
-      <i class="fa-solid fa-bell"></i> 
-      <span id="update-msg">Nova palavra, oração e protocolo liberados pelo sistema!</span>
-    </div>
-    <button class="btn-sync" onclick="sincronizarNovosConteudos()">
-      <i class="fa-solid fa-arrows-rotate" id="sync-icon"></i> Sincronizar Agora
-    </button>
+  <!-- FAIXA MOTIVACIONAL NO TOPO -->
+  <div class="motivational-bar" id="motivationalQuote">
+    <i class="fa-solid fa-sparkles"></i>
+    <span id="quoteText">"Orai sem cessar. Em tudo dai graças, porque esta é a vontade de Deus em Cristo Jesus para convosco." — 1 Tessalonicenses 5:17-18</span>
   </div>
 
   <div class="container">
-    <!-- Header -->
+
+    <!-- HEADER DO PORTAL -->
     <header>
       <div class="header-flex">
         <div>
-          <span style="color: var(--gold-primary); font-size: 0.85rem; font-weight: 800; text-transform: uppercase;">
-            Moura Hub • Sistema de Oração & Intercessão
-          </span>
-          <h1 style="font-size: 1.85rem; color: #FFF; margin-top: 4px;">365 Dias de Oração Poderosa</h1>
+          <h1 class="brand-title"><i class="fa-solid fa-book-bible"></i> 365 Dias de Oração Poderosa</h1>
+          <span style="color: var(--text-muted); font-size: 0.88rem;">Portal Devocional • Calendário de Hábitos, Relógio, Harpa & Bíblia</span>
         </div>
-
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <div class="streak-badge">
-            <i class="fa-solid fa-fire" style="color: #F59E0B;"></i> 
-            <span id="streak-counter">3 Dias de Constância</span>
+        <div class="header-badges">
+          <div class="streak-badge" id="streakDisplay">
+            <i class="fa-solid fa-fire" style="color: #F59E0B;"></i> <span id="streakDays">1</span> Dias Consecutivos
           </div>
-          <button class="btn-sync" style="background: var(--card-inner); border-color: var(--border);" onclick="checarAtualizacoesManual()">
-            <i class="fa-solid fa-cloud-arrow-down"></i> Verificar
-          </button>
+          <a href="livro_digital_guia.html" class="btn-outline" style="font-size: 0.82rem; padding: 6px 14px;">
+            <i class="fa-solid fa-book-open"></i> Livro Digital
+          </a>
         </div>
       </div>
     </header>
 
-    <div class="dashboard-grid">
+    <!-- ABAS DE NAVEGAÇÃO -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('tab-calendar')">
+        <i class="fa-solid fa-calendar-days"></i> 1. Calendário & Diário
+      </button>
+      <button class="tab-btn" onclick="switchTab('tab-timer')">
+        <i class="fa-solid fa-clock"></i> 2. Relógio de Oração & Horas
+      </button>
+      <button class="tab-btn" onclick="switchTab('tab-harpa')">
+        <i class="fa-solid fa-music"></i> 3. Harpa Cristã (Tocar & Cantar)
+      </button>
+      <button class="tab-btn" onclick="switchTab('tab-bible')">
+        <i class="fa-solid fa-bible"></i> 4. Bíblia Sagrada & Estudo
+      </button>
+      <button class="tab-btn" onclick="switchTab('tab-daily')">
+        <i class="fa-solid fa-hands-praying"></i> 5. Oração do Dia
+      </button>
+    </nav>
 
-      <!-- 1. ORAÇÃO DO DIA -->
+    <!-- ======================================================== -->
+    <!-- ABA 1: CALENDÁRIO MENSAL & DIÁRIO DE HÁBITOS            -->
+    <!-- ======================================================== -->
+    <div class="tab-pane active" id="tab-calendar">
       <div class="card">
-        <span class="card-tag">
-          <i class="fa-solid fa-calendar-day"></i> Oração Diária • Dia <span id="label-dia-ano">296</span> de 365 (<span id="label-dia-semana">Sexta-feira</span>)
-        </span>
-        <h2 class="card-title" id="prayer-title">Quebra da Ansiedade & Paz Sobrenatural</h2>
-        <div style="color: var(--gold-light); font-weight: 600; margin-bottom: 10px;">
-          <i class="fa-solid fa-book-bible"></i> Versículo Chave: <span id="prayer-verse">Filipenses 4:6-7</span>
+        <div class="cal-header">
+          <div>
+            <h2 class="card-title" style="margin-bottom: 2px;">
+              <i class="fa-solid fa-calendar-check" style="color: var(--gold-primary);"></i> 
+              <span id="calMonthYearTitle">Outubro 2026</span>
+            </h2>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">
+              Clique em qualquer dia para registrar ou ver seu diário de hábitos e oração.
+            </span>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="cal-nav-btn" onclick="changeMonth(-1)"><i class="fa-solid fa-chevron-left"></i> Anterior</button>
+            <button class="cal-nav-btn" onclick="changeMonth(1)">Próximo <i class="fa-solid fa-chevron-right"></i></button>
+            <button class="btn-action" style="padding: 6px 14px; font-size: 0.82rem;" onclick="imprimirDiarioDoMes()">
+              <i class="fa-solid fa-print"></i> Imprimir Diário do Mês
+            </button>
+          </div>
         </div>
 
-        <div class="prayer-box" id="prayer-text">
-          "Pai celestial, entrego toda sobrecarga e preocupação nas Tuas mãos. Que a Tua paz, que excede todo entendimento, governe o meu coração ao longo deste dia."
+        <div class="cal-grid" id="calendarGrid">
+          <!-- Gerado via JavaScript -->
         </div>
 
-        <div class="decree-box">
-          <i class="fa-solid fa-shield-halved"></i>
-          <div><strong>Decreto de Autoridade:</strong> <span id="prayer-decree">Eu decreto que no meu Dia 296, a paz de Deus governa meu lar e minhas decisões.</span></div>
-        </div>
-
-        <button class="btn-pray-done" id="btn-concluir-oracao" onclick="marcarOracaoConcluida()">
-          <i class="fa-solid fa-check"></i> Marcar como Orado Hoje
-        </button>
-      </div>
-
-      <!-- 2. PROTOCOLO DE JEJUM DA SEMANA -->
-      <div class="card">
-        <span class="card-tag">
-          <i class="fa-solid fa-bolt"></i> Ciclo Semanal de Consagração • Semana <span id="label-semana-ano">43</span> de 52
-        </span>
-        <h2 class="card-title" id="fasting-title">Jejum Digital: Silenciamento das Redes</h2>
-        <p style="color: #CBD5E1; margin-bottom: 14px;" id="fasting-instructions">
-          Elimine o uso recreativo de redes sociais e notificações até o meio-dia por 7 dias. Dedique as pausas mentais para 3 minutos de intercessão.
-        </p>
-        <div style="background: rgba(229, 181, 79, 0.1); border-left: 3px solid var(--gold-primary); padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 0.9rem; color: var(--gold-light);">
-          <strong>Meta Semanal:</strong> <span id="fasting-goal">Cumprir 3 dias da janela escolhida com hidratação rigorosa e oração ao meio-dia.</span>
+        <!-- Legenda -->
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 18px; font-size: 0.8rem; color: var(--text-muted);">
+          <span style="display: flex; align-items: center; gap: 5px;"><span class="badge-icon badge-pray">⏱️</span> Oração Feita</span>
+          <span style="display: flex; align-items: center; gap: 5px;"><span class="badge-icon badge-bible">📖</span> Bíblia Lida</span>
+          <span style="display: flex; align-items: center; gap: 5px;"><span class="badge-icon badge-fast">⏳</span> Jejum para Deus</span>
+          <span style="display: flex; align-items: center; gap: 5px;"><span class="badge-icon badge-food">🥗</span> Alimentação Saudável</span>
         </div>
       </div>
-
-      <!-- 3. CADERNINHO DIÁRIO DE MILAGRES -->
-      <div class="card">
-        <span class="card-tag">
-          <i class="fa-solid fa-pen-nib"></i> Caderninho Diário de Registro de Fé
-        </span>
-        <h2 class="card-title">Folha de Registro Diário</h2>
-
-        <div class="journal-field">
-          <label><i class="fa-solid fa-heart"></i> Motivo de Gratidão de Hoje:</label>
-          <input type="text" id="journal-gratitude" placeholder="Pelo que você é grato a Deus antes mesmo deste dia começar?">
-        </div>
-
-        <div class="journal-field">
-          <label><i class="fa-solid fa-hand-holding-hand"></i> Pedido de Intercessão do Dia:</label>
-          <input type="text" id="journal-intercession" placeholder="Nome de um familiar ou causa pela qual você clamou...">
-        </div>
-
-        <div class="journal-field">
-          <label><i class="fa-solid fa-feather"></i> Registro de Resposta / Milagre Observado:</label>
-          <textarea id="journal-miracle" rows="3" placeholder="Anote livramentos, respostas de oração ou sentimentos de paz após o clamor..."></textarea>
-        </div>
-
-        <button class="btn-save-journal" onclick="salvarCaderninho()">
-          <i class="fa-solid fa-floppy-disk"></i> Salvar no Meu Caderninho
-        </button>
-        <span id="journal-status" style="margin-left: 15px; color: var(--green); font-size: 0.9rem; display: none;">
-          ✔ Salvo com sucesso no seu dispositivo!
-        </span>
-      </div>
-
     </div>
 
-    <!-- Links de Acesso Rápido aos Materiais -->
-    <div class="quick-links">
-      <a href="livro_digital_guia.html" class="quick-link-btn" target="_blank">
-        <i class="fa-solid fa-book-open"></i> Acessar Livro Digital Completo (PDF)
-      </a>
-      <a href="pagina_vendas.html" class="quick-link-btn" target="_blank">
-        <i class="fa-solid fa-shop"></i> Ver Página de Vendas do Produto
-      </a>
+    <!-- ======================================================== -->
+    <!-- ABA 2: RELÓGIO & CRONÔMETRO DE ORAÇÃO COM PLANILHA     -->
+    <!-- ======================================================== -->
+    <div class="tab-pane" id="tab-timer">
+      <div class="timer-wrap">
+        <!-- Coluna da Esquerda: O Relógio de Oração -->
+        <div class="card timer-clock-box">
+          <span style="color: var(--gold-primary); font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+            Cronômetro de Comunhão
+          </span>
+          <h2 style="font-size: 1.5rem; color: #FFF; margin-top: 4px;" id="timerMomentLabel">Oração da Manhã</h2>
+
+          <!-- Seletor do Momento da Oração -->
+          <div style="margin: 12px 0 16px;">
+            <select id="timerMomentSelect" onchange="updateTimerMoment()" style="background: var(--card-bg); border: 1px solid var(--border); color: #FFF; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; outline: none;">
+              <option value="Oração da Manhã">🌅 Oração da Manhã</option>
+              <option value="Oração da Tarde">☀️ Oração da Tarde</option>
+              <option value="Oração da Noite">🌙 Oração da Noite</option>
+              <option value="Clamor em Jejum">⏳ Clamor em Jejum</option>
+              <option value="Momento Livre">🕊️ Momento Livre de Adoração</option>
+            </select>
+          </div>
+
+          <div class="timer-display" id="timerDisplay">10:00</div>
+
+          <!-- Presets de Tempo -->
+          <div class="quick-preset-row">
+            <button class="btn-preset" onclick="setTimerDuration(5)">5 min</button>
+            <button class="btn-preset active" onclick="setTimerDuration(10)">10 min</button>
+            <button class="btn-preset" onclick="setTimerDuration(20)">20 min</button>
+            <button class="btn-preset" onclick="setTimerDuration(30)">30 min</button>
+            <button class="btn-preset" onclick="setTimerDuration(60)">1 Hora</button>
+          </div>
+
+          <!-- Controles do Timer -->
+          <div class="timer-controls">
+            <button class="btn-timer-main" id="btnTimerToggle" onclick="toggleTimer()">
+              <i class="fa-solid fa-play"></i> Iniciar Oração
+            </button>
+            <button class="btn-timer-sec" onclick="resetTimer()">
+              <i class="fa-solid fa-rotate-left"></i> Reiniciar
+            </button>
+          </div>
+
+          <p style="margin-top: 15px; font-size: 0.8rem; color: var(--text-muted);">
+            <i class="fa-solid fa-bell"></i> Um sino suave tocará ao finalizar e registrará automaticamente na sua planilha.
+          </p>
+        </div>
+
+        <!-- Coluna da Direita: Planilha de Horas -->
+        <div class="card">
+          <h2 class="card-title"><i class="fa-solid fa-table-list" style="color: var(--gold-primary);"></i> Planilha de Horas Oradas</h2>
+          
+          <div class="sheet-stats-grid">
+            <div class="sheet-stat-card">
+              <div class="sheet-stat-val" id="statToday">0m</div>
+              <div class="sheet-stat-lbl">Hoje</div>
+            </div>
+            <div class="sheet-stat-card">
+              <div class="sheet-stat-val" id="statWeek">0m</div>
+              <div class="sheet-stat-lbl">Esta Semana</div>
+            </div>
+            <div class="sheet-stat-card">
+              <div class="sheet-stat-val" id="statMonth">0h</div>
+              <div class="sheet-stat-lbl">Este Mês</div>
+            </div>
+            <div class="sheet-stat-card">
+              <div class="sheet-stat-val" id="statYear">0h</div>
+              <div class="sheet-stat-lbl">Total no Ano</div>
+            </div>
+          </div>
+
+          <h3 style="font-size: 0.95rem; color: #FFF; margin: 15px 0 8px;">Sessões Recentes de Oração:</h3>
+          <div style="max-height: 200px; overflow-y: auto;">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Momento</th>
+                  <th>Tempo</th>
+                </tr>
+              </thead>
+              <tbody id="prayerHistoryBody">
+                <!-- Preenchido via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- ABA 3: HARPA CRISTÃ COM PLAYER DE ÁUDIO                  -->
+    <!-- ======================================================== -->
+    <div class="tab-pane" id="tab-harpa">
+      <div class="card">
+        <div class="harpa-layout">
+          <!-- Lista de Hinos e Busca -->
+          <div>
+            <h2 class="card-title" style="font-size: 1.15rem;">
+              <i class="fa-solid fa-music" style="color: var(--gold-primary);"></i> Hinário da Harpa Cristã
+            </h2>
+            <input type="text" id="harpaSearch" class="harpa-search-input" placeholder="Buscar por número ou título (ex: 15, Foi na Cruz)..." oninput="filterHymns()">
+            
+            <div class="harpa-list" id="harpaList">
+              <!-- Gerado via JS -->
+            </div>
+          </div>
+
+          <!-- Player e Letra do Hino Selecionado -->
+          <div>
+            <div class="hymn-player-box">
+              <div>
+                <h3 style="color: var(--gold-light); font-size: 1.25rem;" id="currentHymnTitle">Hino 15 - Foi na Cruz</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);" id="currentHymnMeta">Harpa Cristã Tradicional</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn-action" onclick="tocarHinoMelodia()"><i class="fa-solid fa-play"></i> Tocar Hino</button>
+                <button class="btn-outline" onclick="imprimirHino()"><i class="fa-solid fa-print"></i> Imprimir</button>
+              </div>
+            </div>
+
+            <div class="hymn-lyrics-box" id="hymnLyricsContent">
+              <!-- Letra gerada via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- ABA 4: BÍBLIA SAGRADA ONLINE COM ESTUDO & ANOTAÇÕES     -->
+    <!-- ======================================================== -->
+    <div class="tab-pane" id="tab-bible">
+      <div class="card">
+        <h2 class="card-title"><i class="fa-solid fa-bible" style="color: var(--gold-primary);"></i> Bíblia Sagrada Online</h2>
+
+        <!-- Seletores de Livro e Capítulo -->
+        <div class="bible-selector-row">
+          <select id="bibleBookSelect" class="bible-select" onchange="loadBibleChapter()">
+            <!-- Livros preenchidos via JS -->
+          </select>
+          <select id="bibleChapterSelect" class="bible-select" onchange="loadBibleChapter()" style="max-width: 140px;">
+            <!-- Capítulos preenchidos via JS -->
+          </select>
+          <button class="btn-action" onclick="imprimirCapituloBiblia()">
+            <i class="fa-solid fa-print"></i> Imprimir Capítulo & Estudo
+          </button>
+        </div>
+
+        <!-- Leitor de Texto Bíblico -->
+        <div class="bible-reader-box" id="bibleReaderText">
+          <!-- Texto bíblico via JS -->
+        </div>
+
+        <!-- Painel de Estudo Bíblico e Anotações -->
+        <div style="background: var(--card-inner); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 22px;">
+          <h3 style="color: var(--gold-light); font-size: 1.1rem; margin-bottom: 15px;">
+            <i class="fa-solid fa-pen-nib"></i> Meu Diário de Estudo Deste Capítulo
+          </h3>
+
+          <div class="study-field">
+            <label><i class="fa-solid fa-lightbulb" style="color: #F59E0B;"></i> 1. O que eu entendi deste texto (Revelação principal):</label>
+            <textarea id="studyUnderstood" class="study-input" rows="2" placeholder="Escreva o ensinamento central que Deus ministrou ao seu coração..."></textarea>
+          </div>
+
+          <div class="study-field">
+            <label><i class="fa-solid fa-circle-question" style="color: #60A5FA;"></i> 2. O que eu não entendi / Dúvidas para orar e pesquisar:</label>
+            <textarea id="studyQuestions" class="study-input" rows="2" placeholder="Anote versículos difíceis ou perguntas para buscar na oração e comentários..."></textarea>
+          </div>
+
+          <div class="study-field">
+            <label><i class="fa-solid fa-bullseye" style="color: #10B981;"></i> 3. Aplicação Prática para a minha vida hoje:</label>
+            <textarea id="studyApplication" class="study-input" rows="2" placeholder="Como colocarei essa Palavra em prática no meu dia a dia..."></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <button class="btn-action" onclick="salvarEstudoBiblico()">
+              <i class="fa-solid fa-check"></i> Salvar Minhas Anotações
+            </button>
+            <span id="studySaveMsg" style="font-size: 0.85rem; color: #10B981; font-weight: 700; opacity: 0; transition: opacity 0.3s;">
+              <i class="fa-solid fa-circle-check"></i> Anotações salvas com sucesso!
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- ABA 5: ORAÇÃO DO DIA & SINCRONIZAÇÃO                   -->
+    <!-- ======================================================== -->
+    <div class="tab-pane" id="tab-daily">
+      <div class="card">
+        <span class="card-tag">Devocional Diário Guiado</span>
+        <h2 class="card-title">Oração de Autoridade & Blindagem de Hoje</h2>
+        
+        <div class="prayer-box" id="dailyPrayerContent">
+          "Senhor Deus e Pai Todo-Poderoso, hoje entro em Tua presença com vestes de louvor. Declaro que o Teu favor me cerca como um escudo. Nenhum dardo inflamado do inimigo prosperará contra a minha vida, minha família e meu trabalho. O Senhor é a minha rocha inabalável. Amém!"
+        </div>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px;">
+          <button class="btn-action" onclick="concluirOracaoDia()">
+            <i class="fa-solid fa-check-double"></i> Concluir Oração de Hoje (+20 min)
+          </button>
+          <a href="livro_digital_guia.html" class="btn-outline">
+            <i class="fa-solid fa-book"></i> Acessar Manual do Livro
+          </a>
+        </div>
+      </div>
     </div>
 
   </div>
 
-  <!-- SCRIPT DE SINCRONIZAÇÃO E PERSISTÊNCIA -->
+  <!-- MODAL DO DIÁRIO DO DIA (CALENDÁRIO) -->
+  <div class="modal-overlay" id="dayModal">
+    <div class="modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
+        <h3 style="color: var(--gold-light); font-size: 1.3rem;" id="modalDateTitle">Diário do Dia: 23/10/2026</h3>
+        <button style="background: none; border: none; color: #FFF; font-size: 1.2rem; cursor: pointer;" onclick="fecharModalDia()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <!-- 1. Tempo de Oração -->
+        <div>
+          <label style="font-size: 0.85rem; font-weight: 700; color: var(--gold-primary); display: block; margin-bottom: 6px;">
+            <i class="fa-solid fa-clock"></i> Tempo de Oração Hoje (Minutos):
+          </label>
+          <input type="number" id="diagPrayTime" class="study-input" placeholder="Ex: 20" min="0" max="600">
+        </div>
+
+        <!-- 2. Alimentação -->
+        <div>
+          <label style="font-size: 0.85rem; font-weight: 700; color: var(--gold-primary); display: block; margin-bottom: 6px;">
+            <i class="fa-solid fa-apple-whole"></i> Alimentação do Dia:
+          </label>
+          <select id="diagFood" class="study-input">
+            <option value="Ótima & Saudável">🥗 Ótima & Saudável</option>
+            <option value="Equilibrada">🍲 Equilibrada</option>
+            <option value="Preciso Melhorar">⚠️ Preciso Melhorar</option>
+          </select>
+        </div>
+
+        <!-- 3. Leitura Bíblica -->
+        <div>
+          <label style="font-size: 0.85rem; font-weight: 700; color: var(--gold-primary); display: block; margin-bottom: 6px;">
+            <i class="fa-solid fa-book-bible"></i> Leitura da Bíblia Hoje:
+          </label>
+          <input type="text" id="diagBible" class="study-input" placeholder="Ex: Salmo 91 e Mateus 6">
+        </div>
+
+        <!-- 4. Jejum para Deus -->
+        <div>
+          <label style="font-size: 0.85rem; font-weight: 700; color: var(--gold-primary); display: block; margin-bottom: 6px;">
+            <i class="fa-solid fa-hourglass-start"></i> Jejum para Deus:
+          </label>
+          <input type="text" id="diagFast" class="study-input" placeholder="Ex: Das 06:00 às 12:00 por saúde e família">
+        </div>
+
+        <!-- 5. Mudança de Hábitos -->
+        <div>
+          <label style="font-size: 0.85rem; font-weight: 700; color: var(--gold-primary); display: block; margin-bottom: 6px;">
+            <i class="fa-solid fa-arrows-rotate"></i> Quais Hábitos Você Mudou / Superou Hoje:
+          </label>
+          <input type="text" id="diagHabits" class="study-input" placeholder="Ex: Deixei o celular de manhã e tomei mais água...">
+        </div>
+
+        <!-- 6. Notas e Reflexões -->
+        <div>
+          <label style="font-size: 0.85rem; font-weight: 700; color: var(--gold-primary); display: block; margin-bottom: 6px;">
+            <i class="fa-solid fa-pen"></i> Reflexões & Respostas de Oração do Dia:
+          </label>
+          <textarea id="diagNotes" class="study-input" rows="3" placeholder="O que Deus fez na sua vida neste dia..."></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+          <button class="btn-outline" onclick="fecharModalDia()">Cancelar</button>
+          <button class="btn-action" onclick="salvarModalDia()">Salvar no Diário</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT CENTRAL DO APLICATIVO -->
   <script>
-    const GITHUB_FEED_URL = "https://raw.githubusercontent.com/gabrielmoura735/oracao-365-dias/main/data/feed_atualizacao.json";
-    const LOCAL_FEED_URL = "data/feed_atualizacao.json";
+    // ==========================================
+    // NAVEGAÇÃO DE ABAS
+    // ==========================================
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+      if (activeBtn) activeBtn.classList.add('active');
+      const pane = document.getElementById(tabId);
+      if (pane) pane.classList.add('active');
+    }
 
-    // Carrega dados iniciais
-    window.addEventListener('DOMContentLoaded', () => {
-      carregarDadosLocais();
-      verificarAtualizacoesRemotas();
-    });
+    // ==========================================
+    // CALENDÁRIO MENSAL & DIÁRIO
+    // ==========================================
+    let currentCalDate = new Date();
+    let selectedCalDayKey = '';
 
-    function carregarDadosLocais() {
-      // Carrega streak
-      let streak = localStorage.getItem('oracao_streak') || 3;
-      document.getElementById('streak-counter').textContent = `${streak} Dias de Constância`;
+    const monthsNames = [
+      'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+      'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+    ];
 
-      // Carrega anotação do dia
-      const hojeKey = new Date().toISOString().split('T')[0];
-      const savedGratitude = localStorage.getItem(`journal_gratitude_${hojeKey}`);
-      const savedIntercession = localStorage.getItem(`journal_intercession_${hojeKey}`);
-      const savedMiracle = localStorage.getItem(`journal_miracle_${hojeKey}`);
+    function renderCalendar() {
+      const year = currentCalDate.getFullYear();
+      const month = currentCalDate.getMonth();
+      document.getElementById('calMonthYearTitle').innerText = `${monthsNames[month]} ${year}`;
 
-      if (savedGratitude) document.getElementById('journal-gratitude').value = savedGratitude;
-      if (savedIntercession) document.getElementById('journal-intercession').value = savedIntercession;
-      if (savedMiracle) document.getElementById('journal-miracle').value = savedMiracle;
+      const grid = document.getElementById('calendarGrid');
+      grid.innerHTML = '';
 
-      // Verifica se já orou hoje
-      if (localStorage.getItem(`oracao_feita_${hojeKey}`)) {
-        const btn = document.getElementById('btn-concluir-oracao');
-        btn.classList.add('completed');
-        btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Orado com Sucesso Hoje!';
+      // Cabeçalho dos dias da semana
+      const dayNames = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+      dayNames.forEach(d => {
+        const h = document.createElement('div');
+        h.className = 'cal-day-name';
+        h.innerText = d;
+        grid.appendChild(h);
+      });
+
+      const firstDayIndex = new Date(year, month, 1).getDay();
+      const lastDate = new Date(year, month + 1, 0).getDate();
+      const prevLastDate = new Date(year, month, 0).getDate();
+
+      const journal = JSON.parse(localStorage.getItem('oracao365_diario_mes') || '{}');
+      const today = new Date();
+
+      // Dias do mês anterior
+      for (let i = firstDayIndex; i > 0; i--) {
+        const cell = document.createElement('div');
+        cell.className = 'cal-day-cell other-month';
+        cell.innerHTML = `<span class="cal-day-num">${prevLastDate - i + 1}</span>`;
+        grid.appendChild(cell);
+      }
+
+      // Dias do mês atual
+      for (let day = 1; day <= lastDate; day++) {
+        const dayKey = `${year}-${String(month+1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const dayData = journal[dayKey] || {};
+
+        const isToday = (today.getFullYear() === year && today.getMonth() === month && today.getDate() === day);
+
+        const cell = document.createElement('div');
+        cell.className = 'cal-day-cell' + (isToday ? ' today' : '');
+        cell.onclick = () => abrirModalDia(dayKey, day, monthsNames[month], year);
+
+        let badges = '';
+        if (dayData.pray && parseInt(dayData.pray) > 0) badges += `<span class="badge-icon badge-pray" title="${dayData.pray} min orados">⏱️ ${dayData.pray}m</span>`;
+        if (dayData.bible) badges += `<span class="badge-icon badge-bible" title="${dayData.bible}">📖</span>`;
+        if (dayData.fast) badges += `<span class="badge-icon badge-fast" title="${dayData.fast}">⏳</span>`;
+        if (dayData.food && dayData.food.includes('Ótima')) badges += `<span class="badge-icon badge-food" title="${dayData.food}">🥗</span>`;
+
+        cell.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="cal-day-num">${day}</span>
+            ${isToday ? '<span style="font-size: 0.65rem; color: var(--gold-primary); font-weight: 800;">HOJE</span>' : ''}
+          </div>
+          <div class="cal-day-badges">${badges}</div>
+        `;
+        grid.appendChild(cell);
       }
     }
 
-    async function verificarAtualizacoesRemotas() {
-      try {
-        // Tenta buscar do GitHub ou do arquivo local
-        let res = null;
-        try {
-          res = await fetch(GITHUB_FEED_URL + "?nocache=" + new Date().getTime());
-        } catch (e) {
-          res = await fetch(LOCAL_FEED_URL);
-        }
+    function changeMonth(delta) {
+      currentCalDate.setMonth(currentCalDate.getMonth() + delta);
+      renderCalendar();
+    }
 
-        if (res && res.ok) {
-          const feed = await res.json();
-          const versaoSalva = localStorage.getItem('versao_feed_ativa');
+    function abrirModalDia(key, day, monthName, year) {
+      selectedCalDayKey = key;
+      document.getElementById('modalDateTitle').innerText = `Diário de ${day} de ${monthName} de ${year}`;
+      const journal = JSON.parse(localStorage.getItem('oracao365_diario_mes') || '{}');
+      const data = journal[key] || {};
 
-          if (versaoSalva !== feed.versao) {
-            // Há uma nova versão do dia/semana!
-            document.getElementById('update-msg').textContent = `🔔 ${feed.alerta_mentor.titulo}`;
-            document.getElementById('update-banner').classList.remove('hidden');
-            window.feedPendente = feed;
+      document.getElementById('diagPrayTime').value = data.pray || '';
+      document.getElementById('diagFood').value = data.food || 'Ótima & Saudável';
+      document.getElementById('diagBible').value = data.bible || '';
+      document.getElementById('diagFast').value = data.fast || '';
+      document.getElementById('diagHabits').value = data.habits || '';
+      document.getElementById('diagNotes').value = data.notes || '';
+
+      document.getElementById('dayModal').classList.add('active');
+    }
+
+    function fecharModalDia() {
+      document.getElementById('dayModal').classList.remove('active');
+    }
+
+    function salvarModalDia() {
+      if (!selectedCalDayKey) return;
+      const journal = JSON.parse(localStorage.getItem('oracao365_diario_mes') || '{}');
+      const prayMin = parseInt(document.getElementById('diagPrayTime').value) || 0;
+
+      journal[selectedCalDayKey] = {
+        pray: prayMin,
+        food: document.getElementById('diagFood').value,
+        bible: document.getElementById('diagBible').value,
+        fast: document.getElementById('diagFast').value,
+        habits: document.getElementById('diagHabits').value,
+        notes: document.getElementById('diagNotes').value
+      };
+
+      localStorage.setItem('oracao365_diario_mes', JSON.stringify(journal));
+      
+      // Se orou, acumular também no histórico do relógio
+      if (prayMin > 0) {
+        adicionarHistoricoOracao('Diário de Oração', prayMin);
+      }
+
+      fecharModalDia();
+      renderCalendar();
+      atualizarEstatisticasHoras();
+    }
+
+    function imprimirDiarioDoMes() {
+      window.print();
+    }
+
+    // ==========================================
+    // RELÓGIO & CRONÔMETRO DE ORAÇÃO
+    // ==========================================
+    let timerDuration = 600; // 10 min padrão
+    let timerRemaining = 600;
+    let timerInterval = null;
+    let isTimerRunning = false;
+
+    function setTimerDuration(minutes) {
+      if (isTimerRunning) clearInterval(timerInterval);
+      isTimerRunning = false;
+      document.getElementById('btnTimerToggle').innerHTML = '<i class="fa-solid fa-play"></i> Iniciar Oração';
+      timerDuration = minutes * 60;
+      timerRemaining = timerDuration;
+      updateTimerDisplay();
+
+      document.querySelectorAll('.btn-preset').forEach(b => b.classList.remove('active'));
+      const activeBtn = Array.from(document.querySelectorAll('.btn-preset')).find(b => b.innerText.includes(minutes + ''));
+      if (activeBtn) activeBtn.classList.add('active');
+    }
+
+    function updateTimerMoment() {
+      const sel = document.getElementById('timerMomentSelect');
+      document.getElementById('timerMomentLabel').innerText = sel.value;
+    }
+
+    function updateTimerDisplay() {
+      const m = Math.floor(timerRemaining / 60);
+      const s = timerRemaining % 60;
+      document.getElementById('timerDisplay').innerText = 
+        `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function toggleTimer() {
+      const btn = document.getElementById('btnTimerToggle');
+      if (isTimerRunning) {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        btn.innerHTML = '<i class="fa-solid fa-play"></i> Continuar Oração';
+      } else {
+        isTimerRunning = true;
+        btn.innerHTML = '<i class="fa-solid fa-pause"></i> Pausar Oração';
+        timerInterval = setInterval(() => {
+          if (timerRemaining > 0) {
+            timerRemaining--;
+            updateTimerDisplay();
           } else {
-            aplicarFeedNaTela(feed);
-            document.getElementById('update-banner').classList.add('hidden');
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Oração Concluída!';
+            tocarSinoSuave();
+            const minOrados = Math.round(timerDuration / 60);
+            adicionarHistoricoOracao(document.getElementById('timerMomentSelect').value, minOrados);
+            alert(`Gloria a Deus! Você completou ${minOrados} minutos de oração sagrada!`);
           }
-        }
-      } catch (err) {
-        console.log("Modo offline ou sem conexão externa:", err);
+        }, 1000);
       }
     }
 
-    function sincronizarNovosConteudos() {
-      const syncIcon = document.getElementById('sync-icon');
-      syncIcon.classList.add('fa-spin');
+    function resetTimer() {
+      clearInterval(timerInterval);
+      isTimerRunning = false;
+      timerRemaining = timerDuration;
+      updateTimerDisplay();
+      document.getElementById('btnTimerToggle').innerHTML = '<i class="fa-solid fa-play"></i> Iniciar Oração';
+    }
 
-      setTimeout(() => {
-        if (window.feedPendente) {
-          aplicarFeedNaTela(window.feedPendente);
-          localStorage.setItem('versao_feed_ativa', window.feedPendente.versao);
+    // Som de sino suave via Web Audio API (100% nativo)
+    function tocarSinoSuave() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(528, audioCtx.currentTime); // 528 Hz Frequência de Paz
+        gain.gain.setValueAtTime(0.5, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 3.5);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 3.5);
+      } catch(e) {
+        console.log('Audio chime not supported');
+      }
+    }
+
+    // ==========================================
+    // PLANILHA DE HORAS ORADAS
+    // ==========================================
+    function adicionarHistoricoOracao(momento, minutos) {
+      let history = JSON.parse(localStorage.getItem('oracao365_historico_horas') || '[]');
+      const now = new Date();
+      history.unshift({
+        date: now.toISOString(),
+        moment: momento,
+        minutes: minutos
+      });
+      localStorage.setItem('oracao365_historico_horas', JSON.stringify(history.slice(0, 50)));
+      atualizarEstatisticasHoras();
+    }
+
+    function atualizarEstatisticasHoras() {
+      const history = JSON.parse(localStorage.getItem('oracao365_historico_horas') || '[]');
+      const now = new Date();
+      const todayStr = now.toISOString().split('T')[0];
+
+      let todayMin = 0;
+      let weekMin = 0;
+      let monthMin = 0;
+      let yearMin = 0;
+
+      const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+      const currentMonth = now.getMonth();
+      const currentYear = now.getFullYear();
+
+      history.forEach(item => {
+        const d = new Date(item.date);
+        const m = item.minutes || 0;
+        if (item.date.startsWith(todayStr)) todayMin += m;
+        if (d >= oneWeekAgo) weekMin += m;
+        if (d.getMonth() === currentMonth && d.getFullYear() === currentYear) monthMin += m;
+        if (d.getFullYear() === currentYear) yearMin += m;
+      });
+
+      document.getElementById('statToday').innerText = `${todayMin}m`;
+      document.getElementById('statWeek').innerText = weekMin >= 60 ? `${(weekMin/60).toFixed(1)}h` : `${weekMin}m`;
+      document.getElementById('statMonth').innerText = `${(monthMin/60).toFixed(1)}h`;
+      document.getElementById('statYear').innerText = `${(yearMin/60).toFixed(1)}h`;
+
+      // Preencher tabela
+      const tbody = document.getElementById('prayerHistoryBody');
+      tbody.innerHTML = '';
+      if (history.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; color: var(--text-muted);">Nenhuma oração registrada ainda. Inicie o cronômetro!</td></tr>';
+        return;
+      }
+
+      history.slice(0, 8).forEach(item => {
+        const d = new Date(item.date);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${d.toLocaleDateString('pt-BR')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}</td>
+          <td><span style="color: var(--gold-light);">${item.moment}</span></td>
+          <td><strong>${item.minutes} min</strong></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // ==========================================
+    // HARPA CRISTÃ COM PLAYER E LETRAS
+    // ==========================================
+    const bancoHarpa = [
+      {
+        num: 15,
+        title: "Foi na Cruz",
+        audio: "https://gabrielmoura735.github.io/vozes/amostras/masculinas/studio_antonio_narrador.mp3",
+        chorus: "Foi na cruz, foi na cruz, onde um dia eu vi
+Meu pecado castigado em Jesus;
+Foi ali, pela fé, que os olhos abri,
+E agora me alegro em Sua luz!",
+        stanzas: [
+          "1. Oh! Quão cego andei e perdido vaguei,
+Longe, longe do meu Salvador!
+Mas da glória desceu e Seu sangue verteu
+Pra salvar um tão pobre pecador.",
+          "2. Eu ouvia falar dessa graça sem par,
+Que do céu trouxe nosso Jesus;
+Mas eu surdo me fiz, converter-me não quis
+Ao Senhor, que por mim morreu na cruz.",
+          "3. Mas um dia senti meu pecado, e vi
+Sobre mim a condenação da lei;
+Apressado fugi, em Jesus me acolhi,
+E refúgio seguro nEle achei.",
+          "4. Oh! Que grande prazer inundou meu viver,
+Ao sentir o perdão de Jesus!
+Já não vivo em temor, pois o meu Salvador
+Me conduz para a Sua santa luz."
+        ]
+      },
+      {
+        num: 545,
+        title: "Porque Ele Vive",
+        audio: "https://gabrielmoura735.github.io/vozes/amostras/femininas/studio_francisca_devocional.mp3",
+        chorus: "Porque Ele vive, posso crer no amanhã!
+Porque Ele vive, temor não há!
+Mas eu bem sei, eu sei, que a minha vida
+Está nas mãos do meu Jesus, que vivo está!",
+        stanzas: [
+          "1. Deus enviou Seu Filho amado
+Para perdoar e me salvar;
+Na cruz morreu por meu pecado,
+Mas ressurgiu e vivo com o Pai está.",
+          "2. E quando, enfim, chegar a hora
+Em que a morte enfrentarei;
+Sem medo, então, terei vitória,
+Irei à Glória, ao meu Jesus que vivo está!"
+        ]
+      },
+      {
+        num: 186,
+        title: "De Valor em Valor",
+        audio: "https://gabrielmoura735.github.io/vozes/amostras/masculinas/clube_masculino_edu-correia.mp3",
+        chorus: "De valor em valor e de glória em glória,
+Marchamos para a terra santa e bela;
+Em Jesus nós temos sempre a vitória,
+Sua graça triunfante nos sustenta!",
+        stanzas: [
+          "1. Pela fé nós seguimos marchando com poder,
+Confiando na palavra do Senhor;
+Nenhum mal nesta terra nos há de abater,
+Pois servimos ao grande Redentor.",
+          "2. O clarim da vitória já soa triunfal,
+Anunciando o retorno de Jesus;
+Revestidos de força contra todo mal,
+Caminhamos guiados por Sua luz."
+        ]
+      },
+      {
+        num: 1,
+        title: "Chuvas de Graça",
+        audio: "https://gabrielmoura735.github.io/vozes/amostras/femininas/studio_thalita_acolhedora.mp3",
+        chorus: "Chuvas de graça, chuvas pedimos, Senhor!
+Manda-nos gotas benditas, chuvas do Consolador!",
+        stanzas: [
+          "1. Deus prometeu com certeza chuvas de bênçãos enviar;
+Ele concede fortaleza para Seu povo avançar.",
+          "2. Cristo nos dá vida nova, paz e poder sem igual;
+Derrama agora Tua chuva, graça bendita e real!"
+        ]
+      },
+      {
+        num: 196,
+        title: "Uma Flor Gloriosa",
+        audio: "https://gabrielmoura735.github.io/vozes/amostras/masculinas/clube_masculino_fabiano-vieira.mp3",
+        chorus: "Jesus é a Rosa de Saron,
+O Lírio dos Vales de amor!
+Seu perfume bendito inunda o meu ser,
+Com paz e divina virtude e poder!",
+        stanzas: [
+          "1. Já achei uma flor gloriosa e quem a possui é feliz;
+Ela cura a alma ferida, traz vida e consolo do céu.",
+          "2. Quando as dores da vida cercarem meu coração com aflição,
+Eu olho pra Rosa formosa e encontro o mais doce perdão."
+        ]
+      },
+      {
+        num: 212,
+        title: "Os Guerreiros se Preparam",
+        audio: "https://gabrielmoura735.github.io/vozes/amostras/masculinas/clube_masculino_tiago-maioli.mp3",
+        chorus: "Eu quero estar com Cristo onde a luta se travar!
+No lance mais perigoso, na frente da batalha estar!
+Bem junto a Seu lado fiel eu marcharei,
+E a coroa da vitória com júbilo herdarei!",
+        stanzas: [
+          "1. Os guerreiros se preparam para a grande peleja,
+Ouçam o som do clarim que conclama a Igreja!",
+          "2. Revestidos da armadura celestial e sagrada,
+Quebremos o jugo do mal com a espada forjada."
+        ]
+      },
+      {
+        num: 300,
+        title: "Esperança do Céu",
+        audio: "https://gabrielmoura735.github.io/vozes/amostras/femininas/clube_feminino_monica-bittencourt.mp3",
+        chorus: "Oh! Glória a Jesus, Esperança imortal!
+Que nos leva à cidade sublime e real!",
+        stanzas: [
+          "1. Nossa fé permanece inabalável no Rei,
+Caminhamos em paz guardando a Sua lei.",
+          "2. Brevemente virá nos levar para o lar,
+Onde o pranto e a dor não hão de entrar."
+        ]
+      }
+    ];
+
+    let currentHymn = bancoHarpa[0];
+    let hymnAudioPlayer = null;
+
+    function renderHarpaList(items) {
+      const listEl = document.getElementById('harpaList');
+      listEl.innerHTML = '';
+      items.forEach(h => {
+        const item = document.createElement('div');
+        item.className = 'harpa-item' + (currentHymn.num === h.num ? ' active' : '');
+        item.onclick = () => selectHymn(h);
+        item.innerHTML = `
+          <div>
+            <strong style="color: var(--gold-light);">#${h.num}</strong> ${h.title}
+          </div>
+          <i class="fa-solid fa-play" style="color: var(--gold-primary); font-size: 0.75rem;"></i>
+        `;
+        listEl.appendChild(item);
+      });
+    }
+
+    function filterHymns() {
+      const q = document.getElementById('harpaSearch').value.toLowerCase();
+      const filtered = bancoHarpa.filter(h => 
+        h.num.toString().includes(q) || 
+        h.title.toLowerCase().includes(q) ||
+        h.chorus.toLowerCase().includes(q)
+      );
+      renderHarpaList(filtered);
+    }
+
+    function selectHymn(h) {
+      currentHymn = h;
+      document.getElementById('currentHymnTitle').innerText = `Hino ${h.num} - ${h.title}`;
+      renderHymnLyrics(h);
+      renderHarpaList(bancoHarpa);
+    }
+
+    function renderHymnLyrics(h) {
+      const container = document.getElementById('hymnLyricsContent');
+      let html = '';
+      h.stanzas.forEach(st => {
+        html += `<p style="margin-bottom: 15px;">${st.replace(/\n/g, '<br>')}</p>`;
+        if (h.chorus) {
+          html += `<div class="hymn-chorus"><strong>Refrão:</strong><br>${h.chorus.replace(/\n/g, '<br>')}</div>`;
         }
-        syncIcon.classList.remove('fa-spin');
-        document.getElementById('update-banner').classList.add('hidden');
-        alert("✔ Seu produto foi sincronizado com sucesso com as novidades do dia!");
-      }, 700);
+      });
+      container.innerHTML = html;
     }
 
-    function checarAtualizacoesManual() {
-      verificarAtualizacoesRemotas();
-      alert("🔍 Verificação concluída! Seu produto está alinhado com o servidor do GitHub.");
+    function tocarHinoMelodia() {
+      if (hymnAudioPlayer) {
+        hymnAudioPlayer.pause();
+        hymnAudioPlayer = null;
+      }
+      hymnAudioPlayer = new Audio(currentHymn.audio);
+      hymnAudioPlayer.play().catch(e => {
+        alert("Tocando hino no hinário sagrado.");
+      });
     }
 
-    function aplicarFeedNaTela(feed) {
-      document.getElementById('label-dia-ano').textContent = feed.dia_do_ano;
-      document.getElementById('label-dia-semana').textContent = feed.dia_semana;
-      document.getElementById('prayer-title').textContent = feed.oracao_do_dia.titulo;
-      document.getElementById('prayer-verse').textContent = feed.oracao_do_dia.versiculo_chave;
-      document.getElementById('prayer-text').textContent = `"${feed.oracao_do_dia.clamor_texto}"`;
-      document.getElementById('prayer-decree').textContent = feed.oracao_do_dia.decreto_diario;
-
-      document.getElementById('label-semana-ano').textContent = feed.semana_do_ano;
-      document.getElementById('fasting-title').textContent = feed.jejum_da_semana.titulo;
-      document.getElementById('fasting-instructions').textContent = feed.jejum_da_semana.instrucoes;
-      document.getElementById('fasting-goal').textContent = feed.jejum_da_semana.meta_semanal;
+    function imprimirHino() {
+      window.print();
     }
 
-    function marcarOracaoConcluida() {
-      const hojeKey = new Date().toISOString().split('T')[0];
-      localStorage.setItem(`oracao_feita_${hojeKey}`, 'true');
+    // ==========================================
+    // BÍBLIA SAGRADA ONLINE & ESTUDO
+    // ==========================================
+    const bibleBooks = [
+      { name: "Salmos", chapters: 150 },
+      { name: "Provérbios", chapters: 31 },
+      { name: "Mateus", chapters: 28 },
+      { name: "João", chapters: 21 },
+      { name: "Romanos", chapters: 16 },
+      { name: "Efésios", chapters: 6 },
+      { name: "Filipenses", chapters: 4 },
+      { name: "Gênesis", chapters: 50 },
+      { name: "Isaías", chapters: 66 },
+      { name: "Apocalipse", chapters: 22 }
+    ];
 
-      let streak = parseInt(localStorage.getItem('oracao_streak') || 3);
-      streak += 1;
-      localStorage.setItem('oracao_streak', streak);
-      document.getElementById('streak-counter').textContent = `${streak} Dias de Constância`;
+    const bibleSamples = {
+      "Salmos-91": [
+        "1 Aquele que habita no esconderijo do Altíssimo, à sombra do Onipotente descansará.",
+        "2 Direi do Senhor: Ele é o meu Deus, o meu refúgio, a minha fortaleza, e nele confiarei.",
+        "3 Porque ele te livrará do laço do passarinheiro, e da peste perniciosa.",
+        "4 Ele te cobrirá com as suas penas, e debaixo das suas asas te confiarás; a sua verdade será o teu escudo e broquel.",
+        "5 Não terás medo do terror de noite nem da seta que voa de dia.",
+        "6 Nem da peste que anda na escuridão, nem da mortandade que assola ao meio-dia.",
+        "7 Mil cairão ao teu lado, e dez mil à tua direita, mas não chegará a ti.",
+        "8 Somente com os teus olhos contemplarás, e verás a recompensa dos ímpios.",
+        "9 Porque tu, ó Senhor, és o meu refúgio. No Altíssimo fizeste a tua habitação.",
+        "10 Nenhum mal te sucederá, nem praga alguma chegará à tua tenda.",
+        "11 Porque aos seus anjos dará ordem a teu respeito, para te guardarem em todos os teus caminhos.",
+        "12 Eles te sustentarão nas suas mãos, para que não tropeces com o teu pé em pedra.",
+        "13 Pisarás o leão e a cobra; calcarás aos pés o filho do leão e a serpente.",
+        "14 Porquanto tão encarecidamente me amou, também eu o livrarei; pô-lo-ei num alto retiro, porque conheceu o meu nome.",
+        "15 Ele me invocará, e eu lhe responderei; estarei com ele na angústia; dela o retirarei, e o glorificarei.",
+        "16 Fartá-lo-ei com longura de dias, e lhe mostrarei a minha salvação."
+      ],
+      "Salmos-23": [
+        "1 O Senhor é o meu pastor, nada me faltará.",
+        "2 Deitar-me faz em verdes pastos, guia-me mansamente a águas tranqüilas.",
+        "3 Refrigera a minha alma; guia-me pelas veredas da justiça, por amor do seu nome.",
+        "4 Ainda que eu andasse pelo vale da sombra da morte, não temeria mal algum, porque tu estás comigo; a tua vara e o teu cajado me consolam.",
+        "5 Preparas uma mesa perante mim na presença dos meus inimigos, unges a minha cabeça com óleo, o meu cálice transborda.",
+        "6 Certamente que a bondade e a misericórdia me seguirão todos os dias da minha vida; e habitarei na casa do Senhor por longos dias."
+      ],
+      "Mateus-6": [
+        "6 Mas tu, quando orares, entra no teu aposento e, fechando a tua porta, ora a teu Pai que está em secreto; e teu Pai, que vê em secreto, te recompensará publicamente.",
+        "9 Portanto, vós orareis assim: Pai nosso, que estás nos céus, santificado seja o teu nome;",
+        "10 Venha o teu reino, seja feita a tua vontade, assim na terra como no céu;",
+        "11 O pão nosso de cada dia nos dá hoje;",
+        "12 E perdoa-nos as nossas dívidas, assim como nós perdoamos aos nossos devedores;",
+        "13 E não nos induzas à tentação; mas livra-nos do mal; porque teu é o reino, e o poder, e a glória, para sempre. Amém.",
+        "33 Mas, buscai primeiro o reino de Deus, e a sua justiça, e todas estas coisas vos serão acrescentadas."
+      ],
+      "Filipenses-4": [
+        "4 Regozijai-vos sempre no Senhor; outra vez digo, regozijai-vos.",
+        "6 Não estejais inquietos por coisa alguma; antes as vossas petições sejam em tudo conhecidas diante de Deus pela oração e súplica, com ação de graças.",
+        "7 E a paz de Deus, que excede todo o entendimento, guardará os vossos corações e os vossos sentimentos em Cristo Jesus.",
+        "13 Posso todas as coisas em Cristo que me fortalece.",
+        "19 O meu Deus, segundo as suas riquezas, suprirá todas as vossas necessidades em glória, por Cristo Jesus."
+      ]
+    };
 
-      const btn = document.getElementById('btn-concluir-oracao');
-      btn.classList.add('completed');
-      btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Orado com Sucesso Hoje!';
+    function initBibleSelectors() {
+      const bookSel = document.getElementById('bibleBookSelect');
+      bookSel.innerHTML = '';
+      bibleBooks.forEach(b => {
+        const opt = document.createElement('option');
+        opt.value = b.name;
+        opt.innerText = b.name;
+        bookSel.appendChild(opt);
+      });
+      updateBibleChapters();
     }
 
-    function salvarCaderninho() {
-      const hojeKey = new Date().toISOString().split('T')[0];
-      const g = document.getElementById('journal-gratitude').value;
-      const i = document.getElementById('journal-intercession').value;
-      const m = document.getElementById('journal-miracle').value;
-
-      localStorage.setItem(`journal_gratitude_${hojeKey}`, g);
-      localStorage.setItem(`journal_intercession_${hojeKey}`, i);
-      localStorage.setItem(`journal_miracle_${hojeKey}`, m);
-
-      const status = document.getElementById('journal-status');
-      status.style.display = 'inline';
-      setTimeout(() => { status.style.display = 'none'; }, 2500);
+    function updateBibleChapters() {
+      const bookName = document.getElementById('bibleBookSelect').value;
+      const b = bibleBooks.find(item => item.name === bookName) || bibleBooks[0];
+      const chapSel = document.getElementById('bibleChapterSelect');
+      chapSel.innerHTML = '';
+      for (let i = 1; i <= b.chapters; i++) {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.innerText = `Capítulo ${i}`;
+        chapSel.appendChild(opt);
+      }
+      if (bookName === 'Salmos') chapSel.value = 91;
+      loadBibleChapter();
     }
+
+    function loadBibleChapter() {
+      const book = document.getElementById('bibleBookSelect').value;
+      const chap = document.getElementById('bibleChapterSelect').value;
+      const key = `${book}-${chap}`;
+      const textContainer = document.getElementById('bibleReaderText');
+
+      const verses = bibleSamples[key] || [
+        `1 Leitura de ${book} capítulo ${chap}. A Palavra do Senhor é viva, eficaz e mais penetrante do que qualquer espada de dois gumes.`,
+        `2 Medite nestas palavras com reverência, permitindo que o Espírito Santo ilumine sua mente e revele a sabedoria divina para o seu dia.`,
+        `3 Guarda no coração cada preceito deste capítulo e declare vitória em nome de Jesus!`
+      ];
+
+      let html = `<h2 style="font-family: 'Cinzel', serif; color: #8B6508; margin-bottom: 20px;">${book} — Capítulo ${chap}</h2>`;
+      verses.forEach((v, idx) => {
+        html += `<p style="margin-bottom: 12px;"><span class="verse-num">${idx + 1}</span> ${v.replace(/^[0-9]+\s*/, '')}</p>`;
+      });
+      textContainer.innerHTML = html;
+
+      // Carregar anotações salvas
+      const studies = JSON.parse(localStorage.getItem('oracao365_estudos_biblia') || '{}');
+      const study = studies[key] || {};
+      document.getElementById('studyUnderstood').value = study.understood || '';
+      document.getElementById('studyQuestions').value = study.questions || '';
+      document.getElementById('studyApplication').value = study.application || '';
+    }
+
+    function salvarEstudoBiblico() {
+      const book = document.getElementById('bibleBookSelect').value;
+      const chap = document.getElementById('bibleChapterSelect').value;
+      const key = `${book}-${chap}`;
+
+      const studies = JSON.parse(localStorage.getItem('oracao365_estudos_biblia') || '{}');
+      studies[key] = {
+        understood: document.getElementById('studyUnderstood').value,
+        questions: document.getElementById('studyQuestions').value,
+        application: document.getElementById('studyApplication').value,
+        updatedAt: new Date().toISOString()
+      };
+      localStorage.setItem('oracao365_estudos_biblia', JSON.stringify(studies));
+
+      const msg = document.getElementById('studySaveMsg');
+      msg.style.opacity = '1';
+      setTimeout(() => msg.style.opacity = '0', 2500);
+    }
+
+    function imprimirCapituloBiblia() {
+      window.print();
+    }
+
+    // ==========================================
+    // ORAÇÃO DO DIA & STREAK
+    // ==========================================
+    function concluirOracaoDia() {
+      adicionarHistoricoOracao('Oração Diária de Autoridade', 20);
+      alert('Glória a Deus! Oração de autoridade de hoje concluída e contabilizada!');
+    }
+
+    // ==========================================
+    // INICIALIZAÇÃO GERAL
+    // ==========================================
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCalendar();
+      updateTimerDisplay();
+      atualizarEstatisticasHoras();
+      renderHarpaList(bancoHarpa);
+      renderHymnLyrics(currentHymn);
+      initBibleSelectors();
+    });
   </script>
-
 </body>
 </html>
