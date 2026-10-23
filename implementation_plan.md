@@ -1,46 +1,36 @@
-# Plano de Implementação: Automação Contínua no GitHub e Sincronização no Produto
+# Plano de Implementação: Menu de Impressão/Download em Papel e Modo Criador com Acesso Livre
 
-Criação do repositório GitHub para o produto `365 Dias de Oração Poderosa`, implementação de esteira de automação (**GitHub Actions**) com agendamento diário e semanal (*cron*), e integração no produto web para que o aluno receba notificações e sincronize as novidades direto do GitHub.
-
----
-
-## 1. Arquitetura da Automação no GitHub
-
-### A. Repositório no GitHub (`gabrielmoura735/oracao-365-dias`)
-- Inicializar Git localmente na pasta `NovoProjeto`.
-- Conectar à conta já autenticada do GitHub (`gabrielmoura735`).
-- Subir a Página de Vendas, os 5 Complementos, o Livro Digital e os scripts.
-- Habilitar **GitHub Pages** para hospedar o produto online gratuitamente caso deseje.
-
-### B. Esteira de Automação GitHub Actions (`.github/workflows/atualizacao_automatica.yml`)
-- **Frequência Agendada**:
-  - `cron: '0 3 * * *'` (executa todos os dias à meia-noite no horário de Brasília).
-  - Suporte a execução manual com 1 clique (`workflow_dispatch`).
-- **O que a automação faz no GitHub**:
-  1. Executa o script `scripts/gerar_feed_diario.py`.
-  2. Calcula o dia do ano (1 a 365) e a semana (1 a 52).
-  3. Atualiza o arquivo `data/feed_atualizacao.json` com a oração do dia, o protocolo de jejum da semana, novos motivos de clamor e a versão atualizada da data.
-  4. Realiza commit automático com mensagem: `[Auto-Update] Atualização Diária: Dia X liberado`.
-  5. Faz push para o GitHub.
-
-### C. Motor de Sincronização no Produto (`app_devocional_interativo.html`)
-- Ao abrir o produto, o JavaScript faz um `fetch` leve no arquivo remoto do GitHub (`https://raw.githubusercontent.com/gabrielmoura735/oracao-365-dias/main/data/feed_atualizacao.json`).
-- Se a versão da nuvem for mais recente que a versão salva no celular/computador do aluno:
-  - Exibe banner animado no topo:  
-    > 🔔 *"Nova Palavra, Oração e Protocolo de Jejum Liberados pelo Mentor! Clique para Atualizar seu Produto."*
-  - Botão **"🔄 Sincronizar Agora"**: Baixa a nova oração, adiciona a nova folha no **Caderninho de Milagres** e avança a sequência de constância (*Streak*).
+Implementação de uma barra superior/menu de ferramentas para download no computador e impressão em folha de papel A4 (com layout econômico em tinta para preenchimento diário à caneta), e criação do **Modo Produtor / Criador**, garantindo que você tenha acesso livre e irrestrito a 100% das ferramentas sem precisar pagar.
 
 ---
 
-## 2. Arquivos que Serão Criados
+## 1. O Que Será Implementado
 
-1. `.github/workflows/atualizacao_automatica.yml`: Workflow do GitHub Actions para rodar a automação diária/semanal.
-2. `scripts/gerar_feed_diario.py`: Script Python executado pelo GitHub Actions para gerar as atualizações.
-3. `data/feed_atualizacao.json`: Arquivo de dados sincronizado que o produto consulta.
-4. `app_devocional_interativo.html`: Central interativa do aluno com a automação de verificação e sincronização conectada ao GitHub.
+### A. Barra Superior / Menu de Impressão & Download (`livro_digital_guia.html` e `app_devocional_interativo.html`)
+Adicionar um menu fixo no topo com os botões:
+1. 🖨️ **"Imprimir em Papel / Salvar PDF"**:
+   - Estilização `@media print` profissional para folhas A4.
+   - Fundo 100% branco econômico (sem gastar tinta preta da impressora).
+   - Linhas pontilhadas e caixinhas para preenchimento diário à mão com caneta.
+   - Quebras de página automáticas entre a Introdução, os 4 Capítulos e o Caderninho.
+2. 📱 **"Modo Celular / Tablet"**:
+   - Leitura fluida com controle de tamanho de texto (A- / A+) e modo noturno.
+3. 📥 **"Baixar para o Computador"**:
+   - Permite salvar o arquivo completo localmente para abrir sem internet.
+
+### B. Modo Criador / Produtor (Acesso Livre Permanente sem Pagar)
+- Criar a página **`painel_produtor.html`** (Painel do Criador):
+  - Reconhece automaticamente você como o autor/dono do produto.
+  - Ativa o selo **👑 ACESSO LIVRE DE CRIADOR** no navegador (`localStorage.setItem('modo_criador_ativo', 'true')`).
+  - Desbloqueia com 1 clique o Guia Principal, os 5 Complementos do Order Bump, os players de áudio e o aplicativo de atualização diária, sem passar por checkout da Bilion.
+  - Permite gerar e testar links de checkout e links de entrega para os seus clientes.
+
+### C. Sincronização no GitHub
+- Atualizar os arquivos modificados e fazer o `git commit` e `git push` para o repositório `gabrielmoura735/oracao-365-dias`.
+- Manter o GitHub Pages sincronizado com a nova versão.
 
 ---
 
-## 3. Próximos Passos
-- Aguardar sua aprovação.
-- Criar os arquivos, inicializar o repositório git e publicar no GitHub da sua conta `gabrielmoura735`.
+## 2. Próximos Passos
+- Obter sua aprovação.
+- Atualizar `livro_digital_guia.html` com a diagramação de impressão/download, criar o `painel_produtor.html` e subir as atualizações para o GitHub.

@@ -3,30 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Livro Digital & Kit Completo: 365 Dias de Oração Poderosa</title>
+  <title>365 Dias de Oração Poderosa | Manual Oficial & Guia de Impressão</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
       --bg: #FDFBF7;
       --card-bg: #FFFFFF;
       --text: #1E293B;
-      --accent: #B8860B;
+      --accent: #8B6508;
+      --accent-gold: #D4AF37;
       --accent-light: #FBF5E8;
       --border: #E2E8F0;
+      --font-size-base: 17px;
     }
 
+    body.dark-theme {
+      --bg: #070B14;
+      --card-bg: #0F172A;
+      --text: #F8FAFC;
+      --border: rgba(229, 181, 79, 0.25);
+      --accent-light: #162238;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background-color: var(--bg);
       color: var(--text);
       font-family: 'Lora', Georgia, serif;
+      font-size: var(--font-size-base);
       line-height: 1.8;
-      margin: 0;
-      padding: 40px 20px;
+      padding-top: 75px;
+      padding-bottom: 60px;
+      transition: background 0.3s ease;
     }
 
+    /* TOP FLOATING ACTION BAR */
+    .top-action-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #0F172A;
+      border-bottom: 2px solid var(--accent-gold);
+      padding: 10px 20px;
+      z-index: 9999;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .bar-container {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .bar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #FFF;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .bar-brand i { color: var(--accent-gold); }
+
+    .bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-bar {
+      background: #1E293B;
+      color: #FFF;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-bar:hover {
+      background: var(--accent-gold);
+      color: #070B14;
+      border-color: var(--accent-gold);
+    }
+
+    .btn-bar-primary {
+      background: linear-gradient(135deg, #E5B54F, #B8860B);
+      color: #070B14;
+      font-weight: 800;
+      border: none;
+    }
+
+    .btn-bar-primary:hover {
+      background: linear-gradient(135deg, #FCE29A, #E5B54F);
+      transform: translateY(-1px);
+    }
+
+    /* BOOK MAIN CONTAINER */
     .book-container {
       max-width: 820px;
       margin: 0 auto;
@@ -34,30 +124,7 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 60px 50px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .controls-bar {
-      max-width: 820px;
-      margin: 0 auto 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .btn-print {
-      background: var(--accent);
-      color: #FFF;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
     }
 
     .book-cover-header {
@@ -70,16 +137,15 @@
     .book-tag {
       font-family: 'Inter', sans-serif;
       text-transform: uppercase;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       letter-spacing: 2px;
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 800;
     }
 
     h1 {
       font-family: 'Cinzel', serif;
-      font-size: 2.4rem;
-      color: #0F172A;
+      font-size: 2.3rem;
       margin: 15px 0 10px;
       line-height: 1.25;
     }
@@ -96,7 +162,7 @@
 
     .chapter-tag {
       font-family: 'Inter', sans-serif;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--accent);
       font-size: 0.85rem;
       text-transform: uppercase;
@@ -108,21 +174,19 @@
     h2 {
       font-family: 'Cinzel', serif;
       font-size: 1.6rem;
-      color: #0F172A;
       margin-bottom: 20px;
       line-height: 1.3;
     }
 
     p {
       margin-bottom: 18px;
-      font-size: 1.05rem;
       text-align: justify;
     }
 
     .exercise-box {
       background: var(--accent-light);
       border-left: 4px solid var(--accent);
-      padding: 20px;
+      padding: 22px;
       border-radius: 0 8px 8px 0;
       margin: 25px 0;
       font-family: 'Inter', sans-serif;
@@ -130,15 +194,32 @@
 
     .exercise-title {
       font-weight: 800;
-      color: #8B6508;
+      color: var(--accent);
       font-size: 0.95rem;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Linhas para anotação à caneta no papel */
+    .pen-notes-area {
+      margin-top: 15px;
+      border-top: 1px dashed rgba(139, 101, 8, 0.4);
+      padding-top: 10px;
+      display: none; /* aparece apenas na impressão */
+    }
+
+    .pen-line {
+      height: 24px;
+      border-bottom: 1px dotted #94A3B8;
+      margin-bottom: 6px;
     }
 
     .prayer-box {
-      background: #F8FAFC;
-      border: 1px solid #CBD5E1;
+      background: var(--accent-light);
+      border: 1px solid var(--border);
       padding: 30px;
       border-radius: 10px;
       text-align: center;
@@ -153,21 +234,22 @@
     }
 
     .checklist-list li {
-      padding: 12px 16px;
+      padding: 14px 16px;
       border-bottom: 1px solid var(--border);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 12px;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
     }
 
     .checklist-list li i {
       color: var(--accent);
+      margin-top: 4px;
     }
 
-    /* Seção Especial dos 5 Complementos */
-    .bonus-suite-box {
-      background: #FAF8F5;
+    /* SEÇÃO DOS 5 COMPLEMENTOS */
+    .suite-section {
+      background: var(--accent-light);
       border: 2px dashed var(--accent);
       border-radius: 12px;
       padding: 30px;
@@ -175,36 +257,39 @@
       font-family: 'Inter', sans-serif;
     }
 
-    .bonus-suite-title {
+    .suite-title {
       font-family: 'Cinzel', serif;
-      font-size: 1.35rem;
-      color: #8B6508;
+      font-size: 1.4rem;
+      color: var(--accent);
       text-align: center;
       margin-bottom: 20px;
     }
 
-    .bonus-suite-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
     .suite-card {
-      background: #FFFFFF;
+      background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .suite-card-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
 
     .suite-icon {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: var(--accent);
       width: 44px;
       height: 44px;
-      background: var(--accent-light);
+      background: rgba(139, 101, 8, 0.12);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -212,28 +297,124 @@
       flex-shrink: 0;
     }
 
+    .btn-access {
+      background: var(--accent);
+      color: #FFF;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-access:hover { opacity: 0.9; }
+
+    /* ESTILOS DE IMPRESSÃO PROFISSIONAL (A4 EM PRETO E BRANCO) */
     @media print {
-      body { padding: 0; background: #FFF; }
-      .controls-bar { display: none; }
-      .book-container { border: none; box-shadow: none; padding: 20px; }
-      .chapter { page-break-after: always; }
+      @page {
+        size: A4 portrait;
+        margin: 1.8cm 1.5cm;
+      }
+
+      body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        font-size: 11pt !important;
+        line-height: 1.6 !important;
+      }
+
+      .top-action-bar, .btn-access, .suite-card a {
+        display: none !important;
+      }
+
+      .book-container {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .chapter {
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .exercise-box, .prayer-box, .suite-section {
+        background: #FFFFFF !important;
+        border: 1px solid #000000 !important;
+        color: #000000 !important;
+      }
+
+      .pen-notes-area {
+        display: block !important;
+      }
+
+      h1, h2, h3, .book-tag, .chapter-tag {
+        color: #000000 !important;
+      }
+
+      .suite-card {
+        border: 1px solid #CCCCCC !important;
+        background: #FFFFFF !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .book-container { padding: 30px 20px; }
+      h1 { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="controls-bar">
-    <span style="color: #64748B; font-size: 0.9rem;">Material Oficial de Entrega do Aluno</span>
-    <button class="btn-print" onclick="window.print()">
-      <i class="fa-solid fa-print"></i> Imprimir / Salvar em PDF
-    </button>
+  <!-- TOP ACTION BAR: IMPRIMIR, BAIXAR E NAVEGAR -->
+  <div class="top-action-bar">
+    <div class="bar-container">
+      <div class="bar-brand">
+        <i class="fa-solid fa-book-bible"></i>
+        <span>365 Dias de Oração Poderosa</span>
+      </div>
+
+      <div class="bar-actions">
+        <!-- Botão de Imprimir / PDF -->
+        <button class="btn-bar btn-bar-primary" onclick="window.print()">
+          <i class="fa-solid fa-print"></i> Imprimir / Salvar em PDF
+        </button>
+
+        <!-- Baixar HTML Offline -->
+        <button class="btn-bar" onclick="baixarArquivoOffline()">
+          <i class="fa-solid fa-download"></i> Baixar no PC
+        </button>
+
+        <!-- Ajuste de Fonte para Celular -->
+        <button class="btn-bar" onclick="ajustarFonte(-1)" title="Diminuir Fonte">A-</button>
+        <button class="btn-bar" onclick="ajustarFonte(1)" title="Aumentar Fonte">A+</button>
+        <button class="btn-bar" onclick="toggleModoEscuro()" title="Modo Noturno">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Painel do Criador -->
+        <a href="painel_produtor.html" class="btn-bar" style="border-color: var(--accent-gold); color: var(--accent-gold);">
+          <i class="fa-solid fa-crown"></i> Área do Criador
+        </a>
+      </div>
+    </div>
   </div>
 
   <div class="book-container">
+
+    <!-- Cabeçalho Oficial do Manual -->
     <div class="book-cover-header">
       <span class="book-tag">Manual Oficial • Vida Devocional & Intercessão</span>
       <h1>365 Dias de Oração Poderosa</h1>
       <div class="book-subtitle">Guia Diário de Intercessão, Disciplina Espiritual e Clareza de Propósito</div>
+      <div style="font-size: 0.85rem; color: #94A3B8; margin-top: 10px; font-family: 'Inter', sans-serif;">
+        Otimizado para leitura no celular e para impressão em folha de papel A4 com anotações manuais.
+      </div>
     </div>
 
     <!-- Introdução -->
@@ -248,7 +429,7 @@
       </p>
     </div>
 
-    <!-- Capítulo 1 -->
+    <!-- Capítulo 01 -->
     <div class="chapter">
       <span class="chapter-tag">Capítulo 01</span>
       <h2>O Quarto Secreto e o Silenciamento do Mundo</h2>
@@ -262,10 +443,15 @@
       <div class="exercise-box">
         <div class="exercise-title"><i class="fa-solid fa-pen-to-square"></i> Exercício Prático do Dia</div>
         Deixe o celular em outro cômodo ao acordar. Passe os primeiros 10 minutos da manhã em silêncio absoluto, oração e agradecimento antes de checar qualquer mensagem.
+        <div class="pen-notes-area">
+          <small><strong>Anotações do seu momento secreto (à caneta):</strong></small>
+          <div class="pen-line"></div>
+          <div class="pen-line"></div>
+        </div>
       </div>
     </div>
 
-    <!-- Capítulo 2 -->
+    <!-- Capítulo 02 -->
     <div class="chapter">
       <span class="chapter-tag">Capítulo 02</span>
       <h2>Oração de Autoridade e Blindagem Espiritual</h2>
@@ -279,10 +465,15 @@
       <div class="exercise-box">
         <div class="exercise-title"><i class="fa-solid fa-pen-to-square"></i> Exercício Prático do Dia</div>
         Abra a Bíblia e leia o Salmo 91 em voz alta, declarando cada versículo no tempo presente como uma verdade viva e ativa sobre sua casa e família.
+        <div class="pen-notes-area">
+          <small><strong>Declaração de autoridade do seu dia:</strong></small>
+          <div class="pen-line"></div>
+          <div class="pen-line"></div>
+        </div>
       </div>
     </div>
 
-    <!-- Capítulo 3 -->
+    <!-- Capítulo 03 -->
     <div class="chapter">
       <span class="chapter-tag">Capítulo 03</span>
       <h2>Vencendo a Frieza Espiritual e a Falta de Vontade</h2>
@@ -296,10 +487,15 @@
       <div class="exercise-box">
         <div class="exercise-title"><i class="fa-solid fa-pen-to-square"></i> Exercício Prático do Dia</div>
         Mesmo sentindo cansaço, dobre os joelhos hoje por apenas 3 minutos e agradeça nominalmente por 5 bênçãos concretas da sua vida.
+        <div class="pen-notes-area">
+          <small><strong>5 Coisas pelas quais sou grato hoje:</strong></small>
+          <div class="pen-line"></div>
+          <div class="pen-line"></div>
+        </div>
       </div>
     </div>
 
-    <!-- Capítulo 4 -->
+    <!-- Capítulo 04 -->
     <div class="chapter">
       <span class="chapter-tag">Capítulo 04</span>
       <h2>O Registro de Milagres e a Resposta das Orações</h2>
@@ -313,13 +509,19 @@
       <div class="exercise-box">
         <div class="exercise-title"><i class="fa-solid fa-pen-to-square"></i> Exercício Prático do Dia</div>
         Anote as 3 maiores necessidades que você tem hoje com a data de hoje. Coloque-as diante de Deus diariamente e volte para marcar quando forem respondidas.
+        <div class="pen-notes-area">
+          <small><strong>As 3 necessidades colocadas no altar hoje:</strong></small>
+          <div class="pen-line"></div>
+          <div class="pen-line"></div>
+          <div class="pen-line"></div>
+        </div>
       </div>
     </div>
 
     <!-- Oração Diária de Autoridade -->
     <div class="prayer-box">
-      <h3 style="font-family: 'Cinzel', serif; color: #8B6508; margin-bottom: 12px;">Oração Diária de Autoridade e Blindagem</h3>
-      <p style="text-align: center; font-size: 1.1rem; color: #334155;">
+      <h3 style="font-family: 'Cinzel', serif; color: var(--accent); margin-bottom: 12px;">Oração Diária de Autoridade e Blindagem</h3>
+      <p style="text-align: center; font-size: 1.15rem;">
         "Senhor meu Deus e Pai celestial, entro na Tua presença com ações de graças no coração e louvor em meus lábios. Consagro a Ti este novo dia, meus pensamentos, decisões e caminhos. Que a Tua paz que excede todo entendimento guarde a minha mente. Repreendo todo espírito de medo, dúvida e desânimo. Reveste-me com a armadura espiritual e que a Tua vontade soberana se cumpra em minha vida. Em nome de Jesus, amém!"
       </p>
     </div>
@@ -329,61 +531,150 @@
       <span class="chapter-tag">Ferramenta Prática</span>
       <h2>Checklist Diário de 6 Passos para Não Quebrar o Hábito</h2>
       <ul class="checklist-list">
-        <li><i class="fa-solid fa-square-check"></i> <strong>1. Horário Inegociável:</strong> Defina o momento exato da sua oração antes de iniciar as tarefas.</li>
-        <li><i class="fa-solid fa-square-check"></i> <strong>2. Desconexão Total:</strong> Celular fora do alcance e notificações 100% desligadas.</li>
-        <li><i class="fa-solid fa-square-check"></i> <strong>3. Louvor & Gratidão:</strong> Comece sempre agradecendo por 5 coisas antes de pedir.</li>
-        <li><i class="fa-solid fa-square-check"></i> <strong>4. Declaração Bíblica:</strong> Declare promessas da Palavra de Deus em voz alta com fé.</li>
-        <li><i class="fa-solid fa-square-check"></i> <strong>5. Intercessão Ativa:</strong> Ore pelo seu cônjuge, filhos, país e pessoas que necessitam.</li>
-        <li><i class="fa-solid fa-square-check"></i> <strong>6. Registro de Milagres:</strong> Anote as respostas recebidas para fortalecer sua fé continuamente.</li>
+        <li>
+          <i class="fa-solid fa-square-check"></i> 
+          <div>
+            <strong>1. Horário Inegociável:</strong><br>
+            Defina o momento exato da sua oração antes de iniciar as tarefas.
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-square-check"></i> 
+          <div>
+            <strong>2. Desconexão Total:</strong><br>
+            Celular fora do alcance e notificações 100% desligadas.
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-square-check"></i> 
+          <div>
+            <strong>3. Louvor & Gratidão:</strong><br>
+            Comece sempre agradecendo por 5 coisas antes de pedir.
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-square-check"></i> 
+          <div>
+            <strong>4. Declaração Bíblica:</strong><br>
+            Declare promessas da Palavra de Deus em voz alta com fé.
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-square-check"></i> 
+          <div>
+            <strong>5. Intercessão Ativa:</strong><br>
+            Ore pelo seu cônjuge, filhos, país e pessoas que necessitam.
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-square-check"></i> 
+          <div>
+            <strong>6. Registro de Milagres:</strong><br>
+            Anote as respostas recebidas para fortalecer sua fé continuamente.
+          </div>
+        </li>
       </ul>
     </div>
 
-    <!-- SEÇÃO COMPLEMENTAR: OS 5 COMPLEMENTOS EXCLUSIVOS -->
-    <div class="bonus-suite-box">
-      <h3 class="bonus-suite-title">Kit de Aceleração Espiritual: 5 Complementos Inclusos</h3>
-      <div class="bonus-suite-grid">
-        <div class="suite-card">
+    <!-- KIT DE ACELERAÇÃO: 5 COMPLEMENTOS INCLUSOS -->
+    <div class="suite-section">
+      <h3 class="suite-title">Kit de Aceleração Espiritual: 5 Complementos Inclusos</h3>
+      <p style="text-align: center; font-size: 0.9rem; color: #64748B; margin-bottom: 25px;">
+        Clique nos botões abaixo para abrir ou imprimir cada uma das 5 ferramentas complementares:
+      </p>
+
+      <div class="suite-card">
+        <div class="suite-card-left">
           <div class="suite-icon"><i class="fa-solid fa-headphones"></i></div>
           <div>
-            <strong style="color: #0F172A; font-size: 1rem;">1. Audiobook Narrado de Hábitos Noturnos e Sono Blindado (MP3)</strong>
-            <p style="margin: 4px 0 0; font-size: 0.9rem; color: #64748B;">Guia em áudio de 20 minutos com frequência relaxante para desligar a mente de preocupações antes de dormir.</p>
+            <strong style="color: #0F172A;">1. Audiobook Narrado de Hábitos Noturnos e Sono Blindado (MP3)</strong>
+            <p style="margin: 3px 0 0; font-size: 0.85rem; color: #64748B;">Guia em áudio de 20 minutos com frequência relaxante para desligar a mente de preocupações antes de dormir.</p>
           </div>
         </div>
-        <div class="suite-card">
+        <a href="complementos/1_audiobook_habitos_noturnos.html" class="btn-access" target="_blank">
+          <i class="fa-solid fa-play"></i> Abrir Áudio
+        </a>
+      </div>
+
+      <div class="suite-card">
+        <div class="suite-card-left">
           <div class="suite-icon"><i class="fa-solid fa-book-bookmark"></i></div>
           <div>
-            <strong style="color: #0F172A; font-size: 1rem;">2. Caderno Digital de Registro de Milagres & Respostas (PDF Interativo)</strong>
-            <p style="margin: 4px 0 0; font-size: 0.9rem; color: #64748B;">Espaço estruturado para preencher suas 365 orações do ano com campo de data da resposta.</p>
+            <strong style="color: #0F172A;">2. Caderno Digital de Registro de Milagres & Respostas (PDF Interativo)</strong>
+            <p style="margin: 3px 0 0; font-size: 0.85rem; color: #64748B;">Espaço estruturado para preencher suas 365 orações do ano com campo de data da resposta.</p>
           </div>
         </div>
-        <div class="suite-card">
+        <a href="complementos/2_caderno_digital_milagres.html" class="btn-access" target="_blank">
+          <i class="fa-solid fa-pen-nib"></i> Abrir Caderno
+        </a>
+      </div>
+
+      <div class="suite-card">
+        <div class="suite-card-left">
           <div class="suite-icon"><i class="fa-solid fa-calendar-check"></i></div>
           <div>
-            <strong style="color: #0F172A; font-size: 1rem;">3. Planner Devocional de 52 Semanas (Pronto para Imprimir)</strong>
-            <p style="margin: 4px 0 0; font-size: 0.9rem; color: #64748B;">Planejador visual semanal para organizar leitura da Bíblia de Gênesis a Apocalipse e motivos de intercessão.</p>
+            <strong style="color: #0F172A;">3. Planner Devocional de 52 Semanas (Pronto para Imprimir)</strong>
+            <p style="margin: 3px 0 0; font-size: 0.85rem; color: #64748B;">Planejador visual semanal para organizar leitura da Bíblia de Gênesis a Apocalipse e motivos de intercessão.</p>
           </div>
         </div>
-        <div class="suite-card">
+        <a href="complementos/3_planner_devocional_52_semanas.html" class="btn-access" target="_blank">
+          <i class="fa-solid fa-calendar-days"></i> Abrir Planner
+        </a>
+      </div>
+
+      <div class="suite-card">
+        <div class="suite-card-left">
           <div class="suite-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
           <div>
-            <strong style="color: #0F172A; font-size: 1rem;">4. Coleção de 30 Wallpapers de Promessas Bíblicas em Alta Definição</strong>
-            <p style="margin: 4px 0 0; font-size: 0.9rem; color: #64748B;">30 imagens verticais sofisticadas para tela de bloqueio com versículos de autoridade e coragem.</p>
+            <strong style="color: #0F172A;">4. Coleção de 30 Wallpapers de Promessas Bíblicas em Alta Definição</strong>
+            <p style="margin: 3px 0 0; font-size: 0.85rem; color: #64748B;">30 imagens verticais sofisticadas para tela de bloqueio com versículos de autoridade e coragem.</p>
           </div>
         </div>
-        <div class="suite-card">
+        <a href="complementos/4_wallpapers_promessas_biblicas.html" class="btn-access" target="_blank">
+          <i class="fa-solid fa-images"></i> Baixar Imagens
+        </a>
+      </div>
+
+      <div class="suite-card">
+        <div class="suite-card-left">
           <div class="suite-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
           <div>
-            <strong style="color: #0F172A; font-size: 1rem;">5. Áudio de Reprogramação Matinal: 7 Minutos de Oração de Autoridade (MP3)</strong>
-            <p style="margin: 4px 0 0; font-size: 0.9rem; color: #64748B;">Clamor matinal guiado em ritmo firme para ser executado assim que levantar da cama.</p>
+            <strong style="color: #0F172A;">5. Áudio de Reprogramação Matinal: 7 Minutos de Oração de Autoridade (MP3)</strong>
+            <p style="margin: 3px 0 0; font-size: 0.85rem; color: #64748B;">Clamor matinal guiado em ritmo firme para ser executado assim que levantar da cama.</p>
           </div>
         </div>
+        <a href="complementos/5_audio_reprogramacao_matinal.html" class="btn-access" target="_blank">
+          <i class="fa-solid fa-play"></i> Ouvir Áudio
+        </a>
       </div>
     </div>
 
     <div style="text-align: center; border-top: 1px solid var(--border); padding-top: 30px; color: #94A3B8; font-size: 0.85rem; font-family: 'Inter', sans-serif;">
       © 365 Dias de Oração Poderosa • Kit Completo • Todos os direitos reservados.
     </div>
+
   </div>
+
+  <script>
+    let currentFontSize = 17;
+
+    function ajustarFonte(delta) {
+      currentFontSize = Math.max(14, Math.min(24, currentFontSize + delta));
+      document.documentElement.style.setProperty('--font-size-base', currentFontSize + 'px');
+    }
+
+    function toggleModoEscuro() {
+      document.body.classList.toggle('dark-theme');
+    }
+
+    function baixarArquivoOffline() {
+      const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = '365_dias_oracao_poderosa_manual_completo.html';
+      a.click();
+    }
+  </script>
 
 </body>
 </html>
