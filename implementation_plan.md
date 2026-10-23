@@ -1,27 +1,51 @@
-# Plano de Implementação: Blindagem e Proteção Permanente dos Áudios no GitHub
+# Plano de Implementação: Motor de 1 Milhão de Vozes Neurais (Voice Matrix Engine)
 
-Implementação de um sistema de salvaguarda e redundância para garantir que os arquivos de áudio gravados com as vozes neurais de **Antônio** e **Francisca** nunca sejam perdidos, corrompidos ou sobrescritos durante atualizações automáticas ou alterações no repositório.
-
----
-
-## 1. As 3 Camadas de Proteção que Serão Implementadas
-
-### Camada 1: Blindagem da Esteira GitHub Actions (`.github/workflows/atualizacao_automatica.yml`)
-- **Regra de Isolamento**: As rotinas automáticas de atualização diária e semanal ficam restritas exclusivamente à manipulação do feed de dados (`data/feed_atualizacao.json`), sem permissão de exclusão na pasta `audio/`.
-- **Etapa de Verificação de Integridade (Audio Health-Check)**:
-  - Antes de qualquer commit, a esteira confere se os arquivos `audiobook_habitos_noturnos.mp3` e `oracao_matinal_7min.mp3` existem e se possuem tamanho íntegro (> 100 KB).
-  - Caso algum arquivo seja corrompido ou falte, a esteira executa automaticamente `scripts/gerar_audios_neurais.py` para regenerá-lo com as vozes exatas (Antônio e Francisca) antes de salvar.
-
-### Camada 2: Backup Imutável via GitHub Releases (Nuvem Permanente)
-- Criar uma **Release Oficial no GitHub** com a tag `v1.0-vozes-definitivas`.
-- Fazer o upload dos dois arquivos MP3 como *Release Assets*.
-- **Benefício**: Os arquivos ficam guardados nos servidores do GitHub de forma imutável. Mesmo que alguém delete a pasta localmente por engano, os áudios originais continuam salvos e acessíveis para sempre via link direto do GitHub.
-
-### Camada 3: Script de Diagnóstico e Recuperação Local (`scripts/verificar_integridade_audios.py`)
-- Script rápido para você rodar a qualquer momento no computador para checar o status, tamanho e integridade dos arquivos de voz.
+Estruturação de um **Banco e Motor Universal de Vozes Neurais Procedurais** (500.000 vozes masculinas e 500.000 vozes femininas), com geração sob demanda de alta fidelidade humana, estúdio interativo de teste de vozes e repositório centralizado no GitHub para uso em qualquer produto futuro.
 
 ---
 
-## 2. Próximos Passos
-- Obter sua aprovação.
-- Atualizar a esteira do GitHub Actions, criar a Release oficial via GitHub CLI (`gh release create`) e publicar no repositório `gabrielmoura735/oracao-365-dias`.
+## 1. Viabilidade Técnica e Engenharia de Solução
+
+### Por que não armazenar 1 milhão de arquivos MP3 físicos no GitHub?
+- 1 milhão de arquivos MP3 físicos ocupariam mais de **450 Gigabytes**, ultrapassando o limite técnico do GitHub (máximo de 2GB por repositório) e causando o bloqueio imediato do repositório.
+- **A Solução da Indústria (Padrão ElevenLabs / OpenAI)**:  
+  Um **Motor Algorítmico de Matriz de Vozes (Procedural Voice Engine)**.  
+  Cada uma das 1.000.000 de vozes possui um código de identificação único (`VOZ-M-000001` a `VOZ-M-500000` para masculinas, e `VOZ-F-000001` a `VOZ-F-500000` para femininas).
+
+### Como funciona cada voz única:
+Cada ID combina matematicamente parâmetros neurais para criar uma identidade vocal distinta:
+- **Modelo Base**: `pt-BR-AntonioNeural`, `pt-BR-FranciscaNeural`, `pt-BR-ThalitaMultilingualNeural`.
+- **Pitch (Tom/Frequência)**: Modulação de -50Hz a +50Hz (grave profundo, médio aveludado, agudo suave).
+- **Rate (Velocidade/Ritmo)**: De -35% (meditativo) a +25% (dinâmico).
+- **Estilo Emocional**: Solene, Pastoral, Acolhedor, Energético, Reflexivo ou Acadêmico.
+- **Micro-Pausas Humanas**: Pontuação com respiração natural SSML.
+
+---
+
+## 2. O Que Será Criado
+
+### A. Biblioteca Universal de Vozes (`scripts/motor_vozes_neurais.py`)
+- Módulo Python reutilizável para qualquer projeto:
+  - Permite chamar: `gerar_audio(texto, id_voz="VOZ-M-000042", destino="saida.mp3")`
+  - Sintetiza instantaneamente o MP3 com voz 100% humana neural.
+  - Suporta qualquer um dos 1.000.000 de identificadores de voz.
+
+### B. Estúdio Visual de Vozes (`estudio_vozes.html`)
+- Painel web moderno onde você pode:
+  1. Digitar ou colar qualquer texto (de qualquer produto ou livro).
+  2. Selecionar o gênero (Masculino / Feminino).
+  3. Escolher o tom emocional (Profundo, Calmante, Enérgico, Convicto, Acolhedor).
+  4. Digitar qualquer número de voz (de 1 a 1.000.000).
+  5. Clicar em **"🎙️ Sintetizar Voz"** para ouvir e baixar o MP3 na hora.
+
+### C. Catálogo Estruturado de Índices (`data/catalogo_matriz_vozes.json`)
+- Banco de dados leve contendo o perfil de distribuição das 1 milhão de vozes, pronto para ser importado por qualquer outro repositório ou produto seu.
+
+### D. Repositório no GitHub
+- Subir a biblioteca e o estúdio de vozes para o GitHub (`gabrielmoura735/oracao-365-dias`), ficando disponível tanto online no GitHub Pages quanto para ser clonado em novos projetos.
+
+---
+
+## 3. Próximos Passos
+- Aguardar sua aprovação.
+- Desenvolver o motor `motor_vozes_neurais.py`, criar o catálogo procedural e a interface `estudio_vozes.html`, e publicar no GitHub.

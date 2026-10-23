@@ -1,0 +1,40 @@
+{
+  "nome_modulo": "Motor Neural de Matriz Universal de Vozes (Voice Matrix Engine)",
+  "versao": "v2.0-neural-procedural",
+  "total_vozes_disponiveis": 1000000,
+  "distribuicao_genero": {
+    "vozes_masculinas": 500000,
+    "prefixo_masculino": "VOZ-M-000001 a VOZ-M-500000",
+    "vozes_femininas": 500000,
+    "prefixo_feminino": "VOZ-F-000001 a VOZ-F-500000"
+  },
+  "modelos_neurais_base": [
+    "pt-BR-AntonioNeural (Masculino - Estúdio Brasil)",
+    "pt-BR-FranciscaNeural (Feminino - Estúdio Brasil)",
+    "pt-BR-ThalitaMultilingualNeural (Feminino Expressivo)"
+  ],
+  "parametros_modulacao": {
+    "pitch_hz": "Variação granular de -30Hz a +30Hz",
+    "rate_percent": "Variação de cadência de -25% a +25%",
+    "volume_percent": "Variação de amplitude de -10% a +10%"
+  },
+  "faixas_tematicas_masculinas": [
+    { "faixa": "VOZ-M-000001 a VOZ-M-100000", "arquetipo": "Orações de Autoridade & Salmos de Batalha", "tom": "Firme & Reverente" },
+    { "faixa": "VOZ-M-100001 a VOZ-M-200000", "arquetipo": "Hábitos Noturnos & Sono Blindado", "tom": "Calmo, Acolhedor & Pausado" },
+    { "faixa": "VOZ-M-200001 a VOZ-M-300000", "arquetipo": "Disciplina Diária & Mentalidade Inabalável", "tom": "Enérgico & Inspirador" },
+    { "faixa": "VOZ-M-300001 a VOZ-M-400000", "arquetipo": "Liderança, Finanças & Propósito no Trabalho", "tom": "Corporativo & Estratégico" },
+    { "faixa": "VOZ-M-400001 a VOZ-M-500000", "arquetipo": "Família, Paternidade & Alinhamento Devocional", "tom": "Pastoral & Protetor" }
+  ],
+  "faixas_tematicas_femininas": [
+    { "faixa": "VOZ-F-000001 a VOZ-F-100000", "arquetipo": "Clamor Matinal & Oração Profética", "tom": "Inspiradora & Convicto" },
+    { "faixa": "VOZ-F-100001 a VOZ-F-200000", "arquetipo": "Paz Interior, Saúde das Emoções & Consolo", "tom": "Serena & Terapêutica" },
+    { "faixa": "VOZ-F-200001 a VOZ-F-300000", "arquetipo": "Maternidade, Lar Abençoado & Intercessão Familiar", "tom": "Maternal & Amoroso" },
+    { "faixa": "VOZ-F-300001 a VOZ-F-400000", "arquetipo": "Gratidão, Louvor & Adoração Diária", "tom": "Suave & Luminosa" },
+    { "faixa": "VOZ-F-400001 a VOZ-F-500000", "arquetipo": "Sabedoria Prática & Organização de Vida", "tom": "Equilibrada & Instrutiva" }
+  ],
+  "instrucoes_de_uso_em_outros_produtos": {
+    "import_python": "from scripts.motor_vozes_neurais import sintetizar_voz",
+    "exemplo_chamada": "sintetizar_voz(texto='Seu texto aqui', id_voz='VOZ-M-000042', caminho_destino='saida.mp3')",
+    "linha_de_comando": "python scripts/motor_vozes_neurais.py --id VOZ-F-000100 --texto 'Olá' --output audio.mp3"
+  }
+}
