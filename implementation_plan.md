@@ -1,51 +1,62 @@
-# Plano de Implementação: Motor de 1 Milhão de Vozes Neurais (Voice Matrix Engine)
+# Plano de Implementação: Repositório Dedicado "vozes" e Humanização Vocal
 
-Estruturação de um **Banco e Motor Universal de Vozes Neurais Procedurais** (500.000 vozes masculinas e 500.000 vozes femininas), com geração sob demanda de alta fidelidade humana, estúdio interativo de teste de vozes e repositório centralizado no GitHub para uso em qualquer produto futuro.
-
----
-
-## 1. Viabilidade Técnica e Engenharia de Solução
-
-### Por que não armazenar 1 milhão de arquivos MP3 físicos no GitHub?
-- 1 milhão de arquivos MP3 físicos ocupariam mais de **450 Gigabytes**, ultrapassando o limite técnico do GitHub (máximo de 2GB por repositório) e causando o bloqueio imediato do repositório.
-- **A Solução da Indústria (Padrão ElevenLabs / OpenAI)**:  
-  Um **Motor Algorítmico de Matriz de Vozes (Procedural Voice Engine)**.  
-  Cada uma das 1.000.000 de vozes possui um código de identificação único (`VOZ-M-000001` a `VOZ-M-500000` para masculinas, e `VOZ-F-000001` a `VOZ-F-500000` para femininas).
-
-### Como funciona cada voz única:
-Cada ID combina matematicamente parâmetros neurais para criar uma identidade vocal distinta:
-- **Modelo Base**: `pt-BR-AntonioNeural`, `pt-BR-FranciscaNeural`, `pt-BR-ThalitaMultilingualNeural`.
-- **Pitch (Tom/Frequência)**: Modulação de -50Hz a +50Hz (grave profundo, médio aveludado, agudo suave).
-- **Rate (Velocidade/Ritmo)**: De -35% (meditativo) a +25% (dinâmico).
-- **Estilo Emocional**: Solene, Pastoral, Acolhedor, Energético, Reflexivo ou Acadêmico.
-- **Micro-Pausas Humanas**: Pontuação com respiração natural SSML.
+Criação do repositório independente **`gabrielmoura735/vozes`**, estruturação do banco de vozes masculinas e femininas de alta fidelidade humana, inclusão de amostras reais em MP3 (eliminando qualquer sintetizador robótico do navegador) e integração pronta para importar em qualquer produto atual ou futuro.
 
 ---
 
-## 2. O Que Será Criado
+## 1. Por Que as Vozes Pareciam Robotizadas e Como Vamos Corrigir
 
-### A. Biblioteca Universal de Vozes (`scripts/motor_vozes_neurais.py`)
-- Módulo Python reutilizável para qualquer projeto:
-  - Permite chamar: `gerar_audio(texto, id_voz="VOZ-M-000042", destino="saida.mp3")`
-  - Sintetiza instantaneamente o MP3 com voz 100% humana neural.
-  - Suporta qualquer um dos 1.000.000 de identificadores de voz.
-
-### B. Estúdio Visual de Vozes (`estudio_vozes.html`)
-- Painel web moderno onde você pode:
-  1. Digitar ou colar qualquer texto (de qualquer produto ou livro).
-  2. Selecionar o gênero (Masculino / Feminino).
-  3. Escolher o tom emocional (Profundo, Calmante, Enérgico, Convicto, Acolhedor).
-  4. Digitar qualquer número de voz (de 1 a 1.000.000).
-  5. Clicar em **"🎙️ Sintetizar Voz"** para ouvir e baixar o MP3 na hora.
-
-### C. Catálogo Estruturado de Índices (`data/catalogo_matriz_vozes.json`)
-- Banco de dados leve contendo o perfil de distribuição das 1 milhão de vozes, pronto para ser importado por qualquer outro repositório ou produto seu.
-
-### D. Repositório no GitHub
-- Subir a biblioteca e o estúdio de vozes para o GitHub (`gabrielmoura735/oracao-365-dias`), ficando disponível tanto online no GitHub Pages quanto para ser clonado em novos projetos.
+1. **Eliminação do Leitor do Navegador**: No teste do navegador, o botão estava acionando a síntese interna do sistema operacional (`window.speechSynthesis`), que utiliza vozes antigas e mecânicas da máquina.
+2. **Motor de Humanização Acústica (Natural Audio Pipeline)**:
+   - Todo áudio será gerado e reproduzido como **arquivo MP3 real**, processado com entonação humana, pausas de respiração e modulação harmônica de estúdio.
+3. **Amostras Reais Pré-Gravadas**: Cada categoria de voz terá sua própria amostra de áudio MP3 real para você ouvir diretamente pelo player sem depender de sintetizador de navegador.
+4. **Suporte a Links de Vozes Reais**: O repositório terá um módulo aberto para receber links externos de vozes reais (caso você queira nos mandar links de locutores, referências do YouTube, Drive ou ElevenLabs para integrarmos).
 
 ---
 
-## 3. Próximos Passos
-- Aguardar sua aprovação.
-- Desenvolver o motor `motor_vozes_neurais.py`, criar o catálogo procedural e a interface `estudio_vozes.html`, e publicar no GitHub.
+## 2. Estrutura do Novo Repositório `vozes`
+
+Criar a pasta `c:\Users\User\Desktop\Projetos\vozes` e o repositório GitHub `gabrielmoura735/vozes`:
+
+```
+vozes/
+├── README.md                           # Guia de como usar o repositório em qualquer produto
+├── index.html                          # Catálogo & Player interativo online com áudios reais
+├── scripts/
+│   ├── motor_vozes.py                  # Script Python universal para gerar áudio em 1 clique
+│   ├── humanizar_audio.py              # Filtro de equalização, calor acústico e pausas naturais
+│   └── importar_vozes_externas.py      # Módulo para cadastrar links de vozes reais enviadas
+├── data/
+│   └── banco_vozes.json                # Catálogo das vozes masculinas e femininas por arquétipo
+└── amostras/                           # Arquivos MP3 reais demonstrativos de alta fidelidade
+    ├── voz_m_antonio_pastoral.mp3
+    ├── voz_m_narrador_epico.mp3
+    ├── voz_m_noturno_sereno.mp3
+    ├── voz_f_francisca_clamor.mp3
+    ├── voz_f_thalita_acolhedora.mp3
+    └── voz_f_suave_paz.mp3
+```
+
+---
+
+## 3. Como Você Irá Reutilizar Esse Repositório em Outros Projetos
+
+Com o repositório `vozes` no GitHub, em qualquer novo projeto ou produto que você criar, basta clonar ou importar o módulo:
+```python
+from scripts.motor_vozes import gerar_audio_humanizado
+
+gerar_audio_humanizado(
+    texto="Seu texto do produto aqui",
+    voz="antonio_pastoral", # ou qualquer voz do catálogo
+    saida="meu_produto.mp3"
+)
+```
+
+---
+
+## 4. Próximos Passos
+- Obter sua aprovação.
+- Criar a pasta local `c:\Users\User\Desktop\Projetos\vozes`.
+- Gerar as amostras reais em MP3, a interface do catálogo e o motor de humanização.
+- Criar e subir o repositório no seu GitHub (`gabrielmoura735/vozes`).
+- Se você tiver links de vozes reais que gostaria de adicionar como referência, pode enviar para incluirmos no banco!

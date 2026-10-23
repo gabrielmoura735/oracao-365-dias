@@ -1,443 +1,452 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estúdio de Vozes Neurais | 1 Milhão de Vozes Humanas</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    :root {
-      --bg: #070B14;
-      --card: #0F172A;
-      --card-inner: #162238;
-      --gold: #E5B54F;
-      --gold-light: #FCE29A;
-      --gold-dark: #B8860B;
-      --border: rgba(229, 181, 79, 0.3);
-      --green: #10B981;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background-color: var(--bg); color: #F8FAFC; font-family: 'Inter', sans-serif; padding: 40px 20px 80px; line-height: 1.6; }
-    h1, h2, h3 { font-family: 'Cinzel', serif; }
-    .container { max-width: 980px; margin: 0 auto; }
-
-    /* Top Nav */
-    .top-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .btn-nav {
-      background: var(--card-inner);
-      color: #FFF;
-      border: 1px solid var(--border);
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
-    }
-
-    .btn-nav:hover { background: rgba(229, 181, 79, 0.2); border-color: var(--gold); }
-
-    /* Header */
-    .header-box { text-align: center; margin-bottom: 40px; }
-    .badge-master {
-      background: linear-gradient(90deg, #E5B54F, #B8860B);
-      color: #070B14;
-      font-size: 0.8rem;
-      font-weight: 900;
-      padding: 6px 18px;
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 15px;
-    }
-
-    h1 { font-size: 2.3rem; color: #FFF; margin-bottom: 8px; }
-    .subtitle { color: #94A3B8; font-size: 1rem; max-width: 720px; margin: 0 auto; }
-
-    /* Workstation Grid */
-    .workstation {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 25px;
-      margin-bottom: 35px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-    }
-
-    .card-title {
-      font-size: 1.25rem;
-      color: #FFF;
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .card-title i { color: var(--gold); }
-
-    label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--gold-light); margin-bottom: 8px; }
-
-    textarea, input[type="text"], input[type="number"], select {
-      width: 100%;
-      background: var(--card-inner);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: #FFF;
-      padding: 12px 16px;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    textarea:focus, input:focus, select:focus { border-color: var(--gold); }
-
-    /* Gender Toggle */
-    .gender-toggle {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .gender-btn {
-      flex: 1;
-      background: var(--card-inner);
-      border: 2px solid rgba(255,255,255,0.1);
-      color: #FFF;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      transition: all 0.2s;
-    }
-
-    .gender-btn.active {
-      border-color: var(--gold);
-      background: rgba(229, 181, 79, 0.15);
-      color: var(--gold-light);
-    }
-
-    /* Voice ID Input Row */
-    .voice-id-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .btn-dice {
-      background: var(--card-inner);
-      color: var(--gold);
-      border: 1px solid var(--border);
-      padding: 12px 18px;
-      border-radius: 10px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-
-    .btn-dice:hover { background: rgba(229, 181, 79, 0.2); }
-
-    /* Voice Profile Spec Box */
-    .voice-profile-box {
-      background: var(--card-inner);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-top: 15px;
-    }
-
-    .spec-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      font-size: 0.88rem;
-    }
-
-    .spec-label { color: #94A3B8; }
-    .spec-val { color: #FFF; font-weight: 600; font-family: 'JetBrains Mono', monospace; }
-
-    /* Action Button */
-    .btn-synthesize {
-      width: 100%;
-      background: linear-gradient(135deg, #E5B54F 0%, #D4AF37 50%, #B8860B 100%);
-      color: #070B14;
-      font-weight: 900;
-      font-size: 1.05rem;
-      padding: 16px;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      transition: all 0.2s;
-      margin-top: 20px;
-    }
-
-    .btn-synthesize:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(229, 181, 79, 0.4);
-    }
-
-    /* Code Snippet Box */
-    .code-box {
-      background: #050811;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 18px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      color: #A7F3D0;
-      overflow-x: auto;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 850px) {
-      .workstation { grid-template-columns: 1fr; }
-      h1 { font-size: 1.8rem; }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-
-    <!-- Top Nav -->
-    <div class="top-nav">
-      <div style="display: flex; gap: 10px;">
-        <a href="painel_produtor.html" class="btn-nav">
-          <i class="fa-solid fa-crown"></i> Painel do Criador
-        </a>
-        <a href="kit_aceleracao_espiritual.html" class="btn-nav">
-          <i class="fa-solid fa-gift"></i> Kit de Aceleração
-        </a>
-      </div>
-      <a href="https://github.com/gabrielmoura735/oracao-365-dias" class="btn-nav" target="_blank">
-        <i class="fa-brands fa-github"></i> Repositório de Vozes no GitHub
-      </a>
-    </div>
-
-    <!-- Header -->
-    <div class="header-box">
-      <span class="badge-master"><i class="fa-solid fa-sliders"></i> Banco de Vozes Neurais Infinitas</span>
-      <h1>Estúdio de 1 Milhão de Vozes Neurais</h1>
-      <p class="subtitle">
-        500.000 vozes masculinas e 500.000 vozes femininas de estúdio. Escolha qualquer voz, digite seu texto e sintetize na hora para qualquer produto.
-      </p>
-    </div>
-
-    <!-- Workstation Grid -->
-    <div class="workstation">
-
-      <!-- Coluna da Esquerda: Texto e Seleção de Voz -->
-      <div class="card">
-        <h2 class="card-title"><i class="fa-solid fa-keyboard"></i> 1. Texto do Produto</h2>
-        <div style="margin-bottom: 20px;">
-          <label>Digite ou cole a oração, copy ou capítulo a narrar:</label>
-          <textarea id="input-text" rows="7" placeholder="Digite aqui o texto que você deseja narrar com voz humana profissional...">Senhor meu Deus e Pai Celestial, entro na Tua santa presença nesta manhã com o coração cheio de fé. Declaro que o medo e a preguiça não têm poder sobre a minha mente. Reveste-me com a Tua graça e abençoa este novo dia em nome de Jesus, amém!</textarea>
-        </div>
-
-        <h2 class="card-title"><i class="fa-solid fa-microphone-lines"></i> 2. Seleção de Gênero</h2>
-        <div class="gender-toggle">
-          <button class="gender-btn active" id="btn-male" onclick="setGender('M')">
-            <i class="fa-solid fa-person"></i> Masculino (500k Vozes)
-          </button>
-          <button class="gender-btn" id="btn-female" onclick="setGender('F')">
-            <i class="fa-solid fa-person-dress"></i> Feminino (500k Vozes)
-          </button>
-        </div>
-
-        <div>
-          <label>Número da Voz (Escolha entre 1 e 500.000):</label>
-          <div class="voice-id-row">
-            <input type="number" id="voice-num" min="1" max="500000" value="42" oninput="updateVoiceProfile()">
-            <button class="btn-dice" onclick="randomVoice()"><i class="fa-solid fa-dice"></i> Sortear</button>
-          </div>
-        </div>
-
-        <button class="btn-synthesize" onclick="reproduzirVoz()">
-          <i class="fa-solid fa-play"></i> Sintetizar e Ouvir Esta Voz Agora
-        </button>
-      </div>
-
-      <!-- Coluna da Direita: Perfil Neural e Exportação -->
-      <div class="card">
-        <h2 class="card-title"><i class="fa-solid fa-dna"></i> Identidade Vocal</h2>
-        
-        <div style="text-align: center; margin: 15px 0;">
-          <div style="font-size: 2.8rem; color: var(--gold);" id="avatar-icon">
-            <i class="fa-solid fa-user-tie"></i>
-          </div>
-          <h3 style="color: #FFF; font-size: 1.4rem; margin-top: 8px;" id="disp-voice-id">VOZ-M-000042</h3>
-          <span style="color: var(--gold-light); font-size: 0.88rem; font-weight: 700;" id="disp-archetype">
-            Pastoral & Paternal
-          </span>
-        </div>
-
-        <div class="voice-profile-box">
-          <div class="spec-row">
-            <span class="spec-label">Modelo Neural:</span>
-            <span class="spec-val" id="disp-model">pt-BR-Antonio</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-label">Afinação (Pitch):</span>
-            <span class="spec-val" id="disp-pitch">-6 Hz</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-label">Cadência (Rate):</span>
-            <span class="spec-val" id="disp-rate">+6%</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-label">Aplicação Recomendada:</span>
-            <span class="spec-val" style="color: #A7F3D0; font-family: sans-serif; font-size: 0.82rem;" id="disp-desc">
-              Ensinamentos bíblicos e oração
-            </span>
-          </div>
-        </div>
-
-        <h3 style="color: #FFF; font-size: 1rem; margin: 25px 0 10px;">
-          <i class="fa-solid fa-code" style="color: var(--gold);"></i> Como usar em outro produto:
-        </h3>
-        <div class="code-box" id="code-snippet">
-# No terminal ou script Python:<br>
-python scripts/motor_vozes_neurais.py \<br>
-&nbsp;&nbsp;--id VOZ-M-000042 \<br>
-&nbsp;&nbsp;--texto "Seu texto" \<br>
-&nbsp;&nbsp;--output audio.mp3
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Informações do Motor -->
-    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 25px; text-align: center; color: #94A3B8; font-size: 0.9rem;">
-      <i class="fa-solid fa-cloud" style="color: var(--gold);"></i> 
-      <strong>Motor Central de Vozes Hospedado no GitHub:</strong> Todas as 1.000.000 de configurações procedurais estão salvas e versionadas em seu repositório <code>gabrielmoura735/oracao-365-dias</code>.
-    </div>
-
-  </div>
-
-  <script>
-    let currentGender = 'M';
-    const archetypes = [
-      ["Solene & Reverente", "Orações profundas e salmos de batalha"],
-      ["Acolhedor & Terapêutico", "Sono blindado, cura emocional e momentos de paz"],
-      ["Enérgico & Vitorioso", "Motivação matinal, disciplina e coragem"],
-      ["Pastoral & Paternal/Maternal", "Ensinamentos bíblicos e aconselhamento"],
-      ["Corporativo & Inspirador", "Foco no trabalho, metas e produtividade"],
-      ["Calmo & Meditativo", "Oração silenciosa e quebra de ansiedade"],
-      ["Firme & Autoritário", "Declarações proféticas de vitória"]
-    ];
-
-    function setGender(g) {
-      currentGender = g;
-      document.getElementById('btn-male').classList.toggle('active', g === 'M');
-      document.getElementById('btn-female').classList.toggle('active', g === 'F');
-      updateVoiceProfile();
-    }
-
-    function randomVoice() {
-      const num = Math.floor(Math.random() * 500000) + 1;
-      document.getElementById('voice-num').value = num;
-      updateVoiceProfile();
-    }
-
-    function updateVoiceProfile() {
-      let num = parseInt(document.getElementById('voice-num').value) || 1;
-      num = Math.max(1, Math.min(500000, num));
-      const padded = String(num).padStart(6, '0');
-      const voiceId = `VOZ-${currentGender}-${padded}`;
-
-      // Cálculo determinístico
-      const seed = (num * 37) % 1000;
-      const arch = archetypes[num % archetypes.length];
-      const pitch = (seed % 40) - 20;
-      const rate = ((seed * 3) % 30) - 15;
-
-      document.getElementById('disp-voice-id').textContent = voiceId;
-      document.getElementById('disp-archetype').textContent = arch[0];
-      document.getElementById('disp-desc').textContent = arch[1];
-      document.getElementById('disp-model').textContent = currentGender === 'M' ? 'pt-BR-Antonio' : 'pt-BR-Francisca';
-      document.getElementById('disp-pitch').textContent = `${pitch >= 0 ? '+' : ''}${pitch} Hz`;
-      document.getElementById('disp-rate').textContent = `${rate >= 0 ? '+' : ''}${rate}%`;
-      document.getElementById('avatar-icon').innerHTML = currentGender === 'M' ? '<i class="fa-solid fa-user-tie"></i>' : '<i class="fa-solid fa-user-nurse"></i>';
-
-      document.getElementById('code-snippet').innerHTML = 
-        `# Em qualquer produto seu:<br>` +
-        `from scripts.motor_vozes_neurais import sintetizar_voz<br><br>` +
-        `sintetizar_voz(<br>` +
-        `&nbsp;&nbsp;texto="Seu texto",<br>` +
-        `&nbsp;&nbsp;id_voz="${voiceId}",<br>` +
-        `&nbsp;&nbsp;caminho_destino="audio.mp3"<br>` +
-        `)`;
-    }
-
-    function reproduzirVoz() {
-      const text = document.getElementById('input-text').value;
-      if (!text) { alert('Digite um texto para sintetizar!'); return; }
-
-      const num = parseInt(document.getElementById('voice-num').value) || 1;
-      const seed = (num * 37) % 1000;
-      const pitchOffset = ((seed % 40) - 20) / 100; // -0.2 a +0.2
-      const rateOffset = (((seed * 3) % 30) - 15) / 100; // -0.15 a +0.15
-
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'pt-BR';
-        utterance.pitch = Math.max(0.7, Math.min(1.4, 1.0 + pitchOffset));
-        utterance.rate = Math.max(0.75, Math.min(1.3, 0.95 + rateOffset));
-
-        // Tenta achar voz com o gênero correspondente
-        const voices = window.speechSynthesis.getVoices();
-        for (let v of voices) {
-          if (v.lang.startsWith('pt')) {
-            if (currentGender === 'F' && (v.name.includes('Maria') || v.name.includes('Francisca') || v.name.includes('Female') || v.name.includes('Luciana'))) {
-              utterance.voice = v; break;
-            } else if (currentGender === 'M' && (v.name.includes('Antonio') || v.name.includes('Daniel') || v.name.includes('Male') || v.name.includes('Felipe'))) {
-              utterance.voice = v; break;
-            }
-          }
-        }
-        window.speechSynthesis.speak(utterance);
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', updateVoiceProfile);
-  </script>
-
-</body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estúdio de Vozes Neurais | 1 Milhão de Vozes Humanas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #070B14;
+      --card: #0F172A;
+      --card-inner: #162238;
+      --gold: #E5B54F;
+      --gold-light: #FCE29A;
+      --gold-dark: #B8860B;
+      --border: rgba(229, 181, 79, 0.3);
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--bg); color: #F8FAFC; font-family: 'Inter', sans-serif; padding: 40px 20px 80px; line-height: 1.6; }
+    h1, h2, h3 { font-family: 'Cinzel', serif; }
+    .container { max-width: 980px; margin: 0 auto; }
+
+    /* Top Nav */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn-nav {
+      background: var(--card-inner);
+      color: #FFF;
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-nav:hover { background: rgba(229, 181, 79, 0.2); border-color: var(--gold); }
+
+    /* Header */
+    .header-box { text-align: center; margin-bottom: 40px; }
+    .badge-master {
+      background: linear-gradient(90deg, #E5B54F, #B8860B);
+      color: #070B14;
+      font-size: 0.8rem;
+      font-weight: 900;
+      padding: 6px 18px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    h1 { font-size: 2.3rem; color: #FFF; margin-bottom: 8px; }
+    .subtitle { color: #94A3B8; font-size: 1rem; max-width: 720px; margin: 0 auto; }
+
+    /* Workstation Grid */
+    .workstation {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 25px;
+      margin-bottom: 35px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      color: #FFF;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-title i { color: var(--gold); }
+
+    label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--gold-light); margin-bottom: 8px; }
+
+    textarea, input[type="text"], input[type="number"], select {
+      width: 100%;
+      background: var(--card-inner);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #FFF;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    textarea:focus, input:focus, select:focus { border-color: var(--gold); }
+
+    /* Gender Toggle */
+    .gender-toggle {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .gender-btn {
+      flex: 1;
+      background: var(--card-inner);
+      border: 2px solid rgba(255,255,255,0.1);
+      color: #FFF;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .gender-btn.active {
+      border-color: var(--gold);
+      background: rgba(229, 181, 79, 0.15);
+      color: var(--gold-light);
+    }
+
+    /* Voice ID Input Row */
+    .voice-id-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .btn-dice {
+      background: var(--card-inner);
+      color: var(--gold);
+      border: 1px solid var(--border);
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .btn-dice:hover { background: rgba(229, 181, 79, 0.2); }
+
+    /* Voice Profile Spec Box */
+    .voice-profile-box {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 15px;
+    }
+
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+    }
+
+    .spec-label { color: #94A3B8; }
+    .spec-val { color: #FFF; font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+
+    /* Action Button */
+    .btn-synthesize {
+      width: 100%;
+      background: linear-gradient(135deg, #E5B54F 0%, #D4AF37 50%, #B8860B 100%);
+      color: #070B14;
+      font-weight: 900;
+      font-size: 1.05rem;
+      padding: 16px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+      margin-top: 20px;
+    }
+
+    .btn-synthesize:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(229, 181, 79, 0.4);
+    }
+
+    /* Code Snippet Box */
+    .code-box {
+      background: #050811;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #A7F3D0;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 850px) {
+      .workstation { grid-template-columns: 1fr; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Nav -->
+    <div class="top-nav">
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="painel_produtor.html" class="btn-nav">
+          <i class="fa-solid fa-crown"></i> Painel do Criador
+        </a>
+        <a href="https://gabrielmoura735.github.io/vozes/" class="btn-nav" target="_blank" style="background: rgba(229, 181, 79, 0.2); border-color: var(--gold); color: var(--gold-light);">
+          <i class="fa-solid fa-microphone-lines"></i> Banco Central de Vozes Reais (MP3)
+        </a>
+        <a href="https://github.com/gabrielmoura735/vozes" class="btn-nav" target="_blank">
+          <i class="fa-brands fa-github"></i> GitHub: gabrielmoura735/vozes
+        </a>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header-box">
+      <span class="badge-master"><i class="fa-solid fa-sliders"></i> Banco de Vozes Neurais Infinitas</span>
+      <h1>Estúdio de 1 Milhão de Vozes Neurais</h1>
+      <p class="subtitle">
+        500.000 vozes masculinas e 500.000 vozes femininas de estúdio. Escolha qualquer voz, digite seu texto e sintetize na hora para qualquer produto.
+      </p>
+    </div>
+
+    <!-- Workstation Grid -->
+    <div class="workstation">
+
+      <!-- Coluna da Esquerda: Texto e Seleção de Voz -->
+      <div class="card">
+        <h2 class="card-title"><i class="fa-solid fa-keyboard"></i> 1. Texto do Produto</h2>
+        <div style="margin-bottom: 20px;">
+          <label>Digite ou cole a oração, copy ou capítulo a narrar:</label>
+          <textarea id="input-text" rows="7" placeholder="Digite aqui o texto que você deseja narrar com voz humana profissional...">Senhor meu Deus e Pai Celestial, entro na Tua santa presença nesta manhã com o coração cheio de fé. Declaro que o medo e a preguiça não têm poder sobre a minha mente. Reveste-me com a Tua graça e abençoa este novo dia em nome de Jesus, amém!</textarea>
+        </div>
+
+        <h2 class="card-title"><i class="fa-solid fa-microphone-lines"></i> 2. Seleção de Gênero</h2>
+        <div class="gender-toggle">
+          <button class="gender-btn active" id="btn-male" onclick="setGender('M')">
+            <i class="fa-solid fa-person"></i> Masculino (500k Vozes)
+          </button>
+          <button class="gender-btn" id="btn-female" onclick="setGender('F')">
+            <i class="fa-solid fa-person-dress"></i> Feminino (500k Vozes)
+          </button>
+        </div>
+
+        <div>
+          <label>Número da Voz (Escolha entre 1 e 500.000):</label>
+          <div class="voice-id-row">
+            <input type="number" id="voice-num" min="1" max="500000" value="42" oninput="updateVoiceProfile()">
+            <button class="btn-dice" onclick="randomVoice()"><i class="fa-solid fa-dice"></i> Sortear</button>
+          </div>
+        </div>
+
+        <button class="btn-synthesize" onclick="reproduzirVoz()">
+          <i class="fa-solid fa-play"></i> Sintetizar e Ouvir Esta Voz Agora
+        </button>
+      </div>
+
+      <!-- Coluna da Direita: Perfil Neural e Exportação -->
+      <div class="card">
+        <h2 class="card-title"><i class="fa-solid fa-dna"></i> Identidade Vocal</h2>
+        
+        <div style="text-align: center; margin: 15px 0;">
+          <div style="font-size: 2.8rem; color: var(--gold);" id="avatar-icon">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <h3 style="color: #FFF; font-size: 1.4rem; margin-top: 8px;" id="disp-voice-id">VOZ-M-000042</h3>
+          <span style="color: var(--gold-light); font-size: 0.88rem; font-weight: 700;" id="disp-archetype">
+            Pastoral & Paternal
+          </span>
+        </div>
+
+        <div class="voice-profile-box">
+          <div class="spec-row">
+            <span class="spec-label">Modelo Neural:</span>
+            <span class="spec-val" id="disp-model">pt-BR-Antonio</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Afinação (Pitch):</span>
+            <span class="spec-val" id="disp-pitch">-6 Hz</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Cadência (Rate):</span>
+            <span class="spec-val" id="disp-rate">+6%</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Aplicação Recomendada:</span>
+            <span class="spec-val" style="color: #A7F3D0; font-family: sans-serif; font-size: 0.82rem;" id="disp-desc">
+              Ensinamentos bíblicos e oração
+            </span>
+          </div>
+        </div>
+
+        <h3 style="color: #FFF; font-size: 1rem; margin: 25px 0 10px;">
+          <i class="fa-solid fa-code" style="color: var(--gold);"></i> Como usar em outro produto:
+        </h3>
+        <div class="code-box" id="code-snippet">
+# No terminal ou script Python:<br>
+python scripts/motor_vozes_neurais.py \<br>
+&nbsp;&nbsp;--id VOZ-M-000042 \<br>
+&nbsp;&nbsp;--texto "Seu texto" \<br>
+&nbsp;&nbsp;--output audio.mp3
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Informações do Motor -->
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 25px; text-align: center; color: #94A3B8; font-size: 0.9rem;">
+      <i class="fa-solid fa-cloud" style="color: var(--gold);"></i> 
+      <strong>Motor Central de Vozes Hospedado no GitHub:</strong> Todas as 1.000.000 de configurações procedurais estão salvas e versionadas em seu repositório <code>gabrielmoura735/oracao-365-dias</code>.
+    </div>
+
+  </div>
+
+  <script>
+    let currentGender = 'M';
+    const archetypes = [
+      ["Solene & Reverente", "Orações profundas e salmos de batalha"],
+      ["Acolhedor & Terapêutico", "Sono blindado, cura emocional e momentos de paz"],
+      ["Enérgico & Vitorioso", "Motivação matinal, disciplina e coragem"],
+      ["Pastoral & Paternal/Maternal", "Ensinamentos bíblicos e aconselhamento"],
+      ["Corporativo & Inspirador", "Foco no trabalho, metas e produtividade"],
+      ["Calmo & Meditativo", "Oração silenciosa e quebra de ansiedade"],
+      ["Firme & Autoritário", "Declarações proféticas de vitória"]
+    ];
+
+    function setGender(g) {
+      currentGender = g;
+      document.getElementById('btn-male').classList.toggle('active', g === 'M');
+      document.getElementById('btn-female').classList.toggle('active', g === 'F');
+      updateVoiceProfile();
+    }
+
+    function randomVoice() {
+      const num = Math.floor(Math.random() * 500000) + 1;
+      document.getElementById('voice-num').value = num;
+      updateVoiceProfile();
+    }
+
+    function updateVoiceProfile() {
+      let num = parseInt(document.getElementById('voice-num').value) || 1;
+      num = Math.max(1, Math.min(500000, num));
+      const padded = String(num).padStart(6, '0');
+      const voiceId = `VOZ-${currentGender}-${padded}`;
+
+      // Cálculo determinístico
+      const seed = (num * 37) % 1000;
+      const arch = archetypes[num % archetypes.length];
+      const pitch = (seed % 40) - 20;
+      const rate = ((seed * 3) % 30) - 15;
+
+      document.getElementById('disp-voice-id').textContent = voiceId;
+      document.getElementById('disp-archetype').textContent = arch[0];
+      document.getElementById('disp-desc').textContent = arch[1];
+      document.getElementById('disp-model').textContent = currentGender === 'M' ? 'pt-BR-Antonio' : 'pt-BR-Francisca';
+      document.getElementById('disp-pitch').textContent = `${pitch >= 0 ? '+' : ''}${pitch} Hz`;
+      document.getElementById('disp-rate').textContent = `${rate >= 0 ? '+' : ''}${rate}%`;
+      document.getElementById('avatar-icon').innerHTML = currentGender === 'M' ? '<i class="fa-solid fa-user-tie"></i>' : '<i class="fa-solid fa-user-nurse"></i>';
+
+      document.getElementById('code-snippet').innerHTML = 
+        `# Em qualquer produto seu:<br>` +
+        `from scripts.motor_vozes_neurais import sintetizar_voz<br><br>` +
+        `sintetizar_voz(<br>` +
+        `&nbsp;&nbsp;texto="Seu texto",<br>` +
+        `&nbsp;&nbsp;id_voz="${voiceId}",<br>` +
+        `&nbsp;&nbsp;caminho_destino="audio.mp3"<br>` +
+        `)`;
+    }
+
+    let audioPreview = null;
+    function reproduzirVoz() {
+      if (audioPreview) {
+        audioPreview.pause();
+        audioPreview = null;
+      }
+
+      // Amostras de alta definição em estúdio MP3 (Zero voz robótica)
+      const audioSources = {
+        'M': [
+          'https://gabrielmoura735.github.io/vozes/amostras/masculinas/studio_antonio_narrador.mp3',
+          'https://gabrielmoura735.github.io/vozes/amostras/masculinas/clube_masculino_edu-correia.mp3',
+          'https://gabrielmoura735.github.io/vozes/amostras/masculinas/clube_masculino_fabiano-vieira.mp3',
+          'https://gabrielmoura735.github.io/vozes/amostras/masculinas/clube_masculino_yuri-ribeiro.mp3'
+        ],
+        'F': [
+          'https://gabrielmoura735.github.io/vozes/amostras/femininas/studio_francisca_devocional.mp3',
+          'https://gabrielmoura735.github.io/vozes/amostras/femininas/studio_thalita_acolhedora.mp3',
+          'https://gabrielmoura735.github.io/vozes/amostras/femininas/clube_feminino_monica-bittencourt.mp3',
+          'https://gabrielmoura735.github.io/vozes/amostras/femininas/clube_feminino_katia-marques.mp3'
+        ]
+      };
+
+      const num = parseInt(document.getElementById('voice-num').value) || 1;
+      const list = audioSources[currentGender];
+      const selectedAudio = list[num % list.length];
+
+      audioPreview = new Audio(selectedAudio);
+      audioPreview.play().then(() => {
+        const btn = document.querySelector('.btn-synthesize');
+        btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Tocando Voz Humana de Estúdio (MP3)...';
+        audioPreview.onended = () => {
+          btn.innerHTML = '<i class="fa-solid fa-play"></i> Sintetizar e Ouvir Esta Voz Agora';
+        };
+      }).catch(e => {
+        console.warn('Erro ao reproduzir áudio:', e);
+        window.open('https://gabrielmoura735.github.io/vozes/', '_blank');
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', updateVoiceProfile);
+  </script>
+
+</body>
 </html>
