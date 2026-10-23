@@ -6,42 +6,113 @@
   <title>5. Áudio de Reprogramação Matinal: 7 Minutos de Oração de Autoridade</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    body { background: #070B14; color: #F8FAFC; font-family: 'Inter', sans-serif; padding: 40px 20px; line-height: 1.7; }
-    .card { max-width: 780px; margin: 0 auto; background: #0F172A; border: 1px solid rgba(229,181,79,0.3); border-radius: 16px; padding: 40px; }
-    h1 { font-family: 'Cinzel', serif; color: #E5B54F; font-size: 1.85rem; margin-bottom: 15px; }
-    .player-box { background: #162238; border: 1px solid rgba(229,181,79,0.2); border-radius: 14px; padding: 30px; margin: 25px 0; text-align: center; }
-    .btn-play { background: linear-gradient(135deg, #E5B54F, #B8860B); color: #070B14; border: none; padding: 14px 36px; border-radius: 50px; font-weight: 800; font-size: 1.05rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: all 0.2s; }
-    .btn-play:hover { transform: scale(1.04); background: linear-gradient(135deg, #FCE29A, #E5B54F); }
-    .quote-box { background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10B981; padding: 18px; border-radius: 0 8px 8px 0; font-style: italic; margin: 25px 0; color: #A7F3D0; }
+    :root {
+      --bg: #070B14;
+      --card: #0F172A;
+      --gold: #E5B54F;
+      --gold-light: #FCE29A;
+      --border: rgba(229,181,79,0.3);
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: #F8FAFC; font-family: 'Inter', sans-serif; padding: 40px 20px 80px; line-height: 1.7; }
+    h1, h2, h3 { font-family: 'Cinzel', serif; }
+    .card { max-width: 780px; margin: 0 auto; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+    h1 { color: var(--gold); font-size: 1.85rem; margin-bottom: 12px; }
+
+    /* Player Box */
+    .player-box {
+      background: linear-gradient(135deg, #162238 0%, #0F172A 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 30px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .player-icon {
+      font-size: 3.5rem;
+      color: var(--gold);
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 15px rgba(229,181,79,0.3));
+    }
+
+    audio {
+      width: 100%;
+      margin: 20px 0 15px;
+      outline: none;
+      filter: invert(0.9) hue-rotate(180deg);
+    }
+
+    .btn-download-mp3 {
+      background: linear-gradient(135deg, #E5B54F, #B8860B);
+      color: #070B14;
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-download-mp3:hover {
+      background: linear-gradient(135deg, #FCE29A, #E5B54F);
+      transform: scale(1.03);
+    }
+
+    .quote-box {
+      background: rgba(16, 185, 129, 0.1);
+      border-left: 4px solid var(--green);
+      padding: 20px;
+      border-radius: 0 10px 10px 0;
+      font-style: italic;
+      margin: 25px 0;
+      color: #A7F3D0;
+      font-size: 1.05rem;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <div style="margin-bottom: 15px;">
-      <a href="../kit_aceleracao_espiritual.html" style="color: #94A3B8; text-decoration: none; font-size: 0.85rem;">
+    <div style="margin-bottom: 20px;">
+      <a href="../kit_aceleracao_espiritual.html" style="color: #94A3B8; text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
         <i class="fa-solid fa-arrow-left"></i> Voltar ao Kit de Aceleração
       </a>
     </div>
 
-    <span style="color: #E5B54F; font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">Complemento VIP #5</span>
+    <span style="color: var(--gold); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+      Complemento VIP #5 • Gravação em Alta Definição
+    </span>
     <h1>Áudio: Reprogramação Matinal (7 Minutos de Autoridade)</h1>
-    <p style="color: #CBD5E1;">Clamor matinal guiado em ritmo firme para ser executado assim que levantar da cama.</p>
+    <p style="color: #CBD5E1;">
+      Clamor matinal guiado em ritmo firme de autoridade bíblica para ativar sua mente, blindar suas emoções e começar o dia com domínio próprio.
+    </p>
 
-    <!-- Player Interativo de Oração Matinal -->
+    <!-- PLAYER DE ÁUDIO REAL MP3 -->
     <div class="player-box">
-      <div style="font-size: 3rem; color: #E5B54F; margin-bottom: 12px;"><i class="fa-solid fa-bolt-lightning"></i></div>
-      <h3 style="color: #FFF; font-size: 1.25rem; margin-bottom: 6px;">Ativação Matinal dos Vencedores</h3>
-      <p style="color: #94A3B8; font-size: 0.88rem; margin-bottom: 20px;">Declarações bíblicas de autoridade, blindagem espiritual e clareza mental.</p>
+      <div class="player-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+      <h3 style="color: #FFF; font-size: 1.3rem; margin-bottom: 6px;">Ativação Matinal dos Vencedores</h3>
+      <p style="color: var(--gold-light); font-size: 0.88rem;">
+        <i class="fa-solid fa-circle-check"></i> Narração Humana Neural de Estúdio • Voz: Antônio (Estúdio Brasil)
+      </p>
 
-      <button class="btn-play" id="btn-audio" onclick="toggleMorningAudio()">
-        <i class="fa-solid fa-play" id="icon-play"></i> <span id="text-play">Iniciar Clamor Matinal (Voz Guiada)</span>
-      </button>
+      <audio controls preload="metadata">
+        <source src="../audio/oracao_matinal_7min.mp3" type="audio/mpeg">
+        Seu navegador não suporta a reprodução deste áudio.
+      </audio>
 
-      <div id="playing-status" style="margin-top: 15px; color: #10B981; font-size: 0.85rem; display: none;">
-        <i class="fa-solid fa-volume-high fa-beat"></i> Oração de autoridade em execução...
+      <div style="margin-top: 15px;">
+        <a href="../audio/oracao_matinal_7min.mp3" download="oracao_matinal_7min.mp3" class="btn-download-mp3">
+          <i class="fa-solid fa-download"></i> Baixar Arquivo MP3 para o Celular / PC
+        </a>
       </div>
     </div>
 
@@ -49,46 +120,12 @@
       "Deus não nos deu espírito de covardia, mas de poder, de amor e de equilíbrio mental." — 2 Timóteo 1:7
     </div>
 
-    <h3 style="color: #FFF; margin: 25px 0 12px; font-family: 'Cinzel', serif;">Roteiro de Declaração Matinal:</h3>
+    <h3 style="color: #FFF; margin: 30px 0 12px; font-size: 1.2rem;">Roteiro de Declaração Matinal:</h3>
     <ul style="padding-left: 20px; color: #CBD5E1; line-height: 1.8;">
       <li><strong>Consagração dos Olhos e Ouvidos:</strong> Rejeito toda distração e ruído deste mundo.</li>
       <li><strong>Blindagem dos Pensamentos:</strong> Nenhum pensamento de escassez, derrota ou medo terá poder sobre minhas ações.</li>
       <li><strong>Declaração de Prosperidade:</strong> Onde colocar as plantas dos meus pés, a bênção do Senhor se manifestará.</li>
     </ul>
   </div>
-
-  <script>
-    let isPlaying = false;
-
-    function toggleMorningAudio() {
-      if (!isPlaying) {
-        speakMorningPrayer();
-        document.getElementById('btn-audio').innerHTML = '<i class="fa-solid fa-pause"></i> Pausar Clamor';
-        document.getElementById('playing-status').style.display = 'block';
-        isPlaying = true;
-      } else {
-        window.speechSynthesis.cancel();
-        document.getElementById('btn-audio').innerHTML = '<i class="fa-solid fa-play"></i> Iniciar Clamor Matinal (Voz Guiada)';
-        document.getElementById('playing-status').style.display = 'none';
-        isPlaying = false;
-      }
-    }
-
-    function speakMorningPrayer() {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const text = "Senhor meu Deus e Pai celestial, entro na Tua presença nesta manhã consagrando o meu acordar, as minhas decisões e os meus passos. Declaro que o medo e a preguiça não têm poder sobre a minha mente. Reveste-me com a Tua armadura celestial. Abençoa o trabalho das minhas mãos e concede-me sabedoria para vencer cada desafio deste dia. Eu decreto que a vitória e a paz de Deus me acompanham por onde eu andar. Amém!";
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'pt-BR';
-        utterance.rate = 0.95; // Ritmo enérgico e firme
-        utterance.onend = () => {
-          document.getElementById('btn-audio').innerHTML = '<i class="fa-solid fa-rotate-right"></i> Ouvir Novamente';
-          document.getElementById('playing-status').style.display = 'none';
-          isPlaying = false;
-        };
-        window.speechSynthesis.speak(utterance);
-      }
-    }
-  </script>
 </body>
 </html>
