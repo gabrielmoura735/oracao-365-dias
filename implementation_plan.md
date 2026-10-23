@@ -1,29 +1,27 @@
-# Plano de Implementação: Regravação do Clamor Matinal com Voz Diferente de Estúdio
+# Plano de Implementação: Blindagem e Proteção Permanente dos Áudios no GitHub
 
-Regravação do segundo áudio (**Oração e Clamor Matinal**) com o mesmo padrão de qualidade e cadência do primeiro áudio, utilizando uma voz diferente de alta fidelidade: a narradora **`pt-BR-FranciscaNeural`** (voz humana feminina, expressiva, serena e reverente).
+Implementação de um sistema de salvaguarda e redundância para garantir que os arquivos de áudio gravados com as vozes neurais de **Antônio** e **Francisca** nunca sejam perdidos, corrompidos ou sobrescritos durante atualizações automáticas ou alterações no repositório.
 
 ---
 
-## 1. O Que Será Alterado
+## 1. As 3 Camadas de Proteção que Serão Implementadas
 
-### A. Nova Voz Neural para o Clamor Matinal (`oracao_matinal_7min.mp3`)
-- **Voz Selecionada**: `pt-BR-FranciscaNeural`.
-  - Proporciona o contraste perfeito:
-    - 🎧 *Áudio Noturno (Áudio 1)*: Voz do Narrador **Antônio** (masculina, encorpada, calmante).
-    - ⚡ *Clamor Matinal (Áudio 2)*: Voz da Narradora **Francisca** (feminina, inspiradora, cristalina e comovedora).
-- **Ajuste de Cadência e Pausas**:
-  - Aplicação de velocidade suave (`rate="-6%"`) e pausas respiratórias pontuadas, eliminando qualquer rigidez para soar 100% natural e humana, exatamente como o primeiro áudio.
+### Camada 1: Blindagem da Esteira GitHub Actions (`.github/workflows/atualizacao_automatica.yml`)
+- **Regra de Isolamento**: As rotinas automáticas de atualização diária e semanal ficam restritas exclusivamente à manipulação do feed de dados (`data/feed_atualizacao.json`), sem permissão de exclusão na pasta `audio/`.
+- **Etapa de Verificação de Integridade (Audio Health-Check)**:
+  - Antes de qualquer commit, a esteira confere se os arquivos `audiobook_habitos_noturnos.mp3` e `oracao_matinal_7min.mp3` existem e se possuem tamanho íntegro (> 100 KB).
+  - Caso algum arquivo seja corrompido ou falte, a esteira executa automaticamente `scripts/gerar_audios_neurais.py` para regenerá-lo com as vozes exatas (Antônio e Francisca) antes de salvar.
 
-### B. Atualização na Página `complementos/5_audio_reprogramacao_matinal.html`
-- Atualização do player com o selo:  
-  *`<i class="fa-solid fa-circle-check"></i> Narração Humana Neural de Estúdio • Voz: Francisca (Estúdio Brasil)`*.
-- Inserção de parâmetro de versão no arquivo (`oracao_matinal_7min.mp3?v=2`) para evitar que o navegador toque o arquivo antigo guardado em cache.
+### Camada 2: Backup Imutável via GitHub Releases (Nuvem Permanente)
+- Criar uma **Release Oficial no GitHub** com a tag `v1.0-vozes-definitivas`.
+- Fazer o upload dos dois arquivos MP3 como *Release Assets*.
+- **Benefício**: Os arquivos ficam guardados nos servidores do GitHub de forma imutável. Mesmo que alguém delete a pasta localmente por engano, os áudios originais continuam salvos e acessíveis para sempre via link direto do GitHub.
 
-### C. Publicação no GitHub
-- Commitar e enviar o novo arquivo de áudio e a página atualizada para o repositório `gabrielmoura735/oracao-365-dias`.
+### Camada 3: Script de Diagnóstico e Recuperação Local (`scripts/verificar_integridade_audios.py`)
+- Script rápido para você rodar a qualquer momento no computador para checar o status, tamanho e integridade dos arquivos de voz.
 
 ---
 
 ## 2. Próximos Passos
 - Obter sua aprovação.
-- Executar o script de síntese neural e subir para o GitHub.
+- Atualizar a esteira do GitHub Actions, criar a Release oficial via GitHub CLI (`gh release create`) e publicar no repositório `gabrielmoura735/oracao-365-dias`.

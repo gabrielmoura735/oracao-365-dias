@@ -1,4 +1,4 @@
-name: Automação Diária e Semanal do Produto 365 Dias
+name: Automação Diária e Proteção Contínua dos Áudios
 
 on:
   schedule:
@@ -7,13 +7,14 @@ on:
   workflow_dispatch: # Permite disparar manualmente pelo painel do GitHub
   push:
     paths:
-      - 'scripts/gerar_feed_diario.py'
+      - 'scripts/**'
+      - '.github/workflows/**'
 
 permissions:
   contents: write
 
 jobs:
-  atualizar-feed:
+  atualizar-e-proteger:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,13 +26,21 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: 📦 Instalar Dependências Neurais de Áudio
+        run: |
+          pip install edge-tts
+
+      - name: 🛡️ Verificar e Blindar Integridade dos Áudios Neurais
+        run: |
+          python scripts/verificar_integridade_audios.py
+
       - name: ⚡ Executar Gerador de Feed Diário & Semanal
         run: |
           python scripts/gerar_feed_diario.py
 
-      - name: 🚀 Fazer Commit e Push das Novas Atualizações
+      - name: 🚀 Fazer Commit Seguro e Push das Novas Atualizações
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/feed_atualizacao.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "⚡ [Auto-Update] Atualização Diária & Semanal do Produto [skip ci]" && git push)
+          git add data/feed_atualizacao.json audio/*.mp3
+          git diff --quiet && git diff --staged --quiet || (git commit -m "⚡ [Auto-Update] Feed Diário Atualizado & Áudios Neurais Blindados [skip ci]" && git push)
