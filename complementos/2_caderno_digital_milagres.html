@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complemento 2: Caderno Digital de Registro de Milagres</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Lora:ital,wght@0,400;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body { background: #FDFBF7; color: #1E293B; font-family: 'Lora', serif; padding: 40px 20px; line-height: 1.7; }
+    .container { max-width: 800px; margin: 0 auto; background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 45px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+    h1 { font-family: 'Cinzel', serif; color: #8B6508; font-size: 2rem; margin-bottom: 10px; }
+    .btn-print { background: #8B6508; color: #FFF; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 25px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 25px; font-family: 'Inter', sans-serif; font-size: 0.9rem; }
+    th, td { border: 1px solid #CBD5E1; padding: 12px; text-align: left; }
+    th { background: #F8FAFC; color: #0F172A; }
+    @media print { .btn-print { display: none; } body { padding: 0; } .container { border: none; box-shadow: none; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="btn-print" onclick="window.print()"><i class="fa-solid fa-print"></i> Imprimir / Salvar em PDF</button>
+    <span style="font-family: 'Inter', sans-serif; color: #8B6508; font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">Complemento VIP #2</span>
+    <h1>Caderno de Registro de Milagres & Orações</h1>
+    <p><em>"Escreve a visão e torna-a bem legível sobre tábuas, para que a possa ler quem passa correndo."</em> — Habacuque 2:2</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 15%;">Data Pedido</th>
+          <th style="width: 45%;">Petição de Oração & Causa Apresentada</th>
+          <th style="width: 25%;">Promessa Bíblica</th>
+          <th style="width: 15%;">Data Resposta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>___/___/2026</td><td>Paz e proteção sobre a minha casa</td><td>Salmo 91</td><td>___/___/2026</td></tr>
+        <tr><td>___/___/2026</td><td>Sabedoria para decisão profissional</td><td>Tiago 1:5</td><td>___/___/2026</td></tr>
+        <tr><td>___/___/2026</td><td>Cura física e fortalecimento da saúde</td><td>Isaías 53:5</td><td>___/___/2026</td></tr>
+        <tr><td>___/___/2026</td><td>Restauração de relacionamento familiar</td><td>Efésios 4:32</td><td>___/___/2026</td></tr>
+        <tr><td>___/___/2026</td><td>Abertura de portas e bênção financeira</td><td>Filipenses 4:19</td><td>___/___/2026</td></tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

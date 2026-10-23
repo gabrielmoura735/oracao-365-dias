@@ -1,0 +1,5 @@
+# Logs e temporários
+*.log
+.system_generated/
+__pycache__/
+*.pyc

@@ -1,0 +1,62 @@
+{
+  "produto_principal": {
+    "nome": "365 Dias de Oração Poderosa: Guia Diário de Intercessão",
+    "descricao": "Tenha acesso imediato a 365 Dias de Oração Poderosa: Guia Diário de Intercessão. Desenvolvido sob medida para quem busca disciplina inabalável, foco no cotidiano e clareza de propósito com metodologia comprovada.",
+    "categoria": "Saude e bem-estar",
+    "preco_venda_reais": 29.90,
+    "preco_centavos": 2990,
+    "tipo_cobranca": "venda_unica",
+    "garantia_dias": 14,
+    "imagem_capa": "365_dias_oracao_poderosa.jpg",
+    "url_checkout_slug": "https://pay.bilion.com.br/365-dias-de-oracao-poderosa-guia-diario-de-interce",
+    "pagina_vendas_local": "pagina_vendas.html",
+    "entregavel_ebook_local": "livro_digital_guia.html"
+  },
+  "order_bump_complementar": {
+    "ativo": true,
+    "titulo": "Kit Completo de Aceleração Espiritual (+ 5 Complementos)",
+    "descricao": "Leve o produto completo: Audiobook de Hábitos Noturnos, Caderno Digital de Milagres, Planner Devocional 52 Semanas, 30 Wallpapers de Promessas e Áudio de Oração Matinal 7 Minutos.",
+    "preco_adicional_reais": 14.90,
+    "preco_centavos": 1490,
+    "valor_total_combo_reais": 44.80,
+    "itens_inclusos": [
+      {
+        "item": 1,
+        "titulo": "Audiobook Narrado de Hábitos Noturnos e Sono Blindado (MP3)",
+        "icone": "fa-headphones",
+        "beneficio": "Sono reparador e mente tranquila antes de dormir."
+      },
+      {
+        "item": 2,
+        "titulo": "Caderno Digital de Registro de Milagres & Respostas (PDF Interativo)",
+        "icone": "fa-book-bookmark",
+        "beneficio": "Template interativo para registrar suas orações e respostas."
+      },
+      {
+        "item": 3,
+        "titulo": "Planner Devocional Permanente de 52 Semanas (Imprimível)",
+        "icone": "fa-calendar-check",
+        "beneficio": "Planejador semanal de leitura bíblica e motivos diários."
+      },
+      {
+        "item": 4,
+        "titulo": "Coleção de 30 Wallpapers de Promessas Bíblicas em HD",
+        "icone": "fa-mobile-screen-button",
+        "beneficio": "Fundos de tela elegantes para smartphone para blindar o dia."
+      },
+      {
+        "item": 5,
+        "titulo": "Áudio de Reprogramação Matinal: 7 Minutos de Oração de Autoridade (MP3)",
+        "icone": "fa-bolt-lightning",
+        "beneficio": "Clamor guiado em alta energia ao acordar."
+      }
+    ]
+  },
+  "categorias_disponiveis_bilion": [
+    "Marketing digital",
+    "Finanças",
+    "Tecnologia",
+    "Saude e bem-estar",
+    "Educação e negocios"
+  ]
+}

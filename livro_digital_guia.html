@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livro Digital & Kit Completo: 365 Dias de Oração Poderosa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #FDFBF7;
+      --card-bg: #FFFFFF;
+      --text: #1E293B;
+      --accent: #B8860B;
+      --accent-light: #FBF5E8;
+      --border: #E2E8F0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Lora', Georgia, serif;
+      line-height: 1.8;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .book-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 60px 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .controls-bar {
+      max-width: 820px;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-print {
+      background: var(--accent);
+      color: #FFF;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .book-cover-header {
+      text-align: center;
+      padding-bottom: 40px;
+      border-bottom: 2px solid var(--accent-light);
+      margin-bottom: 40px;
+    }
+
+    .book-tag {
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.4rem;
+      color: #0F172A;
+      margin: 15px 0 10px;
+      line-height: 1.25;
+    }
+
+    .book-subtitle {
+      font-size: 1.15rem;
+      color: #64748B;
+      font-style: italic;
+    }
+
+    .chapter {
+      margin-bottom: 50px;
+    }
+
+    .chapter-tag {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      color: #0F172A;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    p {
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+      text-align: justify;
+    }
+
+    .exercise-box {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 25px 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .exercise-title {
+      font-weight: 800;
+      color: #8B6508;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .prayer-box {
+      background: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      font-style: italic;
+      margin: 40px 0;
+    }
+
+    .checklist-list {
+      list-style: none;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .checklist-list li {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+
+    .checklist-list li i {
+      color: var(--accent);
+    }
+
+    /* Seção Especial dos 5 Complementos */
+    .bonus-suite-box {
+      background: #FAF8F5;
+      border: 2px dashed var(--accent);
+      border-radius: 12px;
+      padding: 30px;
+      margin: 45px 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .bonus-suite-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.35rem;
+      color: #8B6508;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .bonus-suite-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .suite-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .suite-icon {
+      font-size: 1.5rem;
+      color: var(--accent);
+      width: 44px;
+      height: 44px;
+      background: var(--accent-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    @media print {
+      body { padding: 0; background: #FFF; }
+      .controls-bar { display: none; }
+      .book-container { border: none; box-shadow: none; padding: 20px; }
+      .chapter { page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls-bar">
+    <span style="color: #64748B; font-size: 0.9rem;">Material Oficial de Entrega do Aluno</span>
+    <button class="btn-print" onclick="window.print()">
+      <i class="fa-solid fa-print"></i> Imprimir / Salvar em PDF
+    </button>
+  </div>
+
+  <div class="book-container">
+    <div class="book-cover-header">
+      <span class="book-tag">Manual Oficial • Vida Devocional & Intercessão</span>
+      <h1>365 Dias de Oração Poderosa</h1>
+      <div class="book-subtitle">Guia Diário de Intercessão, Disciplina Espiritual e Clareza de Propósito</div>
+    </div>
+
+    <!-- Introdução -->
+    <div class="chapter">
+      <span class="chapter-tag">Introdução</span>
+      <h2>A Respiração da Alma e o Poder da Constância</h2>
+      <p>
+        A oração não é um monólogo mecânico ou uma mera lista de pedidos para Deus. É a respiração da alma, o canal direto pelo qual a fraqueza humana é revestida pelo poder infinito do Criador. Quem aprende a orar com constância e autoridade bíblica jamais anda desamparado ou perde a direção em tempos de crise.
+      </p>
+      <p>
+        Este guia foi estruturado para ser seu companheiro diário de alinhamento. Ao longo deste material, você encontrará ferramentas práticas para transformar 10 minutos da sua manhã em uma fortaleza inabalável para o seu dia inteiro.
+      </p>
+    </div>
+
+    <!-- Capítulo 1 -->
+    <div class="chapter">
+      <span class="chapter-tag">Capítulo 01</span>
+      <h2>O Quarto Secreto e o Silenciamento do Mundo</h2>
+      <p>
+        Jesus ensinou: <em>"Quando você orar, entre no seu quarto, feche a porta e ore ao seu Pai que está em secreto"</em>. O quarto secreto não é apenas um espaço físico com quatro paredes, mas um estado mental de desconexão absoluta de celulares, notificações, e-mails e opiniões alheias.
+      </p>
+      <p>
+        No mundo contemporâneo, a maior ameaça à vida com Deus não é a descrença, mas a distração. Quando você acorda e imediatamente olha as telas, sua mente é sequestrada pelas prioridades de terceiros. É no silêncio dos primeiros minutos que você ouve o sussurro divino que direciona seus passos com sabedoria.
+      </p>
+
+      <div class="exercise-box">
+        <div class="exercise-title"><i class="fa-solid fa-pen-to-square"></i> Exercício Prático do Dia</div>
+        Deixe o celular em outro cômodo ao acordar. Passe os primeiros 10 minutos da manhã em silêncio absoluto, oração e agradecimento antes de checar qualquer mensagem.
+      </div>
+    </div>
+
+    <!-- Capítulo 2 -->
+    <div class="chapter">
+      <span class="chapter-tag">Capítulo 02</span>
+      <h2>Oração de Autoridade e Blindagem Espiritual</h2>
+      <p>
+        Muitas orações fracassam porque são feitas com tom de desespero e incerteza. A oração eficaz é fundamentada na autoridade das promessas inegociáveis de Deus. Quando você se coloca de joelhos alicerçado na Palavra, você não está implorando na dúvida, mas declarando o favor e a proteção divina que já foram concedidos.
+      </p>
+      <p>
+        Declare a proteção sobre sua mente, sua saúde, suas finanças e sua família. Rejeite pensamentos de medo, escassez e incapacidade. O Salmo 91 declara categoricamente que nenhuma praga chegará à sua tenda quando o Altíssimo for a sua habitação segura.
+      </p>
+
+      <div class="exercise-box">
+        <div class="exercise-title"><i class="fa-solid fa-pen-to-square"></i> Exercício Prático do Dia</div>
+        Abra a Bíblia e leia o Salmo 91 em voz alta, declarando cada versículo no tempo presente como uma verdade viva e ativa sobre sua casa e família.
+      </div>
+    </div>
+
+    <!-- Capítulo 3 -->
+    <div class="chapter">
+      <span class="chapter-tag">Capítulo 03</span>
+      <h2>Vencendo a Frieza Espiritual e a Falta de Vontade</h2>
+      <p>
+        Haverá dias em que você não terá vontade de orar. O corpo estará pesado, o sono baterá forte e a mente se sentirá dispersa e fria. É exatamente nesses dias em que a oração mais produz fruto eterno.
+      </p>
+      <p>
+        A oração baseada em sentimentos é frágil e inconstante; a oração baseada em princípios bíblicos é invencível. Não espere sentir vontade para buscar a Deus. Ore mesmo sem sentir nada. Comece agradecendo por 5 coisas simples até que o fogo da gratidão aqueça seu espírito.
+      </p>
+
+      <div class="exercise-box">
+        <div class="exercise-title"><i class="fa-solid fa-pen-to-square"></i> Exercício Prático do Dia</div>
+        Mesmo sentindo cansaço, dobre os joelhos hoje por apenas 3 minutos e agradeça nominalmente por 5 bênçãos concretas da sua vida.
+      </div>
+    </div>
+
+    <!-- Capítulo 4 -->
+    <div class="chapter">
+      <span class="chapter-tag">Capítulo 04</span>
+      <h2>O Registro de Milagres e a Resposta das Orações</h2>
+      <p>
+        Quem não anota o que pede, esquece de agradecer quando recebe. A memória humana é ingrata e tende a esquecer os livramentos extraordinários do passado diante de uma pequena dificuldade no presente.
+      </p>
+      <p>
+        Tenha o hábito inegociável de manter um caderno ou bloco digital onde você registra seus pedidos com a data. Com o passar das semanas, reler as orações atendidas construirá uma fé de rocha que tempestade alguma conseguirá abalar.
+      </p>
+
+      <div class="exercise-box">
+        <div class="exercise-title"><i class="fa-solid fa-pen-to-square"></i> Exercício Prático do Dia</div>
+        Anote as 3 maiores necessidades que você tem hoje com a data de hoje. Coloque-as diante de Deus diariamente e volte para marcar quando forem respondidas.
+      </div>
+    </div>
+
+    <!-- Oração Diária de Autoridade -->
+    <div class="prayer-box">
+      <h3 style="font-family: 'Cinzel', serif; color: #8B6508; margin-bottom: 12px;">Oração Diária de Autoridade e Blindagem</h3>
+      <p style="text-align: center; font-size: 1.1rem; color: #334155;">
+        "Senhor meu Deus e Pai celestial, entro na Tua presença com ações de graças no coração e louvor em meus lábios. Consagro a Ti este novo dia, meus pensamentos, decisões e caminhos. Que a Tua paz que excede todo entendimento guarde a minha mente. Repreendo todo espírito de medo, dúvida e desânimo. Reveste-me com a armadura espiritual e que a Tua vontade soberana se cumpra em minha vida. Em nome de Jesus, amém!"
+      </p>
+    </div>
+
+    <!-- Checklist Diário -->
+    <div class="chapter">
+      <span class="chapter-tag">Ferramenta Prática</span>
+      <h2>Checklist Diário de 6 Passos para Não Quebrar o Hábito</h2>
+      <ul class="checklist-list">
+        <li><i class="fa-solid fa-square-check"></i> <strong>1. Horário Inegociável:</strong> Defina o momento exato da sua oração antes de iniciar as tarefas.</li>
+        <li><i class="fa-solid fa-square-check"></i> <strong>2. Desconexão Total:</strong> Celular fora do alcance e notificações 100% desligadas.</li>
+        <li><i class="fa-solid fa-square-check"></i> <strong>3. Louvor & Gratidão:</strong> Comece sempre agradecendo por 5 coisas antes de pedir.</li>
+        <li><i class="fa-solid fa-square-check"></i> <strong>4. Declaração Bíblica:</strong> Declare promessas da Palavra de Deus em voz alta com fé.</li>
+        <li><i class="fa-solid fa-square-check"></i> <strong>5. Intercessão Ativa:</strong> Ore pelo seu cônjuge, filhos, país e pessoas que necessitam.</li>
+        <li><i class="fa-solid fa-square-check"></i> <strong>6. Registro de Milagres:</strong> Anote as respostas recebidas para fortalecer sua fé continuamente.</li>
+      </ul>
+    </div>
+
+    <!-- SEÇÃO COMPLEMENTAR: OS 5 COMPLEMENTOS EXCLUSIVOS -->
+    <div class="bonus-suite-box">
+      <h3 class="bonus-suite-title">Kit de Aceleração Espiritual: 5 Complementos Inclusos</h3>
+      <div class="bonus-suite-grid">
+        <div class="suite-card">
+          <div class="suite-icon"><i class="fa-solid fa-headphones"></i></div>
+          <div>
+            <strong style="color: #0F172A; font-size: 1rem;">1. Audiobook Narrado de Hábitos Noturnos e Sono Blindado (MP3)</strong>
+            <p style="margin: 4px 0 0; font-size: 0.9rem; color: #64748B;">Guia em áudio de 20 minutos com frequência relaxante para desligar a mente de preocupações antes de dormir.</p>
+          </div>
+        </div>
+        <div class="suite-card">
+          <div class="suite-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+          <div>
+            <strong style="color: #0F172A; font-size: 1rem;">2. Caderno Digital de Registro de Milagres & Respostas (PDF Interativo)</strong>
+            <p style="margin: 4px 0 0; font-size: 0.9rem; color: #64748B;">Espaço estruturado para preencher suas 365 orações do ano com campo de data da resposta.</p>
+          </div>
+        </div>
+        <div class="suite-card">
+          <div class="suite-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <div>
+            <strong style="color: #0F172A; font-size: 1rem;">3. Planner Devocional de 52 Semanas (Pronto para Imprimir)</strong>
+            <p style="margin: 4px 0 0; font-size: 0.9rem; color: #64748B;">Planejador visual semanal para organizar leitura da Bíblia de Gênesis a Apocalipse e motivos de intercessão.</p>
+          </div>
+        </div>
+        <div class="suite-card">
+          <div class="suite-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <div>
+            <strong style="color: #0F172A; font-size: 1rem;">4. Coleção de 30 Wallpapers de Promessas Bíblicas em Alta Definição</strong>
+            <p style="margin: 4px 0 0; font-size: 0.9rem; color: #64748B;">30 imagens verticais sofisticadas para tela de bloqueio com versículos de autoridade e coragem.</p>
+          </div>
+        </div>
+        <div class="suite-card">
+          <div class="suite-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+          <div>
+            <strong style="color: #0F172A; font-size: 1rem;">5. Áudio de Reprogramação Matinal: 7 Minutos de Oração de Autoridade (MP3)</strong>
+            <p style="margin: 4px 0 0; font-size: 0.9rem; color: #64748B;">Clamor matinal guiado em ritmo firme para ser executado assim que levantar da cama.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; border-top: 1px solid var(--border); padding-top: 30px; color: #94A3B8; font-size: 0.85rem; font-family: 'Inter', sans-serif;">
+      © 365 Dias de Oração Poderosa • Kit Completo • Todos os direitos reservados.
+    </div>
+  </div>
+
+</body>
+</html>

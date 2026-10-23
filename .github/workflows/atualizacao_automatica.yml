@@ -1,0 +1,37 @@
+name: Automação Diária e Semanal do Produto 365 Dias
+
+on:
+  schedule:
+    # Executa todos os dias às 03:00 UTC (00:00 Horário de Brasília)
+    - cron: '0 3 * * *'
+  workflow_dispatch: # Permite disparar manualmente pelo painel do GitHub
+  push:
+    paths:
+      - 'scripts/gerar_feed_diario.py'
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar-feed:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Clonar Repositório
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: ⚡ Executar Gerador de Feed Diário & Semanal
+        run: |
+          python scripts/gerar_feed_diario.py
+
+      - name: 🚀 Fazer Commit e Push das Novas Atualizações
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/feed_atualizacao.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "⚡ [Auto-Update] Atualização Diária & Semanal do Produto [skip ci]" && git push)

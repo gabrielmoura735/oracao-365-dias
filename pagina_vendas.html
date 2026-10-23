@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>365 Dias de Oração Poderosa | Guia Diário de Intercessão</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: #080D1A;
+      --bg-card: #0F172A;
+      --bg-card-hover: #162038;
+      --gold-primary: #E5B54F;
+      --gold-light: #FCE29A;
+      --gold-dark: #B8860B;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border-color: rgba(229, 181, 79, 0.25);
+      --green-success: #10B981;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .serif-font {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.5px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top Banner */
+    .top-banner {
+      background: linear-gradient(90deg, #8B6508, #E5B54F, #8B6508);
+      color: #080D1A;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 9px 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 60px 0 80px;
+      position: relative;
+      background: radial-gradient(circle at 50% 20%, rgba(229, 181, 79, 0.12) 0%, transparent 65%);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(229, 181, 79, 0.12);
+      border: 1px solid var(--border-color);
+      color: var(--gold-light);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 2.75rem;
+      line-height: 1.18;
+      font-weight: 900;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #FFF, var(--gold-primary), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      color: #CBD5E1;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .hero-image-box {
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-image-box img {
+      width: 100%;
+      max-width: 440px;
+      border-radius: 18px;
+      border: 1px solid rgba(229, 181, 79, 0.35);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(229, 181, 79, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-image-box img:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    /* CTA Button */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #E5B54F 0%, #D4AF37 50%, #B8860B 100%);
+      color: #080D1A;
+      font-weight: 900;
+      font-size: 1.05rem;
+      padding: 18px 30px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(229, 181, 79, 0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(229, 181, 79, 0.6);
+      background: linear-gradient(135deg, #FCE29A 0%, #E5B54F 50%, #B8860B 100%);
+    }
+
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 24px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-item i {
+      color: var(--gold-primary);
+    }
+
+    /* Problem / Transformation Section */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+      color: #FFFFFF;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    .compare-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .compare-card.negative {
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+
+    .compare-card.positive {
+      border-color: rgba(229, 181, 79, 0.4);
+      background: linear-gradient(180deg, rgba(229, 181, 79, 0.05) 0%, var(--bg-card) 100%);
+    }
+
+    .compare-header {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .compare-card.negative .compare-header { color: #EF4444; }
+    .compare-card.positive .compare-header { color: var(--gold-primary); }
+
+    .compare-list {
+      list-style: none;
+    }
+
+    .compare-list li {
+      margin-bottom: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.98rem;
+    }
+
+    .compare-card.negative li i { color: #EF4444; margin-top: 4px; }
+    .compare-card.positive li i { color: var(--green-success); margin-top: 4px; }
+
+    /* Modules Grid */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .module-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .module-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+      border-color: var(--gold-primary);
+    }
+
+    .module-num {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .module-title {
+      font-size: 1.2rem;
+      color: #FFF;
+      margin-bottom: 12px;
+    }
+
+    .module-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Bonus Section */
+    .bonus-section {
+      background: #0B1120;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .bonus-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(229, 181, 79, 0.25);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .bonus-icon {
+      font-size: 2.2rem;
+      color: var(--gold-primary);
+      margin-bottom: 16px;
+    }
+
+    .bonus-badge {
+      background: rgba(229, 181, 79, 0.15);
+      color: var(--gold-light);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    /* Pricing Section */
+    .pricing-card {
+      background: linear-gradient(180deg, #131D33 0%, #0F172A 100%);
+      border: 2px solid var(--gold-primary);
+      border-radius: 24px;
+      padding: 45px 35px;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(229, 181, 79, 0.15);
+      position: relative;
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, #E5B54F, #B8860B);
+      color: #080D1A;
+      font-size: 0.8rem;
+      font-weight: 900;
+      padding: 6px 20px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .price-strike {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-bottom: 6px;
+    }
+
+    .price-main {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #FFF;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .price-main span {
+      color: var(--gold-primary);
+    }
+
+    .price-sub {
+      color: #CBD5E1;
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+    }
+
+    .pricing-items {
+      text-align: left;
+      margin: 20px 0 28px;
+      padding: 18px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .pricing-items li {
+      list-style: none;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.96rem;
+    }
+
+    .pricing-items li i {
+      color: var(--green-success);
+    }
+
+    /* ORDER BUMP - 5 COMPLEMENTOS BOX */
+    .order-bump-card {
+      background: linear-gradient(135deg, rgba(229, 181, 79, 0.08) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 2px solid rgba(229, 181, 79, 0.4);
+      border-radius: 16px;
+      padding: 22px 20px;
+      margin-bottom: 28px;
+      text-align: left;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .order-bump-card.bump-selected {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 25px rgba(229, 181, 79, 0.25);
+      background: linear-gradient(135deg, rgba(229, 181, 79, 0.14) 0%, rgba(15, 23, 42, 0.95) 100%);
+    }
+
+    .bump-checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .bump-checkbox-label input[type="checkbox"] {
+      display: none;
+    }
+
+    .custom-checkbox {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--gold-primary);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 3px;
+      background: #0F172A;
+      transition: all 0.2s ease;
+    }
+
+    .custom-checkbox i {
+      color: #080D1A;
+      font-size: 14px;
+      display: none;
+    }
+
+    .bump-checkbox-label input[type="checkbox"]:checked + .custom-checkbox {
+      background: var(--gold-primary);
+    }
+
+    .bump-checkbox-label input[type="checkbox"]:checked + .custom-checkbox i {
+      display: block;
+    }
+
+    .bump-headline {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .bump-tag {
+      display: inline-block;
+      background: #EF4444;
+      color: #FFF;
+      font-size: 0.72rem;
+      font-weight: 900;
+      padding: 2px 8px;
+      border-radius: 4px;
+      width: fit-content;
+      letter-spacing: 0.5px;
+    }
+
+    .bump-title {
+      font-size: 1.05rem;
+      color: #FFFFFF;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .bump-price-badge {
+      color: var(--gold-light);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .bump-description {
+      font-size: 0.88rem;
+      color: #CBD5E1;
+      margin: 14px 0 16px;
+      line-height: 1.5;
+    }
+
+    /* Grid com os 5 Complementos e Ícones */
+    .bump-items-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .bump-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .bump-item-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(229, 181, 79, 0.15);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-primary);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .bump-item-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.86rem;
+    }
+
+    .bump-item-text strong {
+      color: #F8FAFC;
+      font-weight: 600;
+    }
+
+    .bump-item-text span {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    /* Guarantee Box */
+    .guarantee-box {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 750px;
+      margin: 50px auto 0;
+    }
+
+    .guarantee-badge {
+      font-size: 4rem;
+      color: var(--gold-primary);
+      flex-shrink: 0;
+    }
+
+    /* FAQ */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px 24px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .faq-question i {
+      color: var(--gold-primary);
+      transition: transform 0.3s;
+    }
+
+    .faq-answer {
+      padding: 0 24px 20px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: #050811;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 40px 0;
+      text-align: center;
+      color: #64748B;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-title { font-size: 2.1rem; }
+      .cta-button { max-width: 100%; }
+      .trust-badges { justify-content: center; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .modules-grid { grid-template-columns: 1fr; }
+      .bonus-grid { grid-template-columns: 1fr; }
+      .guarantee-box { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Banner -->
+  <div class="top-banner">
+    ⚡ Oferta Especial de Lançamento — 50% de Desconto + 3 Bônus Exclusivos Liberados Hoje!
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="badge-pill">
+            <i class="fa-solid fa-fire"></i> Vida Devocional & Disciplina Diária
+          </div>
+          <h1 class="hero-title">
+            Tenha Acesso Imediato a <br>
+            <span>365 Dias de Oração Poderosa</span>
+          </h1>
+          <p class="hero-description">
+            Desenvolvido sob medida para quem busca disciplina inabalável, foco no cotidiano e clareza de propósito com metodologia comprovada. Transforme a sua rotina com orações estratégicas e blindagem espiritual todos os dias.
+          </p>
+          <a href="#checkout-section" class="cta-button">
+            <i class="fa-solid fa-lock"></i> Quero Meu Acesso Agora (A Partir de R$ 29,90)
+          </a>
+          <div class="trust-badges">
+            <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 14 Dias de Garantia</div>
+            <div class="trust-item"><i class="fa-solid fa-bolt"></i> Liberação Instantânea</div>
+            <div class="trust-item"><i class="fa-solid fa-mobile-screen"></i> Leitura em Qualquer Aparelho</div>
+          </div>
+        </div>
+
+        <div class="hero-image-box">
+          <img src="365_dias_oracao_poderosa.jpg" alt="365 Dias de Oração Poderosa: Guia Diário de Intercessão">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem & Transformation -->
+  <section class="section" style="background: #0B1120;">
+    <div class="container">
+      <h2 class="section-title">Chega de Inconstância Espiritual</h2>
+      <p class="section-subtitle">
+        Veja a diferença entre tentar orar sem direção e ter um método diário de clareza e intercessão estruturada.
+      </p>
+
+      <div class="compare-grid">
+        <div class="compare-card negative">
+          <div class="compare-header">
+            <i class="fa-solid fa-circle-xmark"></i> Rotina Sem Método
+          </div>
+          <ul class="compare-list">
+            <li><i class="fa-solid fa-xmark"></i> Orações repetitivas, mecânicas e sem convicção de resposta.</li>
+            <li><i class="fa-solid fa-xmark"></i> Distrações constantes causadas por notificações e ansiedade diária.</li>
+            <li><i class="fa-solid fa-xmark"></i> Sensação de culpa por não conseguir manter uma rotina firme.</li>
+            <li><i class="fa-solid fa-xmark"></i> Falta de anotação de pedidos e esquecimento dos livramentos e milagres.</li>
+          </ul>
+        </div>
+
+        <div class="compare-card positive">
+          <div class="compare-header">
+            <i class="fa-solid fa-circle-check"></i> Com o Guia 365 Dias
+          </div>
+          <ul class="compare-list">
+            <li><i class="fa-solid fa-check"></i> Direcionamento bíblico preciso com autoridade desde o primeiro minuto.</li>
+            <li><i class="fa-solid fa-check"></i> Mente blindada contra o estresse matinal e a sobrecarga de preocupações.</li>
+            <li><i class="fa-solid fa-check"></i> Disciplina inabalável e rotina que se torna um hábito natural e prazeroso.</li>
+            <li><i class="fa-solid fa-check"></i> Caderno de milagres e respostas registradas para fortalecer sua fé.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modules Breakdown -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">O Que Você Vai Encontrar Por Dentro</h2>
+      <p class="section-subtitle">
+        Uma estrutura de 4 pilares práticos para elevar sua vida espiritual e mental todos os dias do ano.
+      </p>
+
+      <div class="modules-grid">
+        <div class="module-card">
+          <span class="module-num">Capítulo 01</span>
+          <h3 class="module-title">O Quarto Secreto e o Silenciamento do Mundo</h3>
+          <p class="module-desc">
+            Aprenda a criar um estado mental e físico de desconexão absoluta de celulares e ruídos externos. O exercício prático dos primeiros 10 minutos para calar a ansiedade e ouvir o sussurro de Deus.
+          </p>
+        </div>
+
+        <div class="module-card">
+          <span class="module-num">Capítulo 02</span>
+          <h3 class="module-title">Oração de Autoridade e Blindagem Espiritual</h3>
+          <p class="module-desc">
+            Substitua a oração de desespero e dúvida pela oração alicerçada nas promessas bíblicas. Ativação do Salmo 91 e declarações de proteção sobre sua mente, finanças e família.
+          </p>
+        </div>
+
+        <div class="module-card">
+          <span class="module-num">Capítulo 03</span>
+          <h3 class="module-title">Vencendo a Frieza Espiritual e a Falta de Vontade</h3>
+          <p class="module-desc">
+            O protocolo exato para os dias em que o cansaço bater e a mente estiver dispersa. Como orar fundamentado em princípios inegociáveis em vez de depender de sentimentos passageiros.
+          </p>
+        </div>
+
+        <div class="module-card">
+          <span class="module-num">Capítulo 04</span>
+          <h3 class="module-title">O Registro de Milagres e a Resposta das Orações</h3>
+          <p class="module-desc">
+            O método prático de documentação de petições e datas de resposta. Construa uma base inabalável de fé ao rever o histórico de orações atendidas ao longo dos meses.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bonus Section -->
+  <section class="section bonus-section">
+    <div class="container">
+      <h2 class="section-title">3 Bônus Especiais Inclusos Gratuitamente</h2>
+      <p class="section-subtitle">
+        Ao garantir seu guia hoje, você recebe imediatamente estes materiais complementares sem custo extra:
+      </p>
+
+      <div class="bonus-grid">
+        <div class="bonus-card">
+          <div class="bonus-icon"><i class="fa-solid fa-list-check"></i></div>
+          <span class="bonus-badge">BÔNUS #1</span>
+          <h4 style="color: #FFF; margin-bottom: 8px;">Checklist Diário Imprimível</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            Roteiro de 6 passos práticos para fixar na parede ou levar na bolsa e nunca quebrar sua sequência.
+          </p>
+        </div>
+
+        <div class="bonus-card">
+          <div class="bonus-icon"><i class="fa-solid fa-headphones"></i></div>
+          <span class="bonus-badge">BÔNUS #2</span>
+          <h4 style="color: #FFF; margin-bottom: 8px;">Áudio Oficial de Sintonização</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            Áudio MP3 narrado em alta definição para ouvir no carro, caminhada ou antes de dormir com foco total.
+          </p>
+        </div>
+
+        <div class="bonus-card">
+          <div class="bonus-icon"><i class="fa-solid fa-shield-heart"></i></div>
+          <span class="bonus-badge">BÔNUS #3</span>
+          <h4 style="color: #FFF; margin-bottom: 8px;">Garantia Blindada de 14 Dias</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            Risco absolutamente zero. Teste por 14 dias: se não transformar sua rotina, devolvemos 100% do seu dinheiro.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Offer Section -->
+  <section class="section" id="checkout-section">
+    <div class="container">
+      <div class="pricing-card">
+        <div class="popular-tag">⚡ OFERTA PROMOCIONAL LIMITADA</div>
+        <h3 style="font-size: 1.8rem; color: #FFF; margin-bottom: 12px;">Selecione Sua Opção de Acesso</h3>
+        
+        <div class="price-strike">De R$ 59,20</div>
+        <div class="price-main">
+          <span>R$ <span id="display-price-int">44</span></span>,<span id="display-price-dec">80</span>
+        </div>
+        <div class="price-sub" id="display-price-subtitle">
+          Valor total com o <strong>Kit Completo (+ 5 Complementos)</strong> incluso
+        </div>
+
+        <ul class="pricing-items">
+          <li><i class="fa-solid fa-circle-check"></i> E-book Completo 365 Dias de Oração Poderosa</li>
+          <li><i class="fa-solid fa-circle-check"></i> 4 Módulos Estruturados com Exercícios Diários</li>
+          <li><i class="fa-solid fa-circle-check"></i> Áudio Síntese Oficial MP3 para Acompanhamento</li>
+          <li><i class="fa-solid fa-circle-check"></i> Checklist Diário Imprimível em Alta Resolução</li>
+          <li><i class="fa-solid fa-circle-check"></i> 14 Dias de Garantia Incondicional de Satisfação</li>
+        </ul>
+
+        <!-- ORDER BUMP COM ÍCONES E 5 COMPLEMENTOS -->
+        <div class="order-bump-card bump-selected" id="bump-container">
+          <label class="bump-checkbox-label">
+            <input type="checkbox" id="bump-check" checked onchange="toggleOrderBump()">
+            <span class="custom-checkbox"><i class="fa-solid fa-check"></i></span>
+            <div class="bump-headline">
+              <span class="bump-tag">🔥 RECOMENDADO</span>
+              <span class="bump-title">SIM! Quero levar o <strong>Kit Completo de Aceleração (+ 5 Complementos)</strong></span>
+              <span class="bump-price-badge">por apenas + R$ 14,90 adicionais</span>
+            </div>
+          </label>
+
+          <p class="bump-description">
+            Marque a caixinha acima para desbloquear o produto completo e bonitinho com estes 5 complementos exclusivos:
+          </p>
+
+          <div class="bump-items-grid">
+            <div class="bump-item">
+              <div class="bump-item-icon"><i class="fa-solid fa-headphones"></i></div>
+              <div class="bump-item-text">
+                <strong>1. Audiobook Narrado de Hábitos Noturnos</strong>
+                <span>Sono reparador e mente tranquila antes de dormir.</span>
+              </div>
+            </div>
+            <div class="bump-item">
+              <div class="bump-item-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+              <div class="bump-item-text">
+                <strong>2. Caderno Digital de Registro de Milagres</strong>
+                <span>Template interativo para registrar suas respostas de oração.</span>
+              </div>
+            </div>
+            <div class="bump-item">
+              <div class="bump-item-icon"><i class="fa-solid fa-calendar-check"></i></div>
+              <div class="bump-item-text">
+                <strong>3. Planner Devocional de 52 Semanas</strong>
+                <span>Planejador semanal imprimível de motivos de clamor.</span>
+              </div>
+            </div>
+            <div class="bump-item">
+              <div class="bump-item-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+              <div class="bump-item-text">
+                <strong>4. 30 Wallpapers de Promessas Bíblicas</strong>
+                <span>Fundos de tela em alta definição para blindar seu celular.</span>
+              </div>
+            </div>
+            <div class="bump-item">
+              <div class="bump-item-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+              <div class="bump-item-text">
+                <strong>5. Áudio Reprogramação Matinal 7 Min</strong>
+                <span>Oração guiada de alta energia para começar o dia blindado.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://pay.bilion.com.br/365-dias-de-oracao-poderosa-guia-diario-de-interce?bump=true&src=pagina_vendas" class="cta-button" id="cta-submit-btn">
+          <i class="fa-solid fa-shield-halved"></i> <span id="cta-btn-text">GARANTIR KIT COMPLETO — R$ 44,80</span>
+        </a>
+
+        <div style="margin-top: 18px; color: var(--text-muted); font-size: 0.82rem;">
+          <i class="fa-solid fa-lock" style="color: var(--gold-primary);"></i> Pagamento 100% Criptografado & Processado pela Bilion
+        </div>
+      </div>
+
+      <!-- Guarantee Box -->
+      <div class="guarantee-box">
+        <div class="guarantee-badge">
+          <i class="fa-solid fa-award"></i>
+        </div>
+        <div>
+          <h3 style="color: var(--gold-primary); font-size: 1.4rem; margin-bottom: 8px;">
+            Garantia Incondicional de 14 Dias
+          </h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            O risco é todo nosso. Você tem 14 dias inteiros para ler o guia, aplicar os exercícios e ouvir os áudios. Se por qualquer motivo você achar que o conteúdo não agregou clareza e disciplina à sua vida, basta um e-mail para receber 100% do seu dinheiro de volta. Sem perguntas e sem letras miúdas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section" style="background: #0B1120;">
+    <div class="container">
+      <h2 class="section-title">Perguntas Frequentes</h2>
+      <p class="section-subtitle">Tudo o que você precisa saber antes de iniciar sua jornada.</p>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Como vou receber o acesso ao material?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Assim que seu pagamento for confirmado pela plataforma Bilion, você receberá imediatamente no seu e-mail os dados de acesso para download do E-book em PDF e dos arquivos de áudio em MP3, além de todos os 5 complementos do kit completo. Compras via Pix e Cartão têm liberação em menos de 2 minutos.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Posso ler no celular, tablet e computador?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Sim! O material foi otimizado para qualquer leitor de PDF, Kindle, smartphones (Android e iOS), tablets e computadores. Você também pode imprimir as páginas, o planner e o checklist se preferir ter o material físico em mãos.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Por quanto tempo terei acesso?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            O seu acesso é vitalício. Uma vez baixado o conteúdo, ele é seu para sempre, sem nenhuma mensalidade ou cobrança adicional no futuro.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Como funciona a garantia de 14 dias?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Você tem 14 dias completos para testar. Se por qualquer razão não ficar 100% satisfeito, basta solicitar o reembolso diretamente no suporte ou na plataforma da Bilion para ter todo o valor devolvido.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 8px;"><strong>365 Dias de Oração Poderosa: Guia Diário de Intercessão</strong></p>
+      <p style="margin-bottom: 12px;">Todos os direitos reservados. Processamento e checkout seguro via Bilion Tecnologia e Educação.</p>
+      <p style="font-size: 0.78rem; opacity: 0.7;">Este produto não substitui orientação médica ou psicológica. Os resultados podem variar conforme a dedicação e prática individual.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT PARA CÁLCULO DINÂMICO DO VALOR COM O ORDER BUMP -->
+  <script>
+    function toggleOrderBump() {
+      const isChecked = document.getElementById('bump-check').checked;
+      const basePrice = 29.90;
+      const bumpPrice = 14.90;
+      const total = isChecked ? (basePrice + bumpPrice) : basePrice;
+      const totalFormatted = total.toFixed(2).replace('.', ',');
+      const parts = total.toFixed(2).split('.');
+
+      document.getElementById('display-price-int').textContent = parts[0];
+      document.getElementById('display-price-dec').textContent = parts[1];
+      
+      const ctaBtn = document.getElementById('cta-submit-btn');
+      const ctaText = document.getElementById('cta-btn-text');
+      const bumpContainer = document.getElementById('bump-container');
+      const priceSub = document.getElementById('display-price-subtitle');
+
+      if (isChecked) {
+        ctaText.textContent = `GARANTIR KIT COMPLETO — R$ ${totalFormatted}`;
+        bumpContainer.classList.add('bump-selected');
+        priceSub.innerHTML = "Valor total com o <strong>Kit Completo (+ 5 Complementos)</strong> incluso";
+        ctaBtn.href = "https://pay.bilion.com.br/365-dias-de-oracao-poderosa-guia-diario-de-interce?bump=true&src=pagina_vendas";
+      } else {
+        ctaText.textContent = `GARANTIR APENAS O GUIA — R$ ${totalFormatted}`;
+        bumpContainer.classList.remove('bump-selected');
+        priceSub.innerHTML = "Valor apenas do Guia Principal (sem os 5 complementos adicionais)";
+        ctaBtn.href = "https://pay.bilion.com.br/365-dias-de-oracao-poderosa-guia-diario-de-interce?bump=false&src=pagina_vendas";
+      }
+    }
+  </script>
+
+</body>
+</html>

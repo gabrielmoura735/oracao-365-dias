@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>365 Dias de Oração Poderosa | Aplicativo do Aluno & Sincronização Diária</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #070B14;
+      --card-bg: #0F172A;
+      --card-inner: #162238;
+      --gold-primary: #E5B54F;
+      --gold-light: #FCE29A;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border: rgba(229, 181, 79, 0.25);
+      --green: #10B981;
+      --red: #EF4444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; min-height: 100vh; padding-bottom: 60px; }
+    h1, h2, h3, .serif-font { font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+    /* FLOATING UPDATE NOTIFICATION BAR */
+    .update-notification-bar {
+      background: linear-gradient(90deg, #8B6508 0%, #D4AF37 50%, #8B6508 100%);
+      color: #070B14;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .update-notification-bar.hidden { display: none; }
+
+    .btn-sync {
+      background: #070B14;
+      color: var(--gold-light);
+      border: 1px solid #070B14;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-sync:hover {
+      background: #162238;
+      transform: scale(1.03);
+    }
+
+    /* Header */
+    header {
+      padding: 35px 0 25px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 30px;
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .streak-badge {
+      background: rgba(229, 181, 79, 0.15);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      color: var(--gold-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    /* Grid Layout */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      position: relative;
+    }
+
+    .card-tag {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold-primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      color: #FFF;
+      margin-bottom: 16px;
+    }
+
+    /* Oração do Dia */
+    .prayer-box {
+      background: var(--card-inner);
+      border-left: 4px solid var(--gold-primary);
+      padding: 20px;
+      border-radius: 0 10px 10px 0;
+      font-style: italic;
+      color: #E2E8F0;
+      font-size: 1.05rem;
+      margin: 18px 0;
+      line-height: 1.8;
+    }
+
+    .decree-box {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 14px 18px;
+      border-radius: 10px;
+      color: #A7F3D0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn-pray-done {
+      background: var(--green);
+      color: #FFF;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .btn-pray-done.completed {
+      background: #334155;
+      color: #94A3B8;
+      cursor: default;
+    }
+
+    /* Caderninho Diário */
+    .journal-field {
+      margin-bottom: 18px;
+    }
+
+    .journal-field label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+
+    .journal-field textarea, .journal-field input {
+      width: 100%;
+      background: var(--card-inner);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #FFF;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .journal-field textarea:focus {
+      border-color: var(--gold-primary);
+    }
+
+    .btn-save-journal {
+      background: linear-gradient(135deg, #E5B54F, #B8860B);
+      color: #070B14;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    /* Bottom Quick Links */
+    .quick-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .quick-link-btn {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .quick-link-btn:hover {
+      background: rgba(229, 181, 79, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING NOTIFICATION DE ATUALIZAÇÃO DO GITHUB -->
+  <div id="update-banner" class="update-notification-bar">
+    <div>
+      <i class="fa-solid fa-bell"></i> 
+      <span id="update-msg">Nova palavra, oração e protocolo liberados pelo sistema!</span>
+    </div>
+    <button class="btn-sync" onclick="sincronizarNovosConteudos()">
+      <i class="fa-solid fa-arrows-rotate" id="sync-icon"></i> Sincronizar Agora
+    </button>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-flex">
+        <div>
+          <span style="color: var(--gold-primary); font-size: 0.85rem; font-weight: 800; text-transform: uppercase;">
+            Moura Hub • Sistema de Oração & Intercessão
+          </span>
+          <h1 style="font-size: 1.85rem; color: #FFF; margin-top: 4px;">365 Dias de Oração Poderosa</h1>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="streak-badge">
+            <i class="fa-solid fa-fire" style="color: #F59E0B;"></i> 
+            <span id="streak-counter">3 Dias de Constância</span>
+          </div>
+          <button class="btn-sync" style="background: var(--card-inner); border-color: var(--border);" onclick="checarAtualizacoesManual()">
+            <i class="fa-solid fa-cloud-arrow-down"></i> Verificar
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-grid">
+
+      <!-- 1. ORAÇÃO DO DIA -->
+      <div class="card">
+        <span class="card-tag">
+          <i class="fa-solid fa-calendar-day"></i> Oração Diária • Dia <span id="label-dia-ano">296</span> de 365 (<span id="label-dia-semana">Sexta-feira</span>)
+        </span>
+        <h2 class="card-title" id="prayer-title">Quebra da Ansiedade & Paz Sobrenatural</h2>
+        <div style="color: var(--gold-light); font-weight: 600; margin-bottom: 10px;">
+          <i class="fa-solid fa-book-bible"></i> Versículo Chave: <span id="prayer-verse">Filipenses 4:6-7</span>
+        </div>
+
+        <div class="prayer-box" id="prayer-text">
+          "Pai celestial, entrego toda sobrecarga e preocupação nas Tuas mãos. Que a Tua paz, que excede todo entendimento, governe o meu coração ao longo deste dia."
+        </div>
+
+        <div class="decree-box">
+          <i class="fa-solid fa-shield-halved"></i>
+          <div><strong>Decreto de Autoridade:</strong> <span id="prayer-decree">Eu decreto que no meu Dia 296, a paz de Deus governa meu lar e minhas decisões.</span></div>
+        </div>
+
+        <button class="btn-pray-done" id="btn-concluir-oracao" onclick="marcarOracaoConcluida()">
+          <i class="fa-solid fa-check"></i> Marcar como Orado Hoje
+        </button>
+      </div>
+
+      <!-- 2. PROTOCOLO DE JEJUM DA SEMANA -->
+      <div class="card">
+        <span class="card-tag">
+          <i class="fa-solid fa-bolt"></i> Ciclo Semanal de Consagração • Semana <span id="label-semana-ano">43</span> de 52
+        </span>
+        <h2 class="card-title" id="fasting-title">Jejum Digital: Silenciamento das Redes</h2>
+        <p style="color: #CBD5E1; margin-bottom: 14px;" id="fasting-instructions">
+          Elimine o uso recreativo de redes sociais e notificações até o meio-dia por 7 dias. Dedique as pausas mentais para 3 minutos de intercessão.
+        </p>
+        <div style="background: rgba(229, 181, 79, 0.1); border-left: 3px solid var(--gold-primary); padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 0.9rem; color: var(--gold-light);">
+          <strong>Meta Semanal:</strong> <span id="fasting-goal">Cumprir 3 dias da janela escolhida com hidratação rigorosa e oração ao meio-dia.</span>
+        </div>
+      </div>
+
+      <!-- 3. CADERNINHO DIÁRIO DE MILAGRES -->
+      <div class="card">
+        <span class="card-tag">
+          <i class="fa-solid fa-pen-nib"></i> Caderninho Diário de Registro de Fé
+        </span>
+        <h2 class="card-title">Folha de Registro Diário</h2>
+
+        <div class="journal-field">
+          <label><i class="fa-solid fa-heart"></i> Motivo de Gratidão de Hoje:</label>
+          <input type="text" id="journal-gratitude" placeholder="Pelo que você é grato a Deus antes mesmo deste dia começar?">
+        </div>
+
+        <div class="journal-field">
+          <label><i class="fa-solid fa-hand-holding-hand"></i> Pedido de Intercessão do Dia:</label>
+          <input type="text" id="journal-intercession" placeholder="Nome de um familiar ou causa pela qual você clamou...">
+        </div>
+
+        <div class="journal-field">
+          <label><i class="fa-solid fa-feather"></i> Registro de Resposta / Milagre Observado:</label>
+          <textarea id="journal-miracle" rows="3" placeholder="Anote livramentos, respostas de oração ou sentimentos de paz após o clamor..."></textarea>
+        </div>
+
+        <button class="btn-save-journal" onclick="salvarCaderninho()">
+          <i class="fa-solid fa-floppy-disk"></i> Salvar no Meu Caderninho
+        </button>
+        <span id="journal-status" style="margin-left: 15px; color: var(--green); font-size: 0.9rem; display: none;">
+          ✔ Salvo com sucesso no seu dispositivo!
+        </span>
+      </div>
+
+    </div>
+
+    <!-- Links de Acesso Rápido aos Materiais -->
+    <div class="quick-links">
+      <a href="livro_digital_guia.html" class="quick-link-btn" target="_blank">
+        <i class="fa-solid fa-book-open"></i> Acessar Livro Digital Completo (PDF)
+      </a>
+      <a href="pagina_vendas.html" class="quick-link-btn" target="_blank">
+        <i class="fa-solid fa-shop"></i> Ver Página de Vendas do Produto
+      </a>
+    </div>
+
+  </div>
+
+  <!-- SCRIPT DE SINCRONIZAÇÃO E PERSISTÊNCIA -->
+  <script>
+    const GITHUB_FEED_URL = "https://raw.githubusercontent.com/gabrielmoura735/oracao-365-dias/main/data/feed_atualizacao.json";
+    const LOCAL_FEED_URL = "data/feed_atualizacao.json";
+
+    // Carrega dados iniciais
+    window.addEventListener('DOMContentLoaded', () => {
+      carregarDadosLocais();
+      verificarAtualizacoesRemotas();
+    });
+
+    function carregarDadosLocais() {
+      // Carrega streak
+      let streak = localStorage.getItem('oracao_streak') || 3;
+      document.getElementById('streak-counter').textContent = `${streak} Dias de Constância`;
+
+      // Carrega anotação do dia
+      const hojeKey = new Date().toISOString().split('T')[0];
+      const savedGratitude = localStorage.getItem(`journal_gratitude_${hojeKey}`);
+      const savedIntercession = localStorage.getItem(`journal_intercession_${hojeKey}`);
+      const savedMiracle = localStorage.getItem(`journal_miracle_${hojeKey}`);
+
+      if (savedGratitude) document.getElementById('journal-gratitude').value = savedGratitude;
+      if (savedIntercession) document.getElementById('journal-intercession').value = savedIntercession;
+      if (savedMiracle) document.getElementById('journal-miracle').value = savedMiracle;
+
+      // Verifica se já orou hoje
+      if (localStorage.getItem(`oracao_feita_${hojeKey}`)) {
+        const btn = document.getElementById('btn-concluir-oracao');
+        btn.classList.add('completed');
+        btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Orado com Sucesso Hoje!';
+      }
+    }
+
+    async function verificarAtualizacoesRemotas() {
+      try {
+        // Tenta buscar do GitHub ou do arquivo local
+        let res = null;
+        try {
+          res = await fetch(GITHUB_FEED_URL + "?nocache=" + new Date().getTime());
+        } catch (e) {
+          res = await fetch(LOCAL_FEED_URL);
+        }
+
+        if (res && res.ok) {
+          const feed = await res.json();
+          const versaoSalva = localStorage.getItem('versao_feed_ativa');
+
+          if (versaoSalva !== feed.versao) {
+            // Há uma nova versão do dia/semana!
+            document.getElementById('update-msg').textContent = `🔔 ${feed.alerta_mentor.titulo}`;
+            document.getElementById('update-banner').classList.remove('hidden');
+            window.feedPendente = feed;
+          } else {
+            aplicarFeedNaTela(feed);
+            document.getElementById('update-banner').classList.add('hidden');
+          }
+        }
+      } catch (err) {
+        console.log("Modo offline ou sem conexão externa:", err);
+      }
+    }
+
+    function sincronizarNovosConteudos() {
+      const syncIcon = document.getElementById('sync-icon');
+      syncIcon.classList.add('fa-spin');
+
+      setTimeout(() => {
+        if (window.feedPendente) {
+          aplicarFeedNaTela(window.feedPendente);
+          localStorage.setItem('versao_feed_ativa', window.feedPendente.versao);
+        }
+        syncIcon.classList.remove('fa-spin');
+        document.getElementById('update-banner').classList.add('hidden');
+        alert("✔ Seu produto foi sincronizado com sucesso com as novidades do dia!");
+      }, 700);
+    }
+
+    function checarAtualizacoesManual() {
+      verificarAtualizacoesRemotas();
+      alert("🔍 Verificação concluída! Seu produto está alinhado com o servidor do GitHub.");
+    }
+
+    function aplicarFeedNaTela(feed) {
+      document.getElementById('label-dia-ano').textContent = feed.dia_do_ano;
+      document.getElementById('label-dia-semana').textContent = feed.dia_semana;
+      document.getElementById('prayer-title').textContent = feed.oracao_do_dia.titulo;
+      document.getElementById('prayer-verse').textContent = feed.oracao_do_dia.versiculo_chave;
+      document.getElementById('prayer-text').textContent = `"${feed.oracao_do_dia.clamor_texto}"`;
+      document.getElementById('prayer-decree').textContent = feed.oracao_do_dia.decreto_diario;
+
+      document.getElementById('label-semana-ano').textContent = feed.semana_do_ano;
+      document.getElementById('fasting-title').textContent = feed.jejum_da_semana.titulo;
+      document.getElementById('fasting-instructions').textContent = feed.jejum_da_semana.instrucoes;
+      document.getElementById('fasting-goal').textContent = feed.jejum_da_semana.meta_semanal;
+    }
+
+    function marcarOracaoConcluida() {
+      const hojeKey = new Date().toISOString().split('T')[0];
+      localStorage.setItem(`oracao_feita_${hojeKey}`, 'true');
+
+      let streak = parseInt(localStorage.getItem('oracao_streak') || 3);
+      streak += 1;
+      localStorage.setItem('oracao_streak', streak);
+      document.getElementById('streak-counter').textContent = `${streak} Dias de Constância`;
+
+      const btn = document.getElementById('btn-concluir-oracao');
+      btn.classList.add('completed');
+      btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Orado com Sucesso Hoje!';
+    }
+
+    function salvarCaderninho() {
+      const hojeKey = new Date().toISOString().split('T')[0];
+      const g = document.getElementById('journal-gratitude').value;
+      const i = document.getElementById('journal-intercession').value;
+      const m = document.getElementById('journal-miracle').value;
+
+      localStorage.setItem(`journal_gratitude_${hojeKey}`, g);
+      localStorage.setItem(`journal_intercession_${hojeKey}`, i);
+      localStorage.setItem(`journal_miracle_${hojeKey}`, m);
+
+      const status = document.getElementById('journal-status');
+      status.style.display = 'inline';
+      setTimeout(() => { status.style.display = 'none'; }, 2500);
+    }
+  </script>
+
+</body>
+</html>

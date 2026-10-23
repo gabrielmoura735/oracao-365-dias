@@ -1,0 +1,68 @@
+====================================================================
+FICHA TÉCNICA DE CADASTRO NA BILION
+PRODUTO: 365 Dias de Oração Poderosa: Guia Diário de Intercessão
+====================================================================
+
+1. DADOS PRINCIPAIS DO PRODUTO:
+--------------------------------------------------------------------
+• NOME DO PRODUTO:
+365 Dias de Oração Poderosa: Guia Diário de Intercessão
+
+• DESCRIÇÃO DO PRODUTO (COPY OFICIAL):
+Tenha acesso imediato a 365 Dias de Oração Poderosa: Guia Diário de Intercessão. Desenvolvido sob medida para quem busca disciplina inabalável, foco no cotidiano e clareza de propósito com metodologia comprovada.
+
+• CATEGORIA (Selecione exatamente esta):
+Saude e bem-estar
+(Opções aceitas na Bilion: Marketing digital, Finanças, Tecnologia, Saude e bem-estar, Educação e negocios)
+
+• TIPO DE COBRANÇA:
+Venda Única (Pagamento Único)
+
+• PREÇO BASE DO GUIA PRINCIPAL:
+R$ 29,90 (ou em até 3x no cartão)
+
+• PRAZO DE GARANTIA:
+14 Dias Incondicionais
+
+• IMAGEM DA CAPA:
+365_dias_oracao_poderosa.jpg (Mockup 3D quadrado 1:1)
+
+
+2. ORDER BUMP (O COMPLEMENTO COM OS 5 ITENS):
+--------------------------------------------------------------------
+Ao criar a oferta ou na aba "Order Bump" da Bilion, ative:
+
+• NOME / TÍTULO DO ORDER BUMP:
+Kit Completo de Aceleração Espiritual (+ 5 Complementos)
+
+• PREÇO ADICIONAL DO ORDER BUMP:
++ R$ 14,90 (levando o total do carrinho para R$ 44,80)
+
+• DESCRIÇÃO DO ORDER BUMP PARA O CLIENTE:
+Marque aqui para levar o kit completo e bonitinho:
+1. Audiobook Narrado de Hábitos Noturnos e Sono Blindado (MP3)
+2. Caderno Digital de Registro de Milagres & Respostas (PDF)
+3. Planner Devocional Permanente de 52 Semanas (Imprimível)
+4. Coleção de 30 Wallpapers de Promessas Bíblicas em HD
+5. Áudio de Reprogramação Matinal: 7 Minutos de Oração de Autoridade
+
+
+3. PÁGINAS E LINKS:
+--------------------------------------------------------------------
+• PÁGINA DE VENDAS (LANDING PAGE COM CÁLCULO DINÂMICO):
+Arquivo: pagina_vendas.html
+Possui a caixinha com ícones onde o cliente marca o complemento e o valor na tela muda de R$ 29,90 para R$ 44,80 automaticamente!
+
+• LINK DE CHECKOUT SUGERIDO NA BILION:
+https://pay.bilion.com.br/365-dias-de-oracao-poderosa-guia-diario-de-interce
+
+• PAINEL PARA CADASTRAR OU ATUALIZAR NA BILION:
+https://app.bilion.com.br/products/create
+
+
+4. MATERIAL ENTREGÁVEL PARA O COMPRADOR:
+--------------------------------------------------------------------
+• LIVRO DIGITAL & KIT COMPLETO:
+Arquivo: livro_digital_guia.html
+Contém todo o guia diagramado, oração diária, checklist de 6 passos e o acesso aos 5 complementos, com botão direto para imprimir ou salvar em PDF.
+====================================================================
