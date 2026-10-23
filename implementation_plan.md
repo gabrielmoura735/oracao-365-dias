@@ -1,36 +1,53 @@
-# Plano de Implementação: Menu de Impressão/Download em Papel e Modo Criador com Acesso Livre
+# Plano de Implementação: Página Oficial do Kit de Aceleração Espiritual (5 Complementos)
 
-Implementação de uma barra superior/menu de ferramentas para download no computador e impressão em folha de papel A4 (com layout econômico em tinta para preenchimento diário à caneta), e criação do **Modo Produtor / Criador**, garantindo que você tenha acesso livre e irrestrito a 100% das ferramentas sem precisar pagar.
-
----
-
-## 1. O Que Será Implementado
-
-### A. Barra Superior / Menu de Impressão & Download (`livro_digital_guia.html` e `app_devocional_interativo.html`)
-Adicionar um menu fixo no topo com os botões:
-1. 🖨️ **"Imprimir em Papel / Salvar PDF"**:
-   - Estilização `@media print` profissional para folhas A4.
-   - Fundo 100% branco econômico (sem gastar tinta preta da impressora).
-   - Linhas pontilhadas e caixinhas para preenchimento diário à mão com caneta.
-   - Quebras de página automáticas entre a Introdução, os 4 Capítulos e o Caderninho.
-2. 📱 **"Modo Celular / Tablet"**:
-   - Leitura fluida com controle de tamanho de texto (A- / A+) e modo noturno.
-3. 📥 **"Baixar para o Computador"**:
-   - Permite salvar o arquivo completo localmente para abrir sem internet.
-
-### B. Modo Criador / Produtor (Acesso Livre Permanente sem Pagar)
-- Criar a página **`painel_produtor.html`** (Painel do Criador):
-  - Reconhece automaticamente você como o autor/dono do produto.
-  - Ativa o selo **👑 ACESSO LIVRE DE CRIADOR** no navegador (`localStorage.setItem('modo_criador_ativo', 'true')`).
-  - Desbloqueia com 1 clique o Guia Principal, os 5 Complementos do Order Bump, os players de áudio e o aplicativo de atualização diária, sem passar por checkout da Bilion.
-  - Permite gerar e testar links de checkout e links de entrega para os seus clientes.
-
-### C. Sincronização no GitHub
-- Atualizar os arquivos modificados e fazer o `git commit` e `git push` para o repositório `gabrielmoura735/oracao-365-dias`.
-- Manter o GitHub Pages sincronizado com a nova versão.
+Criação da página portal dedicada **`kit_aceleracao_espiritual.html`** (e `complementos/index.html`) contendo a estrutura exata solicitada pelo usuário, com visual refinado, botões de ação direta para cada um dos 5 materiais e sincronização no repositório do GitHub.
 
 ---
 
-## 2. Próximos Passos
-- Obter sua aprovação.
-- Atualizar `livro_digital_guia.html` com a diagramação de impressão/download, criar o `painel_produtor.html` e subir as atualizações para o GitHub.
+## 1. Estrutura da Página do Kit de Aceleração
+
+A nova página terá como título e subtítulo exatos:
+
+> **Kit de Aceleração Espiritual: 5 Complementos Inclusos**  
+> *Clique nos botões abaixo para abrir ou imprimir cada uma das 5 ferramentas complementares:*
+
+### Os 5 Cards com Botões Oficiais:
+1. 🎧 **Audiobook Narrado de Hábitos Noturnos e Sono Blindado (MP3)**  
+   *Guia em áudio de 20 minutos com frequência relaxante para desligar a mente de preocupações antes de dormir.*  
+   Botão: `[Abrir Áudio]` ➔ `complementos/1_audiobook_habitos_noturnos.html`
+
+2. 📖 **Caderno Digital de Registro de Milagres & Respostas (PDF Interativo)**  
+   *Espaço estruturado para preencher suas 365 orações do ano com campo de data da resposta.*  
+   Botão: `[Abrir Caderno]` ➔ `complementos/2_caderno_digital_milagres.html`
+
+3. 🗓️ **Planner Devocional de 52 Semanas (Pronto para Imprimir)**  
+   *Planejador visual semanal para organizar leitura da Bíblia de Gênesis a Apocalipse e motivos de intercessão.*  
+   Botão: `[Abrir Planner]` ➔ `complementos/3_planner_devocional_52_semanas.html`
+
+4. 📱 **Coleção de 30 Wallpapers de Promessas Bíblicas em Alta Definição**  
+   *30 imagens verticais sofisticadas para tela de bloqueio com versículos de autoridade e coragem.*  
+   Botão: `[Baixar Imagens]` ➔ `complementos/4_wallpapers_promessas_biblicas.html`
+
+5. ⚡ **Áudio de Reprogramação Matinal: 7 Minutos de Oração de Autoridade (MP3)**  
+   *Clamor matinal guiado em ritmo firme para ser executado assim que levantar da cama.*  
+   Botão: `[Ouvir Áudio]` ➔ `complementos/5_audio_reprogramacao_matinal.html`
+
+---
+
+## 2. Aprimoramentos nas 5 Ferramentas
+
+- Adicionar funcionalidade real de player de áudio interativo (com Web Audio e síntese de voz guiada) nos complementos 1 e 5.
+- Garantir que o Caderno (item 2) tenha campos interativos com salvamento automático e o Planner (item 3) seja 100% imprimível em folha A4.
+- Incluir a galeria com os 30 papéis de parede (item 4) com download direto em alta resolução.
+
+---
+
+## 3. Publicação no GitHub
+- Commitar os novos arquivos e dar `git push` para `gabrielmoura735/oracao-365-dias`.
+- Deixar a URL ativa no GitHub Pages:  
+  `https://gabrielmoura735.github.io/oracao-365-dias/kit_aceleracao_espiritual.html`
+
+---
+
+## 4. Próximos Passos
+- Aguardar sua aprovação para criar os arquivos e publicar no GitHub.

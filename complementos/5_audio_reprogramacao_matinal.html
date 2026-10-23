@@ -3,29 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Complemento 5: Reprogramação Matinal - 7 Minutos de Oração de Autoridade</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>5. Áudio de Reprogramação Matinal: 7 Minutos de Oração de Autoridade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     body { background: #070B14; color: #F8FAFC; font-family: 'Inter', sans-serif; padding: 40px 20px; line-height: 1.7; }
-    .card { max-width: 760px; margin: 0 auto; background: #0F172A; border: 1px solid rgba(229,181,79,0.3); border-radius: 16px; padding: 35px; }
-    h1 { font-family: 'Cinzel', serif; color: #E5B54F; font-size: 1.8rem; margin-bottom: 15px; }
-    .audio-player-box { background: #162238; border-radius: 12px; padding: 25px; margin: 25px 0; text-align: center; border: 1px solid rgba(229,181,79,0.2); }
-    .btn-play { background: #E5B54F; color: #070B14; border: none; padding: 12px 28px; border-radius: 50px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-size: 1rem; }
+    .card { max-width: 780px; margin: 0 auto; background: #0F172A; border: 1px solid rgba(229,181,79,0.3); border-radius: 16px; padding: 40px; }
+    h1 { font-family: 'Cinzel', serif; color: #E5B54F; font-size: 1.85rem; margin-bottom: 15px; }
+    .player-box { background: #162238; border: 1px solid rgba(229,181,79,0.2); border-radius: 14px; padding: 30px; margin: 25px 0; text-align: center; }
+    .btn-play { background: linear-gradient(135deg, #E5B54F, #B8860B); color: #070B14; border: none; padding: 14px 36px; border-radius: 50px; font-weight: 800; font-size: 1.05rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: all 0.2s; }
+    .btn-play:hover { transform: scale(1.04); background: linear-gradient(135deg, #FCE29A, #E5B54F); }
+    .quote-box { background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10B981; padding: 18px; border-radius: 0 8px 8px 0; font-style: italic; margin: 25px 0; color: #A7F3D0; }
   </style>
 </head>
 <body>
   <div class="card">
-    <span style="color: #E5B54F; font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">Complemento VIP #5</span>
-    <h1>Áudio: Reprogramação Matinal • 7 Minutos</h1>
-    <p>Oração guiada em ritmo firme de autoridade bíblica para ativar sua mente, blindar suas emoções e começar o dia com domínio próprio.</p>
-
-    <div class="audio-player-box">
-      <div style="font-size: 2.8rem; color: #E5B54F; margin-bottom: 12px;"><i class="fa-solid fa-bolt-lightning"></i></div>
-      <h3 style="color: #FFF; margin-bottom: 8px;">Decreto Matinal dos Vencedores (7:00 min)</h3>
-      <p style="color: #94A3B8; font-size: 0.9rem; margin-bottom: 18px;">Narrado em alta definição com declarações ativas de proteção e prosperidade.</p>
-      <button class="btn-play" onclick="alert('Reproduzindo áudio de reprogramação matinal!')"><i class="fa-solid fa-play"></i> Ouvir Agora</button>
+    <div style="margin-bottom: 15px;">
+      <a href="../kit_aceleracao_espiritual.html" style="color: #94A3B8; text-decoration: none; font-size: 0.85rem;">
+        <i class="fa-solid fa-arrow-left"></i> Voltar ao Kit de Aceleração
+      </a>
     </div>
+
+    <span style="color: #E5B54F; font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">Complemento VIP #5</span>
+    <h1>Áudio: Reprogramação Matinal (7 Minutos de Autoridade)</h1>
+    <p style="color: #CBD5E1;">Clamor matinal guiado em ritmo firme para ser executado assim que levantar da cama.</p>
+
+    <!-- Player Interativo de Oração Matinal -->
+    <div class="player-box">
+      <div style="font-size: 3rem; color: #E5B54F; margin-bottom: 12px;"><i class="fa-solid fa-bolt-lightning"></i></div>
+      <h3 style="color: #FFF; font-size: 1.25rem; margin-bottom: 6px;">Ativação Matinal dos Vencedores</h3>
+      <p style="color: #94A3B8; font-size: 0.88rem; margin-bottom: 20px;">Declarações bíblicas de autoridade, blindagem espiritual e clareza mental.</p>
+
+      <button class="btn-play" id="btn-audio" onclick="toggleMorningAudio()">
+        <i class="fa-solid fa-play" id="icon-play"></i> <span id="text-play">Iniciar Clamor Matinal (Voz Guiada)</span>
+      </button>
+
+      <div id="playing-status" style="margin-top: 15px; color: #10B981; font-size: 0.85rem; display: none;">
+        <i class="fa-solid fa-volume-high fa-beat"></i> Oração de autoridade em execução...
+      </div>
+    </div>
+
+    <div class="quote-box">
+      "Deus não nos deu espírito de covardia, mas de poder, de amor e de equilíbrio mental." — 2 Timóteo 1:7
+    </div>
+
+    <h3 style="color: #FFF; margin: 25px 0 12px; font-family: 'Cinzel', serif;">Roteiro de Declaração Matinal:</h3>
+    <ul style="padding-left: 20px; color: #CBD5E1; line-height: 1.8;">
+      <li><strong>Consagração dos Olhos e Ouvidos:</strong> Rejeito toda distração e ruído deste mundo.</li>
+      <li><strong>Blindagem dos Pensamentos:</strong> Nenhum pensamento de escassez, derrota ou medo terá poder sobre minhas ações.</li>
+      <li><strong>Declaração de Prosperidade:</strong> Onde colocar as plantas dos meus pés, a bênção do Senhor se manifestará.</li>
+    </ul>
   </div>
+
+  <script>
+    let isPlaying = false;
+
+    function toggleMorningAudio() {
+      if (!isPlaying) {
+        speakMorningPrayer();
+        document.getElementById('btn-audio').innerHTML = '<i class="fa-solid fa-pause"></i> Pausar Clamor';
+        document.getElementById('playing-status').style.display = 'block';
+        isPlaying = true;
+      } else {
+        window.speechSynthesis.cancel();
+        document.getElementById('btn-audio').innerHTML = '<i class="fa-solid fa-play"></i> Iniciar Clamor Matinal (Voz Guiada)';
+        document.getElementById('playing-status').style.display = 'none';
+        isPlaying = false;
+      }
+    }
+
+    function speakMorningPrayer() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const text = "Senhor meu Deus e Pai celestial, entro na Tua presença nesta manhã consagrando o meu acordar, as minhas decisões e os meus passos. Declaro que o medo e a preguiça não têm poder sobre a minha mente. Reveste-me com a Tua armadura celestial. Abençoa o trabalho das minhas mãos e concede-me sabedoria para vencer cada desafio deste dia. Eu decreto que a vitória e a paz de Deus me acompanham por onde eu andar. Amém!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'pt-BR';
+        utterance.rate = 0.95; // Ritmo enérgico e firme
+        utterance.onend = () => {
+          document.getElementById('btn-audio').innerHTML = '<i class="fa-solid fa-rotate-right"></i> Ouvir Novamente';
+          document.getElementById('playing-status').style.display = 'none';
+          isPlaying = false;
+        };
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+  </script>
 </body>
 </html>

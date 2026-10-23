@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kit de Aceleração Espiritual: 5 Complementos Inclusos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #070B14;
+      --card-bg: #0F172A;
+      --card-hover: #162238;
+      --gold-primary: #E5B54F;
+      --gold-light: #FCE29A;
+      --gold-dark: #B8860B;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border: rgba(229, 181, 79, 0.3);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; padding: 40px 20px 80px; }
+    h1, h2, h3, .serif-font { font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 35px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn-nav {
+      background: #162238;
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-nav:hover {
+      background: rgba(229, 181, 79, 0.2);
+      border-color: var(--gold-primary);
+    }
+
+    /* Header */
+    .header-box {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .badge-vip {
+      background: rgba(229, 181, 79, 0.15);
+      border: 1px solid var(--border);
+      color: var(--gold-light);
+      padding: 6px 18px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #CBD5E1;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Cards Grid */
+    .cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .complement-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .complement-card:hover {
+      transform: translateY(-3px);
+      background: var(--card-hover);
+      border-color: var(--gold-primary);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .card-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .card-icon-box {
+      width: 52px;
+      height: 52px;
+      background: rgba(229, 181, 79, 0.15);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-primary);
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .card-content h3 {
+      font-size: 1.2rem;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+      color: #94A3B8;
+      line-height: 1.5;
+    }
+
+    /* Action Buttons */
+    .btn-action {
+      background: linear-gradient(135deg, #E5B54F 0%, #D4AF37 50%, #B8860B 100%);
+      color: #070B14;
+      font-weight: 800;
+      font-size: 0.92rem;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .btn-action:hover {
+      background: linear-gradient(135deg, #FCE29A 0%, #E5B54F 50%, #B8860B 100%);
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(229, 181, 79, 0.35);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #64748B;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .complement-card { flex-direction: column; align-items: stretch; text-align: left; }
+      .btn-action { justify-content: center; width: 100%; margin-top: 10px; }
+      h1 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation Bar -->
+    <div class="top-nav">
+      <a href="../livro_digital_guia.html" class="btn-nav">
+        <i class="fa-solid fa-book-open"></i> Acessar Manual Principal
+      </a>
+      <div style="display: flex; gap: 10px;">
+        <a href="../app_devocional_interativo.html" class="btn-nav">
+          <i class="fa-solid fa-mobile-screen"></i> App Diário
+        </a>
+        <a href="../painel_produtor.html" class="btn-nav" style="color: var(--gold-light); border-color: var(--gold-primary);">
+          <i class="fa-solid fa-crown"></i> Painel do Criador
+        </a>
+      </div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header-box">
+      <span class="badge-vip"><i class="fa-solid fa-gem"></i> Área Exclusiva do Aluno</span>
+      <h1>Kit de Aceleração Espiritual: 5 Complementos Inclusos</h1>
+      <p class="subtitle">
+        Clique nos botões abaixo para abrir ou imprimir cada uma das 5 ferramentas complementares:
+      </p>
+    </div>
+
+    <!-- List of 5 Complements with Exact Required Text -->
+    <div class="cards-list">
+
+      <!-- 1. Audiobook Noturno -->
+      <div class="complement-card">
+        <div class="card-left">
+          <div class="card-icon-box"><i class="fa-solid fa-headphones"></i></div>
+          <div class="card-content">
+            <h3>1. Audiobook Narrado de Hábitos Noturnos e Sono Blindado (MP3)</h3>
+            <p>Guia em áudio de 20 minutos com frequência relaxante para desligar a mente de preocupações antes de dormir.</p>
+          </div>
+        </div>
+        <a href="1_audiobook_habitos_noturnos.html" class="btn-action">
+          <i class="fa-solid fa-play"></i> Abrir Áudio
+        </a>
+      </div>
+
+      <!-- 2. Caderno Digital de Milagres -->
+      <div class="complement-card">
+        <div class="card-left">
+          <div class="card-icon-box"><i class="fa-solid fa-book-bookmark"></i></div>
+          <div class="card-content">
+            <h3>2. Caderno Digital de Registro de Milagres & Respostas (PDF Interativo)</h3>
+            <p>Espaço estruturado para preencher suas 365 orações do ano com campo de data da resposta.</p>
+          </div>
+        </div>
+        <a href="2_caderno_digital_milagres.html" class="btn-action">
+          <i class="fa-solid fa-pen-nib"></i> Abrir Caderno
+        </a>
+      </div>
+
+      <!-- 3. Planner Devocional 52 Semanas -->
+      <div class="complement-card">
+        <div class="card-left">
+          <div class="card-icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+          <div class="card-content">
+            <h3>3. Planner Devocional de 52 Semanas (Pronto para Imprimir)</h3>
+            <p>Planejador visual semanal para organizar leitura da Bíblia de Gênesis a Apocalipse e motivos de intercessão.</p>
+          </div>
+        </div>
+        <a href="3_planner_devocional_52_semanas.html" class="btn-action">
+          <i class="fa-solid fa-calendar-days"></i> Abrir Planner
+        </a>
+      </div>
+
+      <!-- 4. 30 Wallpapers de Promessas -->
+      <div class="complement-card">
+        <div class="card-left">
+          <div class="card-icon-box"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <div class="card-content">
+            <h3>4. Coleção de 30 Wallpapers de Promessas Bíblicas em Alta Definição</h3>
+            <p>30 imagens verticais sofisticadas para tela de bloqueio com versículos de autoridade e coragem.</p>
+          </div>
+        </div>
+        <a href="4_wallpapers_promessas_biblicas.html" class="btn-action">
+          <i class="fa-solid fa-download"></i> Baixar Imagens
+        </a>
+      </div>
+
+      <!-- 5. Áudio Reprogramação Matinal -->
+      <div class="complement-card">
+        <div class="card-left">
+          <div class="card-icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+          <div class="card-content">
+            <h3>5. Áudio de Reprogramação Matinal: 7 Minutos de Oração de Autoridade (MP3)</h3>
+            <p>Clamor matinal guiado em ritmo firme para ser executado assim que levantar da cama.</p>
+          </div>
+        </div>
+        <a href="5_audio_reprogramacao_matinal.html" class="btn-action">
+          <i class="fa-solid fa-volume-high"></i> Ouvir Áudio
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p style="margin-bottom: 6px;"><strong>365 Dias de Oração Poderosa • Kit de Aceleração Espiritual</strong></p>
+      <p>© Todos os direitos reservados. Desenvolvido para sua edificação diária.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
