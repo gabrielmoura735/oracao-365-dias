@@ -192,15 +192,308 @@
       font-family: 'Inter', sans-serif;
     }
 
+    .exercise-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
     .exercise-title {
       font-weight: 800;
       color: var(--accent);
-      font-size: 0.95rem;
-      margin-bottom: 8px;
+      font-size: 1rem;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+
+    .btn-toggle-response {
+      background: rgba(139, 101, 8, 0.1);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-toggle-response:hover {
+      background: var(--accent);
+      color: #FFF;
+      border-color: var(--accent);
+    }
+    .dark-theme .btn-toggle-response {
+      background: rgba(229, 181, 79, 0.15);
+      border-color: rgba(229, 181, 79, 0.3);
+      color: var(--gold-light);
+    }
+    .dark-theme .btn-toggle-response:hover {
+      background: var(--gold);
+      color: #070B14;
+    }
+
+    .response-area-interactive {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+    }
+    .dark-theme .response-area-interactive {
+      background: #0B1120;
+      border-color: rgba(229, 181, 79, 0.25);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .response-input {
+      width: 100%;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: #1E293B;
+      background: #F8FAFC;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    .response-input:focus {
+      border-color: var(--accent);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(139, 101, 8, 0.1);
+    }
+    .dark-theme .response-input {
+      background: #111827;
+      border-color: #334155;
+      color: #F8FAFC;
+    }
+    .dark-theme .response-input:focus {
+      border-color: var(--gold);
+      background: #1E293B;
+      box-shadow: 0 0 0 3px rgba(229, 181, 79, 0.15);
+    }
+
+    .blessing-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .blessing-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .dark-theme .blessing-num {
+      background: var(--gold);
+      color: #070B14;
+    }
+
+    .need-card-item {
+      background: rgba(0,0,0,0.02);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+    .dark-theme .need-card-item {
+      background: rgba(255,255,255,0.03);
+    }
+    .need-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .dark-theme .need-header-row {
+      color: var(--gold-light);
+    }
+    .answered-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .answered-toggle input {
+      accent-color: #10B981;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .btn-save-resp {
+      background: linear-gradient(135deg, var(--accent) 0%, #A07810 100%);
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      transition: all 0.2s;
+    }
+    .btn-save-resp:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+    .dark-theme .btn-save-resp {
+      background: linear-gradient(135deg, #E5B54F 0%, #B8860B 100%);
+      color: #070B14;
+    }
+
+    .save-status-msg {
+      font-size: 0.8rem;
+      color: #10B981;
+      font-weight: 600;
+      margin-left: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .save-status-msg.show {
+      opacity: 1;
+    }
+
+    /* Checklist 3 Opções */
+    .checklist-progress-card {
+      background: var(--accent-light);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .progress-bar-bg {
+      width: 100%;
+      height: 10px;
+      background: rgba(0,0,0,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .dark-theme .progress-bar-bg {
+      background: rgba(255,255,255,0.1);
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #E5B54F, #10B981);
+      border-radius: 10px;
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .checklist-item-wrapper {
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      background: #FFFFFF;
+      transition: all 0.2s ease;
+    }
+    .dark-theme .checklist-item-wrapper {
+      background: #0F172A;
+    }
+
+    .checklist-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .checklist-state-icon {
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .checklist-state-icon:hover {
+      transform: scale(1.15);
+    }
+
+    .checklist-options-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-left: 36px;
+    }
+    .opt-chip {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.03);
+      color: #64748B;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .dark-theme .opt-chip {
+      background: rgba(255,255,255,0.04);
+      color: #94A3B8;
+    }
+    .opt-chip:hover {
+      background: rgba(0,0,0,0.07);
+    }
+    .opt-chip.active-todo {
+      background: rgba(148, 163, 184, 0.2);
+      border-color: #94A3B8;
+      color: #475569;
+    }
+    .dark-theme .opt-chip.active-todo {
+      color: #CBD5E1;
+    }
+    .opt-chip.active-doing {
+      background: rgba(245, 158, 11, 0.18);
+      border-color: #F59E0B;
+      color: #D97706;
+    }
+    .opt-chip.active-done {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: #10B981;
+      color: #059669;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+    }
+    .dark-theme .opt-chip.active-done {
+      color: #34D399;
     }
 
     /* Linhas para anotação à caneta no papel */
@@ -353,6 +646,14 @@
         display: block !important;
       }
 
+      .btn-toggle-response,
+      .btn-save-resp,
+      .save-status-msg,
+      .checklist-options-row,
+      .checklist-progress-card {
+        display: none !important;
+      }
+
       h1, h2, h3, .book-tag, .chapter-tag {
         color: #000000 !important;
       }
@@ -441,8 +742,30 @@
       </p>
 
       <div class="exercise-box">
-        <div class="exercise-title"><i class="fa-solid fa-pen-to-square"></i> Exercício Prático do Dia</div>
-        Deixe o celular em outro cômodo ao acordar. Passe os primeiros 10 minutos da manhã em silêncio absoluto, oração e agradecimento antes de checar qualquer mensagem.
+        <div class="exercise-header">
+          <div class="exercise-title">Exercício Prático do Dia</div>
+          <button class="btn-toggle-response" onclick="toggleExercise('ex1')">
+            <i class="fa-solid fa-comment-dots"></i> <span id="btn-text-ex1">Responder na Página</span>
+          </button>
+        </div>
+        <p style="margin: 0 0 10px; font-size: 0.95rem;">
+          Deixe o celular em outro cômodo ao acordar. Passe os primeiros 10 minutos da manhã em silêncio absoluto, oração e agradecimento antes de checar qualquer mensagem.
+        </p>
+
+        <!-- Área de Resposta Interativa -->
+        <div class="response-area-interactive" id="area-ex1">
+          <label style="font-size: 0.82rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 6px;">
+            <i class="fa-solid fa-feather-pointed"></i> O que Deus ministrou ao seu coração durante os 10 minutos de silêncio:
+          </label>
+          <textarea id="input-ex1" class="response-input" rows="3" placeholder="Escreva aqui seus pensamentos, direção recebida ou oração matinal..."></textarea>
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+            <button class="btn-save-resp" onclick="saveExercise('ex1')">
+              <i class="fa-solid fa-check"></i> Salvar Minha Resposta
+            </button>
+            <span class="save-status-msg" id="status-ex1"><i class="fa-solid fa-circle-check"></i> Salvo com sucesso!</span>
+          </div>
+        </div>
+
         <div class="pen-notes-area">
           <small><strong>Anotações do seu momento secreto (à caneta):</strong></small>
           <div class="pen-line"></div>
@@ -463,8 +786,30 @@
       </p>
 
       <div class="exercise-box">
-        <div class="exercise-title"><i class="fa-solid fa-pen-to-square"></i> Exercício Prático do Dia</div>
-        Abra a Bíblia e leia o Salmo 91 em voz alta, declarando cada versículo no tempo presente como uma verdade viva e ativa sobre sua casa e família.
+        <div class="exercise-header">
+          <div class="exercise-title">Exercício Prático do Dia</div>
+          <button class="btn-toggle-response" onclick="toggleExercise('ex2')">
+            <i class="fa-solid fa-comment-dots"></i> <span id="btn-text-ex2">Responder na Página</span>
+          </button>
+        </div>
+        <p style="margin: 0 0 10px; font-size: 0.95rem;">
+          Abra a Bíblia e leia o Salmo 91 em voz alta, declarando cada versículo no tempo presente como uma verdade viva e ativa sobre sua casa e família.
+        </p>
+
+        <!-- Área de Resposta Interativa -->
+        <div class="response-area-interactive" id="area-ex2">
+          <label style="font-size: 0.82rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 6px;">
+            <i class="fa-solid fa-shield-halved"></i> Sua Declaração Pessoal de Autoridade e Blindagem Espiritual:
+          </label>
+          <textarea id="input-ex2" class="response-input" rows="3" placeholder="Ex: 'Nenhum mal sucederá à minha tenda hoje. Minha mente, família e finanças estão seladas pelo Altíssimo...'"></textarea>
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+            <button class="btn-save-resp" onclick="saveExercise('ex2')">
+              <i class="fa-solid fa-check"></i> Salvar Minha Declaração
+            </button>
+            <span class="save-status-msg" id="status-ex2"><i class="fa-solid fa-circle-check"></i> Salvo com sucesso!</span>
+          </div>
+        </div>
+
         <div class="pen-notes-area">
           <small><strong>Declaração de autoridade do seu dia:</strong></small>
           <div class="pen-line"></div>
@@ -485,8 +830,49 @@
       </p>
 
       <div class="exercise-box">
-        <div class="exercise-title"><i class="fa-solid fa-pen-to-square"></i> Exercício Prático do Dia</div>
-        Mesmo sentindo cansaço, dobre os joelhos hoje por apenas 3 minutos e agradeça nominalmente por 5 bênçãos concretas da sua vida.
+        <div class="exercise-header">
+          <div class="exercise-title">Exercício Prático do Dia</div>
+          <button class="btn-toggle-response" onclick="toggleExercise('ex3')">
+            <i class="fa-solid fa-comment-dots"></i> <span id="btn-text-ex3">Responder na Página</span>
+          </button>
+        </div>
+        <p style="margin: 0 0 10px; font-size: 0.95rem;">
+          Mesmo sentindo cansaço, dobre os joelhos hoje por apenas 3 minutos e agradeça nominalmente por 5 bênçãos concretas da sua vida.
+        </p>
+
+        <!-- Área de Resposta Interativa (5 Bênçãos) -->
+        <div class="response-area-interactive" id="area-ex3">
+          <label style="font-size: 0.82rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 8px;">
+            <i class="fa-solid fa-hands-praying"></i> Liste as 5 Bênçãos Concretas pelas Quais Você é Grato Hoje:
+          </label>
+          <div class="blessing-row">
+            <div class="blessing-num">1</div>
+            <input type="text" id="input-ex3-1" class="response-input" style="padding: 8px 12px;" placeholder="1ª bênção concreta...">
+          </div>
+          <div class="blessing-row">
+            <div class="blessing-num">2</div>
+            <input type="text" id="input-ex3-2" class="response-input" style="padding: 8px 12px;" placeholder="2ª bênção concreta...">
+          </div>
+          <div class="blessing-row">
+            <div class="blessing-num">3</div>
+            <input type="text" id="input-ex3-3" class="response-input" style="padding: 8px 12px;" placeholder="3ª bênção concreta...">
+          </div>
+          <div class="blessing-row">
+            <div class="blessing-num">4</div>
+            <input type="text" id="input-ex3-4" class="response-input" style="padding: 8px 12px;" placeholder="4ª bênção concreta...">
+          </div>
+          <div class="blessing-row">
+            <div class="blessing-num">5</div>
+            <input type="text" id="input-ex3-5" class="response-input" style="padding: 8px 12px;" placeholder="5ª bênção concreta...">
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+            <button class="btn-save-resp" onclick="saveExercise('ex3')">
+              <i class="fa-solid fa-check"></i> Salvar Minhas 5 Bênçãos
+            </button>
+            <span class="save-status-msg" id="status-ex3"><i class="fa-solid fa-circle-check"></i> Salvo com sucesso!</span>
+          </div>
+        </div>
+
         <div class="pen-notes-area">
           <small><strong>5 Coisas pelas quais sou grato hoje:</strong></small>
           <div class="pen-line"></div>
@@ -507,8 +893,60 @@
       </p>
 
       <div class="exercise-box">
-        <div class="exercise-title"><i class="fa-solid fa-pen-to-square"></i> Exercício Prático do Dia</div>
-        Anote as 3 maiores necessidades que você tem hoje com a data de hoje. Coloque-as diante de Deus diariamente e volte para marcar quando forem respondidas.
+        <div class="exercise-header">
+          <div class="exercise-title">Exercício Prático do Dia</div>
+          <button class="btn-toggle-response" onclick="toggleExercise('ex4')">
+            <i class="fa-solid fa-comment-dots"></i> <span id="btn-text-ex4">Responder na Página</span>
+          </button>
+        </div>
+        <p style="margin: 0 0 10px; font-size: 0.95rem;">
+          Anote as 3 maiores necessidades que você tem hoje com a data de hoje. Coloque-as diante de Deus diariamente e volte para marcar quando forem respondidas.
+        </p>
+
+        <!-- Área de Resposta Interativa (3 Necessidades no Altar) -->
+        <div class="response-area-interactive" id="area-ex4">
+          <label style="font-size: 0.82rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 8px;">
+            <i class="fa-solid fa-altar"></i> 3 Maiores Necessidades Colocadas no Altar:
+          </label>
+
+          <div class="need-card-item">
+            <div class="need-header-row">
+              <span>Necessidade #1</span>
+              <label class="answered-toggle">
+                <input type="checkbox" id="chk-ex4-1" onchange="saveExercise('ex4')"> Respondida por Deus! 🙌
+              </label>
+            </div>
+            <input type="text" id="input-ex4-1" class="response-input" style="padding: 8px 12px;" placeholder="Descreva a 1ª necessidade urgente...">
+          </div>
+
+          <div class="need-card-item">
+            <div class="need-header-row">
+              <span>Necessidade #2</span>
+              <label class="answered-toggle">
+                <input type="checkbox" id="chk-ex4-2" onchange="saveExercise('ex4')"> Respondida por Deus! 🙌
+              </label>
+            </div>
+            <input type="text" id="input-ex4-2" class="response-input" style="padding: 8px 12px;" placeholder="Descreva a 2ª necessidade urgente...">
+          </div>
+
+          <div class="need-card-item">
+            <div class="need-header-row">
+              <span>Necessidade #3</span>
+              <label class="answered-toggle">
+                <input type="checkbox" id="chk-ex4-3" onchange="saveExercise('ex4')"> Respondida por Deus! 🙌
+              </label>
+            </div>
+            <input type="text" id="input-ex4-3" class="response-input" style="padding: 8px 12px;" placeholder="Descreva a 3ª necessidade urgente...">
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+            <button class="btn-save-resp" onclick="saveExercise('ex4')">
+              <i class="fa-solid fa-check"></i> Salvar Minhas Necessidades
+            </button>
+            <span class="save-status-msg" id="status-ex4"><i class="fa-solid fa-circle-check"></i> Salvo com sucesso!</span>
+          </div>
+        </div>
+
         <div class="pen-notes-area">
           <small><strong>As 3 necessidades colocadas no altar hoje:</strong></small>
           <div class="pen-line"></div>
@@ -526,54 +964,146 @@
       </p>
     </div>
 
-    <!-- Checklist Diário -->
+    <!-- Checklist Diário com 3 Opções Interativas -->
     <div class="chapter">
       <span class="chapter-tag">Ferramenta Prática</span>
       <h2>Checklist Diário de 6 Passos para Não Quebrar o Hábito</h2>
-      <ul class="checklist-list">
-        <li>
-          <i class="fa-solid fa-square-check"></i> 
-          <div>
-            <strong>1. Horário Inegociável:</strong><br>
-            Defina o momento exato da sua oração antes de iniciar as tarefas.
+      
+      <!-- Card de Progresso Diário -->
+      <div class="checklist-progress-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 0.95rem;">
+          <span style="color: var(--accent);"><i class="fa-solid fa-chart-line"></i> Progresso do Hábito Hoje:</span>
+          <span id="checklist-progress-text" style="color: var(--text-color);">0 de 6 Passos (0%)</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="checklist-progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- 6 Passos com 3 Opções de Resposta -->
+      <div id="checklist-container">
+        
+        <!-- Passo 1 -->
+        <div class="checklist-item-wrapper" id="check-wrap-1">
+          <div class="checklist-header">
+            <div class="checklist-state-icon" id="check-icon-1" onclick="cycleChecklistState(1)">
+              <i class="fa-regular fa-circle" style="color: #94A3B8;"></i>
+            </div>
+            <div>
+              <strong style="color: var(--accent); font-size: 1rem;">1. Horário Inegociável:</strong>
+              <div style="color: #64748B; font-size: 0.9rem; margin-top: 2px;">
+                Defina o momento exato da sua oração antes de iniciar as tarefas.
+              </div>
+            </div>
           </div>
-        </li>
-        <li>
-          <i class="fa-solid fa-square-check"></i> 
-          <div>
-            <strong>2. Desconexão Total:</strong><br>
-            Celular fora do alcance e notificações 100% desligadas.
+          <div class="checklist-options-row">
+            <span class="opt-chip" id="opt-1-todo" onclick="setChecklistState(1, 'todo')">⚪ A Fazer</span>
+            <span class="opt-chip" id="opt-1-doing" onclick="setChecklistState(1, 'doing')">🟡 Em Andamento</span>
+            <span class="opt-chip" id="opt-1-done" onclick="setChecklistState(1, 'done')">🟢 Cumprido Hoje</span>
           </div>
-        </li>
-        <li>
-          <i class="fa-solid fa-square-check"></i> 
-          <div>
-            <strong>3. Louvor & Gratidão:</strong><br>
-            Comece sempre agradecendo por 5 coisas antes de pedir.
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="checklist-item-wrapper" id="check-wrap-2">
+          <div class="checklist-header">
+            <div class="checklist-state-icon" id="check-icon-2" onclick="cycleChecklistState(2)">
+              <i class="fa-regular fa-circle" style="color: #94A3B8;"></i>
+            </div>
+            <div>
+              <strong style="color: var(--accent); font-size: 1rem;">2. Desconexão Total:</strong>
+              <div style="color: #64748B; font-size: 0.9rem; margin-top: 2px;">
+                Celular fora do alcance e notificações 100% desligadas.
+              </div>
+            </div>
           </div>
-        </li>
-        <li>
-          <i class="fa-solid fa-square-check"></i> 
-          <div>
-            <strong>4. Declaração Bíblica:</strong><br>
-            Declare promessas da Palavra de Deus em voz alta com fé.
+          <div class="checklist-options-row">
+            <span class="opt-chip" id="opt-2-todo" onclick="setChecklistState(2, 'todo')">⚪ A Fazer</span>
+            <span class="opt-chip" id="opt-2-doing" onclick="setChecklistState(2, 'doing')">🟡 Em Andamento</span>
+            <span class="opt-chip" id="opt-2-done" onclick="setChecklistState(2, 'done')">🟢 Cumprido Hoje</span>
           </div>
-        </li>
-        <li>
-          <i class="fa-solid fa-square-check"></i> 
-          <div>
-            <strong>5. Intercessão Ativa:</strong><br>
-            Ore pelo seu cônjuge, filhos, país e pessoas que necessitam.
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="checklist-item-wrapper" id="check-wrap-3">
+          <div class="checklist-header">
+            <div class="checklist-state-icon" id="check-icon-3" onclick="cycleChecklistState(3)">
+              <i class="fa-regular fa-circle" style="color: #94A3B8;"></i>
+            </div>
+            <div>
+              <strong style="color: var(--accent); font-size: 1rem;">3. Louvor & Gratidão:</strong>
+              <div style="color: #64748B; font-size: 0.9rem; margin-top: 2px;">
+                Comece sempre agradecendo por 5 coisas antes de pedir.
+              </div>
+            </div>
           </div>
-        </li>
-        <li>
-          <i class="fa-solid fa-square-check"></i> 
-          <div>
-            <strong>6. Registro de Milagres:</strong><br>
-            Anote as respostas recebidas para fortalecer sua fé continuamente.
+          <div class="checklist-options-row">
+            <span class="opt-chip" id="opt-3-todo" onclick="setChecklistState(3, 'todo')">⚪ A Fazer</span>
+            <span class="opt-chip" id="opt-3-doing" onclick="setChecklistState(3, 'doing')">🟡 Em Andamento</span>
+            <span class="opt-chip" id="opt-3-done" onclick="setChecklistState(3, 'done')">🟢 Cumprido Hoje</span>
           </div>
-        </li>
-      </ul>
+        </div>
+
+        <!-- Passo 4 -->
+        <div class="checklist-item-wrapper" id="check-wrap-4">
+          <div class="checklist-header">
+            <div class="checklist-state-icon" id="check-icon-4" onclick="cycleChecklistState(4)">
+              <i class="fa-regular fa-circle" style="color: #94A3B8;"></i>
+            </div>
+            <div>
+              <strong style="color: var(--accent); font-size: 1rem;">4. Declaração Bíblica:</strong>
+              <div style="color: #64748B; font-size: 0.9rem; margin-top: 2px;">
+                Declare promessas da Palavra de Deus em voz alta com fé.
+              </div>
+            </div>
+          </div>
+          <div class="checklist-options-row">
+            <span class="opt-chip" id="opt-4-todo" onclick="setChecklistState(4, 'todo')">⚪ A Fazer</span>
+            <span class="opt-chip" id="opt-4-doing" onclick="setChecklistState(4, 'doing')">🟡 Em Andamento</span>
+            <span class="opt-chip" id="opt-4-done" onclick="setChecklistState(4, 'done')">🟢 Cumprido Hoje</span>
+          </div>
+        </div>
+
+        <!-- Passo 5 -->
+        <div class="checklist-item-wrapper" id="check-wrap-5">
+          <div class="checklist-header">
+            <div class="checklist-state-icon" id="check-icon-5" onclick="cycleChecklistState(5)">
+              <i class="fa-regular fa-circle" style="color: #94A3B8;"></i>
+            </div>
+            <div>
+              <strong style="color: var(--accent); font-size: 1rem;">5. Intercessão Ativa:</strong>
+              <div style="color: #64748B; font-size: 0.9rem; margin-top: 2px;">
+                Ore pelo seu cônjuge, filhos, país e pessoas que necessitam.
+              </div>
+            </div>
+          </div>
+          <div class="checklist-options-row">
+            <span class="opt-chip" id="opt-5-todo" onclick="setChecklistState(5, 'todo')">⚪ A Fazer</span>
+            <span class="opt-chip" id="opt-5-doing" onclick="setChecklistState(5, 'doing')">🟡 Em Andamento</span>
+            <span class="opt-chip" id="opt-5-done" onclick="setChecklistState(5, 'done')">🟢 Cumprido Hoje</span>
+          </div>
+        </div>
+
+        <!-- Passo 6 -->
+        <div class="checklist-item-wrapper" id="check-wrap-6">
+          <div class="checklist-header">
+            <div class="checklist-state-icon" id="check-icon-6" onclick="cycleChecklistState(6)">
+              <i class="fa-regular fa-circle" style="color: #94A3B8;"></i>
+            </div>
+            <div>
+              <strong style="color: var(--accent); font-size: 1rem;">6. Registro de Milagres:</strong>
+              <div style="color: #64748B; font-size: 0.9rem; margin-top: 2px;">
+                Anote as respostas recebidas para fortalecer sua fé continuamente.
+              </div>
+            </div>
+          </div>
+          <div class="checklist-options-row">
+            <span class="opt-chip" id="opt-6-todo" onclick="setChecklistState(6, 'todo')">⚪ A Fazer</span>
+            <span class="opt-chip" id="opt-6-doing" onclick="setChecklistState(6, 'doing')">🟡 Em Andamento</span>
+            <span class="opt-chip" id="opt-6-done" onclick="setChecklistState(6, 'done')">🟢 Cumprido Hoje</span>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <!-- KIT DE ACELERAÇÃO: 5 COMPLEMENTOS INCLUSOS -->
@@ -674,6 +1204,157 @@
       a.download = '365_dias_oracao_poderosa_manual_completo.html';
       a.click();
     }
+
+    // ==========================================
+    // EXERCÍCIOS PRÁTICOS INTERATIVOS
+    // ==========================================
+    function toggleExercise(id) {
+      const area = document.getElementById('area-' + id);
+      const btnText = document.getElementById('btn-text-' + id);
+      if (area.style.display === 'none') {
+        area.style.display = 'block';
+        btnText.innerText = 'Recolher';
+      } else {
+        area.style.display = 'none';
+        btnText.innerText = 'Responder na Página';
+      }
+    }
+
+    function saveExercise(id) {
+      let data = JSON.parse(localStorage.getItem('oracao365_exercicios') || '{}');
+      if (id === 'ex1') {
+        data['ex1'] = document.getElementById('input-ex1').value;
+      } else if (id === 'ex2') {
+        data['ex2'] = document.getElementById('input-ex2').value;
+      } else if (id === 'ex3') {
+        data['ex3'] = [
+          document.getElementById('input-ex3-1').value,
+          document.getElementById('input-ex3-2').value,
+          document.getElementById('input-ex3-3').value,
+          document.getElementById('input-ex3-4').value,
+          document.getElementById('input-ex3-5').value
+        ];
+      } else if (id === 'ex4') {
+        data['ex4'] = [
+          { text: document.getElementById('input-ex4-1').value, answered: document.getElementById('chk-ex4-1').checked },
+          { text: document.getElementById('input-ex4-2').value, answered: document.getElementById('chk-ex4-2').checked },
+          { text: document.getElementById('input-ex4-3').value, answered: document.getElementById('chk-ex4-3').checked }
+        ];
+      }
+      localStorage.setItem('oracao365_exercicios', JSON.stringify(data));
+
+      // Feedback visual
+      const statusEl = document.getElementById('status-' + id);
+      if (statusEl) {
+        statusEl.classList.add('show');
+        setTimeout(() => statusEl.classList.remove('show'), 2500);
+      }
+    }
+
+    function loadExercises() {
+      const data = JSON.parse(localStorage.getItem('oracao365_exercicios') || '{}');
+      if (data['ex1']) document.getElementById('input-ex1').value = data['ex1'];
+      if (data['ex2']) document.getElementById('input-ex2').value = data['ex2'];
+      if (data['ex3'] && Array.isArray(data['ex3'])) {
+        for (let i = 0; i < 5; i++) {
+          const el = document.getElementById(`input-ex3-${i+1}`);
+          if (el && data['ex3'][i]) el.value = data['ex3'][i];
+        }
+      }
+      if (data['ex4'] && Array.isArray(data['ex4'])) {
+        for (let i = 0; i < 3; i++) {
+          const txtEl = document.getElementById(`input-ex4-${i+1}`);
+          const chkEl = document.getElementById(`chk-ex4-${i+1}`);
+          if (txtEl && data['ex4'][i]) txtEl.value = data['ex4'][i].text || '';
+          if (chkEl && data['ex4'][i]) chkEl.checked = !!data['ex4'][i].answered;
+        }
+      }
+    }
+
+    // ==========================================
+    // CHECKLIST DIÁRIO COM 3 OPÇÕES
+    // ==========================================
+    let checklistStates = {
+      1: 'todo',
+      2: 'todo',
+      3: 'todo',
+      4: 'todo',
+      5: 'todo',
+      6: 'todo'
+    };
+
+    function setChecklistState(step, state) {
+      checklistStates[step] = state;
+      localStorage.setItem('oracao365_checklist', JSON.stringify(checklistStates));
+      renderChecklistUI();
+    }
+
+    function cycleChecklistState(step) {
+      const current = checklistStates[step] || 'todo';
+      const order = ['todo', 'doing', 'done'];
+      const next = order[(order.indexOf(current) + 1) % order.length];
+      setChecklistState(step, next);
+    }
+
+    function renderChecklistUI() {
+      let doneCount = 0;
+      for (let i = 1; i <= 6; i++) {
+        const state = checklistStates[i] || 'todo';
+        const iconEl = document.getElementById('check-icon-' + i);
+        const optTodo = document.getElementById(`opt-${i}-todo`);
+        const optDoing = document.getElementById(`opt-${i}-doing`);
+        const optDone = document.getElementById(`opt-${i}-done`);
+        const wrapEl = document.getElementById('check-wrap-' + i);
+
+        // Reset classes
+        optTodo.className = 'opt-chip';
+        optDoing.className = 'opt-chip';
+        optDone.className = 'opt-chip';
+
+        if (state === 'todo') {
+          optTodo.classList.add('active-todo');
+          iconEl.innerHTML = '<i class="fa-regular fa-circle" style="color: #94A3B8;"></i>';
+          wrapEl.style.borderColor = 'var(--border)';
+        } else if (state === 'doing') {
+          optDoing.classList.add('active-doing');
+          iconEl.innerHTML = '<i class="fa-solid fa-spinner" style="color: #F59E0B;"></i>';
+          wrapEl.style.borderColor = '#F59E0B';
+        } else if (state === 'done') {
+          optDone.classList.add('active-done');
+          iconEl.innerHTML = '<i class="fa-solid fa-circle-check" style="color: #10B981;"></i>';
+          wrapEl.style.borderColor = '#10B981';
+          doneCount++;
+        }
+      }
+
+      // Atualizar Barra de Progresso
+      const pct = Math.round((doneCount / 6) * 100);
+      const fillEl = document.getElementById('checklist-progress-fill');
+      const textEl = document.getElementById('checklist-progress-text');
+      if (fillEl && textEl) {
+        fillEl.style.width = pct + '%';
+        textEl.innerText = `${doneCount} de 6 Passos (${pct}%)`;
+        if (pct === 100) {
+          textEl.innerHTML = `<span style="color: #10B981;">🎉 6 de 6 Cumpridos! Dia Abençoado!</span>`;
+        }
+      }
+    }
+
+    function loadChecklist() {
+      const saved = localStorage.getItem('oracao365_checklist');
+      if (saved) {
+        try {
+          checklistStates = Object.assign(checklistStates, JSON.parse(saved));
+        } catch(e) {}
+      }
+      renderChecklistUI();
+    }
+
+    // Inicialização ao carregar a página
+    window.addEventListener('DOMContentLoaded', () => {
+      loadExercises();
+      loadChecklist();
+    });
   </script>
 
 </body>
