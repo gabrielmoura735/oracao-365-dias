@@ -1561,6 +1561,13 @@ Onde o pranto e a dor não hão de entrar."
     // ==========================================
     // INICIALIZAÇÃO GERAL
     // ==========================================
+    function checkUrlHashTab() {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && document.getElementById(hash)) {
+        switchTab(hash);
+      }
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       renderCalendar();
       updateTimerDisplay();
@@ -1568,7 +1575,9 @@ Onde o pranto e a dor não hão de entrar."
       renderHarpaList(bancoHarpa);
       renderHymnLyrics(currentHymn);
       initBibleSelectors();
+      checkUrlHashTab();
     });
+    window.addEventListener('hashchange', checkUrlHashTab);
   </script>
 </body>
 </html>
