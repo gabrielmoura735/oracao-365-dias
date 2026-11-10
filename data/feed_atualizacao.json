@@ -1,23 +1,23 @@
 {
   "status": "online",
-  "versao": "v.2026.11.09-36c94928",
-  "data_formatada": "09/11/2026",
-  "dia_semana": "Segunda-feira",
-  "dia_do_ano": 313,
+  "versao": "v.2026.11.10-6403235d",
+  "data_formatada": "10/11/2026",
+  "dia_semana": "Terça-feira",
+  "dia_do_ano": 314,
   "semana_do_ano": 46,
-  "ultima_atualizacao_utc": "2026-11-09T10:52:45.920912+00:00",
+  "ultima_atualizacao_utc": "2026-11-10T10:45:10.206415+00:00",
   "alerta_mentor": {
     "ativo": true,
-    "titulo": "Nova Palavra & Oração Liberadas para Hoje (Segunda-feira)",
-    "mensagem": "O Dia 313/365 e o ciclo da Semana 46 foram atualizados no sistema. Sincronize para ver o direcionamento de hoje!",
+    "titulo": "Nova Palavra & Oração Liberadas para Hoje (Terça-feira)",
+    "mensagem": "O Dia 314/365 e o ciclo da Semana 46 foram atualizados no sistema. Sincronize para ver o direcionamento de hoje!",
     "tipo": "diario"
   },
   "oracao_do_dia": {
-    "numero_dia": 313,
-    "titulo": "Domínio Próprio & Disciplina Inabalável",
-    "versiculo_chave": "2 Timóteo 1:7",
-    "clamor_texto": "Deus não me deu espírito de covardia, mas de poder, amor e equilíbrio. Repreendo a procrastinação e consagro meu foco para cumprir minhas metas.",
-    "decreto_diario": "Eu decreto que no meu Dia 313, a paz de Deus governa meu lar e minhas decisões."
+    "numero_dia": 314,
+    "titulo": "Cura das Emoções & Perdão Libertador",
+    "versiculo_chave": "Salmo 147:3",
+    "clamor_texto": "Senhor, sara as feridas secretas e arranca toda raiz de mágoa. Escolho liberar perdão hoje para que a Tua graça flua sem impedimentos em meu caminho.",
+    "decreto_diario": "Eu decreto que no meu Dia 314, a paz de Deus governa meu lar e minhas decisões."
   },
   "jejum_da_semana": {
     "numero_semana": 46,
@@ -26,7 +26,7 @@
     "meta_semanal": "Cumprir 3 dias da janela escolhida com hidratação rigorosa e oração ao meio-dia."
   },
   "caderninho_diario": {
-    "dia": 313,
+    "dia": 314,
     "pergunta_reflexao": "Pelo que você é grato a Deus antes mesmo deste dia começar?",
     "motivo_intercessao": "Ore por uma pessoa que te magoou ou por alguém da sua família que precisa de paz.",
     "registro_milagre_sugerido": "Anote qualquer resposta ou livramento observado nas últimas 24 horas."
