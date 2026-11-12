@@ -1,23 +1,23 @@
 {
   "status": "online",
-  "versao": "v.2026.11.11-cc556869",
-  "data_formatada": "11/11/2026",
-  "dia_semana": "Quarta-feira",
-  "dia_do_ano": 315,
+  "versao": "v.2026.11.12-1fef284b",
+  "data_formatada": "12/11/2026",
+  "dia_semana": "Quinta-feira",
+  "dia_do_ano": 316,
   "semana_do_ano": 46,
-  "ultima_atualizacao_utc": "2026-11-11T10:17:44.992437+00:00",
+  "ultima_atualizacao_utc": "2026-11-12T10:38:11.744309+00:00",
   "alerta_mentor": {
     "ativo": true,
-    "titulo": "Nova Palavra & Oração Liberadas para Hoje (Quarta-feira)",
-    "mensagem": "O Dia 315/365 e o ciclo da Semana 46 foram atualizados no sistema. Sincronize para ver o direcionamento de hoje!",
+    "titulo": "Nova Palavra & Oração Liberadas para Hoje (Quinta-feira)",
+    "mensagem": "O Dia 316/365 e o ciclo da Semana 46 foram atualizados no sistema. Sincronize para ver o direcionamento de hoje!",
     "tipo": "diario"
   },
   "oracao_do_dia": {
-    "numero_dia": 315,
-    "titulo": "Gratidão e Celebração dos Milagres",
-    "versiculo_chave": "Salmo 103:1-2",
-    "clamor_texto": "Bendize, ó minha alma, ao Senhor, e não te esqueças de nenhum dos Seus benefícios. Agradeço pelas portas abertas e pelos livramentos que nem cheguei a ver.",
-    "decreto_diario": "Eu decreto que no meu Dia 315, a paz de Deus governa meu lar e minhas decisões."
+    "numero_dia": 316,
+    "titulo": "Blindagem Espiritual & Proteção Familiar",
+    "versiculo_chave": "Salmo 91:1-2",
+    "clamor_texto": "Senhor meu Deus, declaro neste dia que a Tua destra segura guarda a minha mente, minha saúde e minha família de todo laço oculto. Nenhum mal nos alcançará.",
+    "decreto_diario": "Eu decreto que no meu Dia 316, a paz de Deus governa meu lar e minhas decisões."
   },
   "jejum_da_semana": {
     "numero_semana": 46,
@@ -26,7 +26,7 @@
     "meta_semanal": "Cumprir 3 dias da janela escolhida com hidratação rigorosa e oração ao meio-dia."
   },
   "caderninho_diario": {
-    "dia": 315,
+    "dia": 316,
     "pergunta_reflexao": "Pelo que você é grato a Deus antes mesmo deste dia começar?",
     "motivo_intercessao": "Ore por uma pessoa que te magoou ou por alguém da sua família que precisa de paz.",
     "registro_milagre_sugerido": "Anote qualquer resposta ou livramento observado nas últimas 24 horas."
