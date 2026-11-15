@@ -1,32 +1,32 @@
 {
   "status": "online",
-  "versao": "v.2026.11.14-7c9724ed",
-  "data_formatada": "14/11/2026",
-  "dia_semana": "Sábado",
-  "dia_do_ano": 318,
-  "semana_do_ano": 46,
-  "ultima_atualizacao_utc": "2026-11-14T09:47:34.375391+00:00",
+  "versao": "v.2026.11.15-6efa059c",
+  "data_formatada": "15/11/2026",
+  "dia_semana": "Domingo",
+  "dia_do_ano": 319,
+  "semana_do_ano": 47,
+  "ultima_atualizacao_utc": "2026-11-15T10:22:41.073393+00:00",
   "alerta_mentor": {
     "ativo": true,
-    "titulo": "Nova Palavra & Oração Liberadas para Hoje (Sábado)",
-    "mensagem": "O Dia 318/365 e o ciclo da Semana 46 foram atualizados no sistema. Sincronize para ver o direcionamento de hoje!",
+    "titulo": "Nova Palavra & Oração Liberadas para Hoje (Domingo)",
+    "mensagem": "O Dia 319/365 e o ciclo da Semana 47 foram atualizados no sistema. Sincronize para ver o direcionamento de hoje!",
     "tipo": "diario"
   },
   "oracao_do_dia": {
-    "numero_dia": 318,
-    "titulo": "Clareza de Propósito & Sabedoria nas Decisões",
-    "versiculo_chave": "Tiago 1:5",
-    "clamor_texto": "Espírito Santo, concede-me sabedoria divina e discernimento apurado para cada conversa, escolha e projeto que passará por minhas mãos hoje.",
-    "decreto_diario": "Eu decreto que no meu Dia 318, a paz de Deus governa meu lar e minhas decisões."
+    "numero_dia": 319,
+    "titulo": "Prosperidade com Propósito & Trabalho Honrado",
+    "versiculo_chave": "Deuteronômio 28:8",
+    "clamor_texto": "Declaro a bênção sobre o fruto do meu trabalho, a multiplicação dos meus recursos e o livramento de todo espírito de escassez e desperdício.",
+    "decreto_diario": "Eu decreto que no meu Dia 319, a paz de Deus governa meu lar e minhas decisões."
   },
   "jejum_da_semana": {
-    "numero_semana": 46,
-    "titulo": "Jejum de Daniel: Purificação & Clareza",
-    "instrucoes": "Abstenha-se de carnes vermelhas, doces e ultraprocessados durante 5 dias. Consuma legumes, frutas e água pura para desinflamar o corpo e afinar o espírito.",
+    "numero_semana": 47,
+    "titulo": "Jejum da Madrugada (05:00 às 06:00)",
+    "instrucoes": "Consagre a primeira hora do seu dia antes do nascer do sol. Apenas água ou chá sem açúcar até às 09:00 com foco em leitura bíblica ininterrupta.",
     "meta_semanal": "Cumprir 3 dias da janela escolhida com hidratação rigorosa e oração ao meio-dia."
   },
   "caderninho_diario": {
-    "dia": 318,
+    "dia": 319,
     "pergunta_reflexao": "Pelo que você é grato a Deus antes mesmo deste dia começar?",
     "motivo_intercessao": "Ore por uma pessoa que te magoou ou por alguém da sua família que precisa de paz.",
     "registro_milagre_sugerido": "Anote qualquer resposta ou livramento observado nas últimas 24 horas."
