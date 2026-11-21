@@ -1,23 +1,23 @@
 {
   "status": "online",
-  "versao": "v.2026.11.20-679833be",
-  "data_formatada": "20/11/2026",
-  "dia_semana": "Sexta-feira",
-  "dia_do_ano": 324,
+  "versao": "v.2026.11.21-2359f930",
+  "data_formatada": "21/11/2026",
+  "dia_semana": "Sábado",
+  "dia_do_ano": 325,
   "semana_do_ano": 47,
-  "ultima_atualizacao_utc": "2026-11-20T10:53:59.310414+00:00",
+  "ultima_atualizacao_utc": "2026-11-21T10:38:01.163841+00:00",
   "alerta_mentor": {
     "ativo": true,
-    "titulo": "Nova Palavra & Oração Liberadas para Hoje (Sexta-feira)",
-    "mensagem": "O Dia 324/365 e o ciclo da Semana 47 foram atualizados no sistema. Sincronize para ver o direcionamento de hoje!",
+    "titulo": "Nova Palavra & Oração Liberadas para Hoje (Sábado)",
+    "mensagem": "O Dia 325/365 e o ciclo da Semana 47 foram atualizados no sistema. Sincronize para ver o direcionamento de hoje!",
     "tipo": "diario"
   },
   "oracao_do_dia": {
-    "numero_dia": 324,
-    "titulo": "Quebra da Ansiedade & Paz Sobrenatural",
-    "versiculo_chave": "Filipenses 4:6-7",
-    "clamor_texto": "Pai celestial, entrego toda sobrecarga e preocupação nas Tuas mãos. Que a Tua paz, que excede todo entendimento, governe o meu coração ao longo deste dia.",
-    "decreto_diario": "Eu decreto que no meu Dia 324, a paz de Deus governa meu lar e minhas decisões."
+    "numero_dia": 325,
+    "titulo": "Clareza de Propósito & Sabedoria nas Decisões",
+    "versiculo_chave": "Tiago 1:5",
+    "clamor_texto": "Espírito Santo, concede-me sabedoria divina e discernimento apurado para cada conversa, escolha e projeto que passará por minhas mãos hoje.",
+    "decreto_diario": "Eu decreto que no meu Dia 325, a paz de Deus governa meu lar e minhas decisões."
   },
   "jejum_da_semana": {
     "numero_semana": 47,
@@ -26,7 +26,7 @@
     "meta_semanal": "Cumprir 3 dias da janela escolhida com hidratação rigorosa e oração ao meio-dia."
   },
   "caderninho_diario": {
-    "dia": 324,
+    "dia": 325,
     "pergunta_reflexao": "Pelo que você é grato a Deus antes mesmo deste dia começar?",
     "motivo_intercessao": "Ore por uma pessoa que te magoou ou por alguém da sua família que precisa de paz.",
     "registro_milagre_sugerido": "Anote qualquer resposta ou livramento observado nas últimas 24 horas."
